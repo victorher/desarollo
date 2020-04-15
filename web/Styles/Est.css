@@ -1,0 +1,43 @@
+#uno{
+    margin: auto;
+    width: 30%;
+    height: 40px;
+    background: grey;
+    text-align: center;
+    text-justify: auto;
+}
+#dos{
+    margin: auto;
+    width: 30%;
+    height: 30px;
+    background: green;
+    text-align: center;
+}
+#tres{
+    margin: auto;
+    width: 30%;
+    height: 60px;
+    background: blue;
+    text-align: center;
+}
+#cuatro{
+    margin: auto;
+    width: 30%;
+    height: 70px;
+    background: yellowgreen;
+    text-align: center;
+}
+#cinco{
+    margin: auto;
+    width: 30%;
+    height: 70px;
+    background: #4e6773;
+    text-align: center;
+}
+#h{
+    text-align: center;
+}
+table{
+    margin: auto;
+}
+
