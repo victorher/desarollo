@@ -88,13 +88,13 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="nomb"><code>*</code> Nombre</label>
-                                        <input type="text" class="form-control" id="nomb" name="nombre" required>
+                                        <input type="text" class="form-control nombre" id="nomb" name="nombre" required>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="desc"><code>*</code> Descripcion</label>
-                                        <input type="text" class="form-control" id="desc" name="descripcion" required>
+                                        <input type="text" class="form-control descripcion" id="desc" name="descripcion" required>
                                     </div>
                                 </div>
                                 <div class="form-row">

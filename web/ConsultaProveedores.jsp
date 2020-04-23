@@ -51,7 +51,7 @@
         <nav class="navbar navbar-expand-lg col-gra b-inf">
             <div class="container">
                 <div class="text-center">
-                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
+                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="VAH Logo"></a>
                 </div>
                 <a class="navbar-brand" href="Principal.jsp">INICIO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -280,12 +280,12 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM (2).jpeg" alt="Second slide">
+                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM (2).jpeg" alt="Second slide" height="550" width="300">
                         <div class="carousel-caption">
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM (1).jpeg" alt="First slide">
+                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM (1).jpeg" alt="First slide" height="550" width="300">
                         <div class="carousel-caption">
                             <h3 class="d-block">Auto</h3>
                             <p class="lead d-none d-sm-block">Mercedes</p>
@@ -294,7 +294,7 @@
 
 
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM (3).jpeg" alt="Third slide">
+                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM (3).jpeg" alt="Third slide" height="550" width="300">
                         <div class="carousel-caption">
                             <h3 class="d-block">Noche</h3>
                             <p class="lead d-none d-sm-block">Noche</p>
@@ -302,7 +302,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM.jpeg" alt="Third slide">
+                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.03 PM.jpeg" alt="Third slide" height="550" width="300">
                         <div class="carousel-caption">
                             <h3 class="d-block">Ruin</h3>
                             <p class="lead d-none d-sm-block">Ruin</p>
@@ -310,7 +310,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.04 PM (1).jpeg" alt="Third slide">
+                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.04 PM (1).jpeg" alt="Third slide" height="550" width="300">
                         <div class="carousel-caption">
                             <h3 class="d-block">Tecno</h3>
                             <p class="lead d-none d-sm-block">Tecno</p>
@@ -318,7 +318,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.04 PM.jpeg" alt="Third slide">
+                        <img class="d-block w-100" src="Vista/img/WhatsApp Image 2020-02-25 at 8.04.04 PM.jpeg" alt="Third slide" height="550" width="300">
                         <div class="carousel-caption">
                             <h3 class="d-block">Theroads</h3>
                             <p class="lead d-none d-sm-block">Theroads</p>

@@ -94,7 +94,7 @@
                         <input type="submit" id="btn" name="env" value="&#128204; Mostrar" class="btn btn-default">
                     </div>
                 </form>
-                <div id="res"></div>
+                
                 
             </div>
         </section>
@@ -354,6 +354,13 @@
                 </div>        
             </section>
         <% } %>
+        <section>
+            <div class="container">
+            <table class="table" id="res">
+                <div id="res"></div>
+            </table>
+            </div>
+        </section>
         <section class="ff">
             
         </section>
@@ -376,7 +383,7 @@
         </footer>
         <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Vista/js/filtro.js"></script>
+        <script src="Vista/js/consultaClientes.js"></script>
         <script src="Styles/js/bootstrap.min.js"></script>
         <script src="Styles/js/popper.min.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>

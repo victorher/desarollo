@@ -155,6 +155,9 @@
                 if(dia<10){
                     dia='0'+dia;
                 }
+                if(dia2<10){
+                    dia='0'+dia;
+                }
                 if(mes<10){
                     mes = '0'+mes;
                 }

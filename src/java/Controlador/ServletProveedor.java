@@ -27,68 +27,68 @@ public class ServletProveedor extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if(request.getParameter("CargaPro")!=null){
-                IncertaProveedor(request,response);
-            }
-            if(request.getParameter("ActualizaPro")!=null){
-                ActualizaProveedor(request,response);
-            }
+//            if(request.getParameter("CargaPro")!=null){
+//                IncertaProveedor(request,response);
+//            }
+//            if(request.getParameter("ActualizaPro")!=null){
+//                ActualizaProveedor(request,response);
+//            }
             if(request.getParameter("EliminaPro")!=null){
                 EliminaProveedor(request,response);
             }
         }
     }
     /*REGISTRA UN PEDIDO*/
-    protected void IncertaProveedor(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            String Nom, Apell, Dir, Telef, Corr, Cate, Esta;
-            Nom = request.getParameter("nombre");
-            Apell = request.getParameter("apellido");
-            Dir = request.getParameter("direccion");
-            Telef = request.getParameter("telefono");
-            Corr = request.getParameter("correo");
-            Cate = request.getParameter("categoria");
-            Esta = request.getParameter("estado");
-//            JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
-            Proveedoresgetset usu = new Proveedoresgetset(Nom, Apell, Dir, Telef, Corr, Cate, Esta);
-            GestionProveedores us = new GestionProveedores();
-            boolean dat = us.IncertarProveedor(usu);
-            if(dat){
-                JOptionPane.showMessageDialog(null, "Datos guardados");
-                response.sendRedirect("CreaPreveedores.jsp");
-            }else{
-                JOptionPane.showMessageDialog(null, "Error al guardar proveedor");
-                response.sendRedirect("CreaPreveedores.jsp");
-            }
-        }
-    }
+//    protected void IncertaProveedor(HttpServletRequest request, HttpServletResponse response)
+//        throws ServletException, IOException {
+//        try (PrintWriter out = response.getWriter()) {
+//            String Nom, Apell, Dir, Telef, Corr, Cate, Esta;
+//            Nom = request.getParameter("nombre");
+//            Apell = request.getParameter("apellido");
+//            Dir = request.getParameter("direccion");
+//            Telef = request.getParameter("telefono");
+//            Corr = request.getParameter("correo");
+//            Cate = request.getParameter("categoria");
+//            Esta = request.getParameter("estado");
+////            JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
+//            Proveedoresgetset usu = new Proveedoresgetset(Nom, Apell, Dir, Telef, Corr, Cate, Esta);
+//            GestionProveedores us = new GestionProveedores();
+//            boolean dat = us.IncertarProveedor(usu);
+//            if(dat){
+//                JOptionPane.showMessageDialog(null, "Datos guardados");
+//                response.sendRedirect("CreaPreveedores.jsp");
+//            }else{
+//                JOptionPane.showMessageDialog(null, "Error al guardar proveedor");
+//                response.sendRedirect("CreaPreveedores.jsp");
+//            }
+//        }
+//    }
     /*ACTUALIZA UN PEDIDO*/
-    protected void ActualizaProveedor(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            String ID, Nom, Apell, Dir, Telef, Corr, Cate, Esta;
-            ID = request.getParameter("proveedorID");
-            Nom = request.getParameter("nombre");
-            Apell = request.getParameter("apellido");
-            Dir = request.getParameter("direccion");
-            Telef = request.getParameter("telefono");
-            Corr = request.getParameter("correo");
-            Cate = request.getParameter("categoria");
-            Esta = request.getParameter("estado");
-//            JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
-            Proveedoresgetset usu = new Proveedoresgetset(ID, Nom, Apell, Dir, Telef, Corr, Cate, Esta);
-            GestionProveedores us = new GestionProveedores();
-            boolean dat = us.ActaulizarProveedor(usu);
-            if(dat){
-                JOptionPane.showMessageDialog(null, "Datos actualizados");
-                response.sendRedirect("ConsultaProveedores.jsp");
-            }else{
-                JOptionPane.showMessageDialog(null, "Error al actualizar proveedor");
-                response.sendRedirect("ConsultaProveedores.jsp");
-            }
-        }
-    }
+//    protected void ActualizaProveedor(HttpServletRequest request, HttpServletResponse response)
+//        throws ServletException, IOException {
+//        try (PrintWriter out = response.getWriter()) {
+//            String ID, Nom, Apell, Dir, Telef, Corr, Cate, Esta;
+//            ID = request.getParameter("proveedorID");
+//            Nom = request.getParameter("nombre");
+//            Apell = request.getParameter("apellido");
+//            Dir = request.getParameter("direccion");
+//            Telef = request.getParameter("telefono");
+//            Corr = request.getParameter("correo");
+//            Cate = request.getParameter("categoria");
+//            Esta = request.getParameter("estado");
+////            JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
+//            Proveedoresgetset usu = new Proveedoresgetset(ID, Nom, Apell, Dir, Telef, Corr, Cate, Esta);
+//            GestionProveedores us = new GestionProveedores();
+//            boolean dat = us.ActaulizarProveedor(usu);
+//            if(dat){
+//                JOptionPane.showMessageDialog(null, "Datos actualizados");
+//                response.sendRedirect("ConsultaProveedores.jsp");
+//            }else{
+//                JOptionPane.showMessageDialog(null, "Error al actualizar proveedor");
+//                response.sendRedirect("ConsultaProveedores.jsp");
+//            }
+//        }
+//    }
     /*ELIMINA UN PEDIDO*/
     protected void EliminaProveedor(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {

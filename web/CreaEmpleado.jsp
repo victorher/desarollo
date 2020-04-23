@@ -84,22 +84,22 @@
                 <form action="ServletGestionUsu" method="POST">
                     <div class="form-row">
                         <div class="form-group col-md-3">
-                            <label for="exampleFormControlSelect1"><code>*</code> Documento</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Documento" name="documento" required>
+                            <label for="documento"><code>*</code> Documento</label>
+                            <input type="text" class="form-control" id="documento" placeholder="Documento" name="documento" required>
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="formGroupExampleInput"><code>*</code> Nombre</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Nombre" name="nombre" required>
+                            <label for="nombre"><code>*</code> Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-5">
-                            <label for="formGroupExampleInput"><code>*</code> Apellido</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Apellido" name="apellido" required>
+                            <label for="apellido"><code>*</code> Apellido</label>
+                            <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" required>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="formGroupExampleInput">Sexo</label>
-                            <select name="sexo" id="" class="form-control">
+                            <label for="genero">Sexo</label>
+                            <select name="sexo" id="genero" class="form-control">
                                 <option value="0">Seleccion</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
@@ -108,33 +108,33 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-3">
-                            <label for="formGroupExampleInput"><code>*</code> Correo</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Correo" name="correo" required>
+                            <label for="correo"><code>*</code> Correo</label>
+                            <input type="email" class="form-control" id="correo" placeholder="Correo" name="correo" required>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="formGroupExampleInput"><code>*</code> Telefono</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Telefono" name="telefono" required>
+                            <label for="telefono"><code>*</code> Telefono</label>
+                            <input type="text" class="form-control" id="telefono" placeholder="Telefono" name="telefono" required>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="formGroupExampleInput"><code>*</code> Direccion</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Direccion" name="direccion" required>
+                            <label for="direccion"><code>*</code> Direccion</label>
+                            <input type="text" class="form-control" id="direccion" placeholder="Direccion" name="direccion" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-3">
-                            <label for="formGroupExampleInput"><code>*</code> Contraseña</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Contraseña" name="contra" required>
+                            <label for="pass"><code>*</code> Contraseña</label>
+                            <input type="text" class="form-control" id="pass" placeholder="Contraseña" name="contra" required>
                         </div>
                         <div class="form-group col-md-1">
-                            <!--<label for="formGroupExampleInput">Estado</label>-->
-                            <input type="hidden" class="form-control" id="inputEmail4" name="estado" value="1" readonly="readonly">
+                            <!--<label for="estado">Estado</label>-->
+                            <input type="hidden" class="form-control" id="estado" name="estado" value="1" readonly="readonly">
                         </div>
                         <div class="form-group col-md-3">
-                           <!--<label for="formGroupExampleInput">Roll</label>-->
-                            <input type="hidden" class="form-control" id="inputEmail4" name="rol" value="Empleado" readonly="readonly">
+                           <!--<label for="roll">Roll</label>-->
+                            <input type="hidden" class="form-control" id="roll" name="rol" value="Empleado" readonly="readonly">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" name="CargaEmp">Registrar</button>
+                    <button type="submit" class="btn btn-entre" name="CargaEmp">Registrar</button>
                 </form>
             </div>
         </section>
