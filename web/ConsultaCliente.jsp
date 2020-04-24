@@ -87,7 +87,7 @@
         </nav>
         <section class="page-header section-dark bg-light-grey">
             <div class="container">
-                <h2 class="mb-3">Filtrar por documento</h2>
+                <h2 class="mb-3 form-inline">Filtrar por documento</h2>
                 <form action="" method="POST" class="form-inline my-2 my-lg-0 mb-2">
                     <div class="form-group">
                         <input type="search" id="txt" name="bus" placeholder="&#x1F50D; Buscar" class="form-control mr-sm-2 txt pull-right">
@@ -95,6 +95,11 @@
                     </div>
                 </form>
                 
+                <form action="ServletPDF" class="form-inline my-2 my-lg-0 mb-2">
+                    <div class="form-group">
+                        <input class="form-control btn btn-success" type="submit" name="btnpdf" value="Cargar en pdf">
+                    </div>
+                </form>
                 
             </div>
         </section>
