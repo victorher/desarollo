@@ -97,7 +97,7 @@ public class GestionCliente {
     public ArrayList<ConUsuCliente> FiltraCliente(ConUsuCliente cl){
         ArrayList<ConUsuCliente> lista = new ArrayList<>();
             try {
-                ps = cnn.prepareStatement("CALL pa_FiltraUsuarioCliente('"+cl.getDocumento()+"')");
+                ps = cnn.prepareStatement("CALL pa_FiltraUsuarioCliente('"+cl.getFiltro()+"')");
                 rs = ps.executeQuery();
                 while(rs.next()){
                     ConUsuCliente de = new ConUsuCliente(

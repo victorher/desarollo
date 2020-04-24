@@ -88,18 +88,18 @@
         <section class="page-header section-dark bg-light-grey">
             <div class="container">
                 <h2 class="mb-3 form-inline">Filtrar por documento</h2>
+                <form action="ServletPDF" class="form-inline my-2">
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="btnpdf" value="Cargar en pdf">
+                    </div>
+                </form>
                 <form action="" method="POST" class="form-inline my-2 my-lg-0 mb-2">
                     <div class="form-group">
                         <input type="search" id="txt" name="bus" placeholder="&#x1F50D; Buscar" class="form-control mr-sm-2 txt pull-right">
-                        <input type="submit" id="btn" name="env" value="&#128204; Mostrar" class="btn btn-default">
+                        <!--<input type="submit" id="btn" name="env" value="&#128204; Mostrar" class="btn btn-default">-->
                     </div>
                 </form>
                 
-                <form action="ServletPDF" class="form-inline my-2 my-lg-0 mb-2">
-                    <div class="form-group">
-                        <input class="form-control btn btn-success" type="submit" name="btnpdf" value="Cargar en pdf">
-                    </div>
-                </form>
                 
             </div>
         </section>
@@ -202,6 +202,13 @@
             </div>
         </section>
             
+        
+                        
+        <!--En este mostramos los datos filtrados-->
+        <section id="sniper" class="bg-entre">
+            <div id="res"></div>
+        </section>
+        
         <!--Metodo para mostrar todos los clientes al momento de ingresar a la pagina-->    
         <section id="sniper" class="bg-entre">
             <div class="container">
@@ -228,13 +235,9 @@
                                 ArrayList<ConUsuCliente> listas = new ArrayList();
                                 ConUsuCliente con = new ConUsuCliente(); //convas hago referencia al constructor vasio
                                 GestionCliente Cons = new GestionCliente();
-
                                 listas = Cons.ConsultaCliente();
-
                                 for(int i=0; i<listas.size(); i++){
-
                                     con = listas.get(i);
-
                             %>
 
                             <tr>
@@ -277,95 +280,14 @@
                 </div>
             </div>        
         </section>
-                        
-        <!--En este mostramos los datos filtrados-->
-        <% if(request.getParameter("env")!=null){ %>
-            <section id="sniper" class="bg-entre">
-                <div class="container">
-                    <div class="dataTables_length table-responsive text-nowrap vertical-table">
-                        <table class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="100%">
-                            <thead>
-                                <tr class="btn-info">
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido</th>
-                                    <th scope="col">Documento</th>
-                                    <th scope="col">Roll</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Genero</th>
-                                    <th scope="col">Direccion</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Clave</th>
-                                    <th scope="col">Estado</th>
-                                    <th scope="col">Actualizar</th>
-                                    <th scope="col">Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    String doc = request.getParameter("bus");
-                                    //JOptionPane.showMessageDialog(null, doc);
-                                    ArrayList<ConUsuCliente> lista = new ArrayList(); //metodo getset
-                                    ConUsuCliente fil = new ConUsuCliente(doc); //convas hago referencia al constructor vasio
-                                    GestionCliente filrt = new GestionCliente();
-
-                                    lista = filrt.FiltraCliente(fil);
-
-                                    for(int i=0; i<lista.size(); i++){
-
-                                        fil = lista.get(i);
-
-                                %>
-
-                                <tr>
-                                    <td scope="row"><%=fil.getNombre()%></td>
-                                    <td><%=fil.getApellido()%></td>
-                                    <td><%=fil.getDocumento()%></td>
-                                    <td><%=fil.getRol()%></td>
-                                    <td><%=fil.getTelefono()%></td>
-                                    <td><%=fil.getGenero()%></td>
-                                    <td><%=fil.getDireccion()%></td>
-                                    <td><%=fil.getCorreo()%></td>
-                                    <td><%=fil.getClave()%></td>
-                                    <td><%=fil.getEstado()%></td>
-                                    <td>
-                                        <form action="" method="POST">
-                                            <input type="hidden" name="cod" value="<%=fil.getDocumento()%>">
-                                            <div class="text-center">
-                                                <button type="submit" name="modifica" value="ACTUALIZAR" class="float-right img-fluid">
-                                                    <i class="fa fa-wrench" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="ServletGestionUsu" method="POST">
-                                            <input type="hidden" name="cod" value="<%=fil.getDocumento()%>">
-                                            <div class="text-center">
-                                                <button type="submit" name="EliminaUsuario" value="ELIMINAR" class="float-right img-fluid" onclick="return Eliminar()">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </td>
-                                </td>
-                                </tr>
-
-                                <%
-                                   }
-                                %>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>        
-            </section>
-        <% } %>
-        <section>
+        
+<!--        <section>
             <div class="container">
             <table class="table" id="res">
                 <div id="res"></div>
             </table>
             </div>
-        </section>
+        </section>-->
         <section class="ff">
             
         </section>
@@ -388,7 +310,8 @@
         </footer>
         <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Vista/js/consultaClientes.js"></script>
+        <!--<script src="Vista/js/consultaClientes.js"></script>-->
+        <script src="Vista/js/filtro.js" type="text/javascript"></script>
         <script src="Styles/js/bootstrap.min.js"></script>
         <script src="Styles/js/popper.min.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>

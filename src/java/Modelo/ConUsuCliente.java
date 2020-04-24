@@ -11,6 +11,7 @@ public class ConUsuCliente {
     private String Correo;
     private String Clave;
     private String Estado;
+    private String filtro;
 
     public ConUsuCliente(String Nombre, String Apellido, String Documento, String Rol, String Telefono, String Genero, String Direccion, String Correo, String Clave, String Estado) {
         this.Nombre = Nombre;
@@ -24,10 +25,14 @@ public class ConUsuCliente {
         this.Clave = Clave;
         this.Estado = Estado;
     }
-
-    public ConUsuCliente(String Documento) {
-        this.Documento = Documento;
+    
+    public ConUsuCliente(String filtro){
+        this.filtro = filtro;
     }
+
+//    public ConUsuCliente(String Documento) {
+//        this.Documento = Documento;
+//    }
 
     public ConUsuCliente() {
     }
@@ -110,6 +115,14 @@ public class ConUsuCliente {
 
     public void setEstado(String Estado) {
         this.Estado = Estado;
+    }
+
+    public String getFiltro() {
+        return filtro;
+    }
+
+    public void setFiltro(String filtro) {
+        this.filtro = filtro;
     }
     
 }

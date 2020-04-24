@@ -16,7 +16,6 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -69,31 +68,31 @@ public class ServletPDF extends HttpServlet {
             } catch (Exception e) {
             }
             documento.open();
-             Paragraph pg=new Paragraph();
-            Font tutilo=new Font (Font.FontFamily.HELVETICA,16, Font.BOLD, BaseColor.BLUE);
+            Paragraph pg = new Paragraph();
+            Font tutilo = new Font (Font.FontFamily.HELVETICA,16, Font.BOLD, BaseColor.BLUE);
             pg.add(new Phrase("LISTADO DE USUARIOS", tutilo));
             pg.setAlignment(Element.ALIGN_CENTER);
             pg.add(new Phrase(Chunk.NEWLINE));
             pg.add(new Phrase(Chunk.NEWLINE));
                 
-                PdfPTable tabla=new PdfPTable(5);
+                PdfPTable tabla = new PdfPTable(5);
                 tabla.setWidthPercentage(90);
                 
-                PdfPCell doc=new PdfPCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 12, Font.ITALIC, BaseColor.BLACK.GREEN)));
-                PdfPCell usu=new PdfPCell(new Paragraph("Apellido", FontFactory.getFont("Arial", 12, Font.ITALIC, BaseColor.GREEN)));
-                PdfPCell cla=new PdfPCell(new Paragraph("Direccion", FontFactory.getFont("Arial", 12, Font.ITALIC, BaseColor.GREEN)));
-                PdfPCell rol=new PdfPCell(new Paragraph("Genero", FontFactory.getFont("Arial", 12, Font.ITALIC, BaseColor.GREEN)));
-                PdfPCell est=new PdfPCell(new Paragraph("Telefono", FontFactory.getFont("Arial", 12, Font.ITALIC, BaseColor.GREEN)));   
+                PdfPCell nom = new PdfPCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.BLACK.GREEN)));
+                PdfPCell ape = new PdfPCell(new Paragraph("Apellido", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));
+                PdfPCell dir = new PdfPCell(new Paragraph("Direccion", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));
+                PdfPCell gen = new PdfPCell(new Paragraph("Genero", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));
+                PdfPCell tel = new PdfPCell(new Paragraph("Telefono", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));   
             
             documento.add(pg);
-            tabla.addCell(doc);
-            tabla.addCell(usu);
-            tabla.addCell(cla);
-            tabla.addCell(rol);
-            tabla.addCell(est);
+            tabla.addCell(nom);
+            tabla.addCell(ape);
+            tabla.addCell(dir);
+            tabla.addCell(gen);
+            tabla.addCell(tel);
             
-            for(int i=0; i<list.size(); i++){
-                cons=list.get(i);
+            for(int i = 0; i < list.size(); i++){
+                cons = list.get(i);
                 
                 tabla.addCell(cons.getNombre());
                 tabla.addCell(cons.getApellido());
