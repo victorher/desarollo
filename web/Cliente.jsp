@@ -97,7 +97,7 @@
                                 <a class="dropdown-item" href="#">Diseños</a>
                                 <a class="dropdown-item" href="#">Categorias de articulos</a>
                                 <a class="dropdown-item" href="#">Articulos</a>
-                                <a class="dropdown-item" href="#">Pedidos</a>
+                                <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -222,9 +222,7 @@
                                             <input type="hidden" class="form-control roll" id="inputEmail4" name="rol" value="<%=con.getRol()%>" readonly="readonly">
                                         </div>
                                         
-                                    <%
-                                        }
-                                    %>
+                                    <% } %>
                                         <div class="text-center mt-2">
                                             <button type="submit" class="btn btn-outline-entre waves-effect ml-auto btnmod" name="ActualizaCli">Actualizar
                                                 <i class="fa fa-sign-in ml-1"></i>

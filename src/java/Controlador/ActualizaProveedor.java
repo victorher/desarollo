@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controlador;
 
 import Modelo.GestionProveedores;
@@ -9,13 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-@WebServlet(name = "ServletActualizaProveedor", urlPatterns = {"/ServletActualizaProveedor"})
+@WebServlet(name = "ActualizaProveedor", urlPatterns = {"/ActualizaProveedor"})
 public class ActualizaProveedor extends HttpServlet {
 
     /**
@@ -40,7 +45,7 @@ public class ActualizaProveedor extends HttpServlet {
             Corr = request.getParameter("correo");
             Cate = request.getParameter("categoria");
             Esta = request.getParameter("estado");
-//            JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
+//            JOptionPane.showMessageDialog(null, ID+"\n"+Nom+"\n"+Apell+"\n"+Dir+"\n"+Telef+"\n"+Corr+"\n"+Cate+"\n"+Esta);
             Proveedoresgetset usu = new Proveedoresgetset(ID, Nom, Apell, Dir, Telef, Corr, Cate, Esta);
             GestionProveedores us = new GestionProveedores();
             boolean dat = us.ActaulizarProveedor(usu);
@@ -50,7 +55,7 @@ public class ActualizaProveedor extends HttpServlet {
 //            if(dat){
 //                JOptionPane.showMessageDialog(null, "Datos actualizados");
 //                response.sendRedirect("ConsultaProveedores.jsp");
-//            }else{
+//            }//else{
 //                JOptionPane.showMessageDialog(null, "Error al actualizar proveedor");
 //                response.sendRedirect("ConsultaProveedores.jsp");
 //            }

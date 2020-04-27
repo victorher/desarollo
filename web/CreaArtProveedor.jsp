@@ -108,46 +108,46 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div id="carousel" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel" data-slide-to="1"></li>
-                                <li data-target="#carousel" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="Vista/img/img-1.jpg.jpeg" alt="First slide">
-                                    <div class="carousel-caption">
-                                        <h3 class="d-block">Paseos</h3>
-                                        <p class="lead d-none d-sm-block">Lo mejor</p>
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel" data-slide-to="1"></li>
+                                    <li data-target="#carousel" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="Vista/img/img-1.jpg" alt="First slide">
+                                        <div class="carousel-caption">
+                                            <h3 class="d-block">Paseos</h3>
+                                            <p class="lead d-none d-sm-block">Lo mejor</p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="Vista/img/img-2.jpg" alt="Second slide">
-                                    <div class="carousel-caption">
-                                        <h3 class="d-block">Title</h3>
-                                        <p class="lead d-none d-sm-block">lorem</p>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="Vista/img/img-2.jpg" alt="Second slide">
+                                        <div class="carousel-caption">
+                                            <h3 class="d-block">Title</h3>
+                                            <p class="lead d-none d-sm-block">lorem</p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="Vista/img/img-3.jpg" alt="Third slide">
-                                    <div class="carousel-caption">
-                                        <h3 class="d-block">Noche</h3>
-                                        <p class="lead d-none d-sm-block">Desayunos</p>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="Vista/img/img-3.jpg" alt="Third slide">
+                                        <div class="carousel-caption">
+                                            <h3 class="d-block">Noche</h3>
+                                            <p class="lead d-none d-sm-block">Desayunos</p>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
                         </div>
                     </div>
                 </div>

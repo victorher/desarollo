@@ -1,3 +1,5 @@
+<%@page import="Modelo.DisenoSelect"%>
+<%@page import="Modelo.Diseno_gs"%>
 <%@page import="Modelo.ArticuloSelect"%>
 <%@page import="Modelo.Articulo_gs"%>
 <%@page import="Modelo.Usuario"%>
@@ -23,16 +25,11 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <title>Entre Sueños</title>
+        <link href="Vista/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
-        <link rel="stylesheet" href="Styles/Est.css">
-        <link rel="icon" type="image/png" href="img/Suenos.png">
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script> 
+        <link href="Vista/css/StylesU.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%
@@ -46,8 +43,11 @@
             roll = (String) obsjes.getAttribute("Rol");
             direcc = (String) obsjes.getAttribute("Direccion");
         %>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-transparent " color-on-scroll="300">
+        <nav class="navbar navbar-expand-lg col-gra b-inf">
+            <div class="container">
+                <div class="text-center">
+                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="VAH Logo"></a>
+                </div>
                 <a class="navbar-brand" href="Principal.jsp">INICIO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -77,74 +77,181 @@
                         </li>
                     </ul>
                     <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <input class="btn btn-danger mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
+                        <input class="btn btn-entre mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
                     </form>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
         <%
             ArrayList<Articulo_gs> lista = new ArrayList<>();
             Articulo_gs arti = new Articulo_gs();
             ArticuloSelect opti = new ArticuloSelect();
             lista = opti.listaArticulo();
         %>
-        <div class="container">
-            <form action="ServletPedidos" method="POST">
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="documento"><code>*</code> Documento</label>
-                        <input type="text" class="form-control" id="documento" name="documento" value="<%=docu%>"readonly="readonly">
+        <%
+            ArrayList<Diseno_gs> arra = new ArrayList<>();
+            Diseno_gs dise = new Diseno_gs();
+            DisenoSelect sele = new DisenoSelect();
+            arra = sele.SelectDiseno();
+        %>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="ServletPedidos" method="POST">
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="documento"><code>*</code> Documento</label>
+                                    <input type="text" class="form-control" id="documento" name="documento" value="<%=docu%>"readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <!--<label for="estado"><code>*</code> Estado</label>-->
+                                    <input type="hidden" class="form-control" id="estado" name="estado" value="Pedido" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="dateini"><code>*</code> Fecha Pedido</label>
+                                    <input type="date" class="form-control" id="dateini" name="fepedido" min="">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="detefin"><code>*</code> Fecha Entrega</label>
+                                    <input type="date" class="form-control" id="datefin" name="feentrega">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="direccion"><code>*</code> Direccion Entrega</label>
+                                    <input type="text" class="form-control" id="direccion" name="direntrega" value="<%=direcc%>">
+                                </div>
+                                <div class="form-group col-md-10">
+                                    <!--<label for="tipo"><code>*</code> Tipo</label>-->
+                                    <input type="hidden" class="form-control" id="tipo" name="tipo" value="Distribucion" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="articulo"><code>*</code> Nombre Articulo</label>
+                                    <select class="form-control" id="articulo" name="articulo">
+                                        <option value="">Seleccionar</option>
+                                        <%
+                                            for(int i = 0; i < lista.size(); i++){
+                                                arti = lista.get(i);
+                                        %>
+                                        <option value="<%=arti.getId()%>"><%=arti.getNombre()%><% } %></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="diseno"><code>*</code> Nombre del diseño</label>
+                                    <select name="diseno" id="diseno" class="form-control">
+                                        <option value="">Seleccionar</option>
+                                        <% for(int a = 0; a < arra.size(); a++){ 
+                                            dise = arra.get(a);
+                                        %>
+                                            <option value="<%=dise.getCod() %>"><%=dise.getNombre()%><% } %></option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="descripcion"><code>*</code> Descripcion</label>
+                                    <input type="text" class="form-control" id="descripcion" name="descripcion" min="">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="cantidad"><code>*</code> Cantidad</label>
+                                    <input type="text" class="form-control" id="cantidad" name="cantidad">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-10">
+                                    <label for="precio"><code>*</code> Precio</label>
+                                    <input type="text" class="form-control" id="precio" name="precio">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-entre" name="CargaPed">Registrar</button>
+                        </form>
                     </div>
-                    <div class="form-group col-md-3">
-                        <!--<label for="estado"><code>*</code> Estado</label>-->
-                        <input type="hidden" class="form-control" id="estado" name="estado" value="Pedido" readonly="readonly">
+                    <div class="col-md-6 mt-5">
+                        <h3 class="mb-4 text-center">Los mejores diseños</h3>
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel" data-slide-to="1"></li>
+                                <li data-target="#carousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="Vista/img/img-1.jpg" alt="First slide">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Paseos</h3>
+                                        <p class="lead d-none d-sm-block">Lo mejor</p>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="Vista/img/img-2.jpg" alt="Second slide">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Title</h3>
+                                        <p class="lead d-none d-sm-block">lorem</p>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="Vista/img/img-3.jpg" alt="Third slide">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Noche</h3>
+                                        <p class="lead d-none d-sm-block">Desayunos</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="dateini"><code>*</code> Fecha Pedido</label>
-                        <input type="date" class="form-control" id="dateini" name="fepedido" min="">
+            </div>
+        </section>
+        <section class="ff">
+            
+        </section>
+        <footer class="bg-dark text-light py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-inline">
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></li>
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 text-sm-right">
+                        <small>Entre sueños</small>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="detefin"><code>*</code> Fecha Entrega</label>
-                        <input type="date" class="form-control" id="datefin" name="feentrega">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="direccion"><code>*</code> Direccion Entrega</label>
-                        <input type="text" class="form-control" id="direccion" name="direntrega" value="<%=direcc%>">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <!--<label for="tipo"><code>*</code> Tipo</label>-->
-                        <input type="hidden" class="form-control" id="tipo" name="tipo" value="Distribucion" readonly="readonly">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="articulo"><code>*</code> Nombre Articulo</label>
-                        <select class="form-control" id="articulo" name="arti">
-                            <option value="">Seleccionar</option>
-                            <%
-                                for(int i = 0; i < lista.size(); i++){
-                                    arti = lista.get(i);
-                            %>
-                            <option value="<%=arti.getId()%>"><%=arti.getNombre()%><% } %></option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" name="CargaPed">Registrar</button>
-            </form>
-        </div>
-        <div class="container">
-            <footer class="page-footer font-small blue fixed-bottom">
-                <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                    <a href="https://mdbootstrap.com/education/bootstrap/"> EntreSueños.com</a>
-                </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="Styles/js/popper.min.js"></script>
+        <script src="Styles/main.js"></script> 
         <Script>
             (function (){
                 fecha = new Date();

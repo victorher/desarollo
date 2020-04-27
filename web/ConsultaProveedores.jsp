@@ -101,7 +101,7 @@
         <section>
             <div class="container container-cards">
                 <div class="table">
-                    <form action="ServletProveedor" method="POST">
+                    <form action="" method="POST">
                         <table class="table-responsive table-hover table-borderless table-sm">
                             <thead>
                                 <tr style="background: linear-gradient(-90deg, #8E2DE2, #4A00E0);">
@@ -132,18 +132,18 @@
                                 %>
 
                                 <tr>
-                                    <td scope="row"><input class="input-group-text border-0 text-center table" value="<%=con.getProveedorID()%>" name="proveedorID"></td>
-                                    <td><input class="border-0 input-group-text " value="<%=con.getNombrePro()%>" name="nombre"></td>
-                                    <td><input class="border-0 input-group-text " value="<%=con.getApellidoPro()%>" name="apellido"></td>
-                                    <td><input class="border-0 input-group-text " value="<%=con.getDireccionPro()%>" name="direccion"></td>
-                                    <td><input class="border-0 input-group-text " value="<%=con.getTelefonoPro()%>" name="telefono"></td>
-                                    <td><input class="border-0 input-group-text " size="30" value="<%=con.getCorreoPro()%>" name="correo"></td>
-                                    <td><input class="border-0 input-group-text " value="<%=con.getCategoriaPro()%>" name="categoria"></td>
-                                    <td><input class="border-0 input-group-text " value="<%=con.getEstadoPro()%>" name="estado"></td>
+                                    <td scope="row"><input class="input-group-text border-0 text-center table proveedorID" value="<%=con.getProveedorID()%>" name="proveedorID"></td>
+                                    <td><input class="border-0 input-group-text nombre" value="<%=con.getNombrePro()%>" name="nombre"></td>
+                                    <td><input class="border-0 input-group-text apellido" value="<%=con.getApellidoPro()%>" name="apellido"></td>
+                                    <td><input class="border-0 input-group-text direccion" value="<%=con.getDireccionPro()%>" name="direccion"></td>
+                                    <td><input class="border-0 input-group-text telefono" value="<%=con.getTelefonoPro()%>" name="telefono"></td>
+                                    <td><input class="border-0 input-group-text correo" size="30" value="<%=con.getCorreoPro()%>" name="correo"></td>
+                                    <td><input class="border-0 input-group-text categoria" value="<%=con.getCategoriaPro()%>" name="categoria"></td>
+                                    <td><input class="border-0 input-group-text estado" value="<%=con.getEstadoPro()%>" name="estado"></td>
                                     <td>
                                         <input type="hidden" name="" value="">
                                         <div class="text-center">
-                                            <button type="submit" name="ActualizaPro" class="btn-success img-fluid"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+                                            <button type="submit" name="ActualizaPro" class="btn-success img-fluid btnmod"><i class="fa fa-wrench" aria-hidden="true"></i></button>
                                         </div>
                                     </td>
                                     <td>
@@ -182,6 +182,7 @@
         </footer>
         <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Vista/js/ActualizaProveedor.js" type="text/javascript"></script>
         <script src="Styles/js/bootstrap.min.js"></script>
         <script src="Styles/js/popper.min.js"></script>
         <script src="Styles/main.js"></script> 

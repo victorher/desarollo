@@ -10,7 +10,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page session="true"%>
 <%
-    try {
+        try {
          response.setHeader("Pragma", "no-cache");
          response.addHeader("Cache-control", "must-revalidate");
          response.addHeader("Cache-control", "no-cache");

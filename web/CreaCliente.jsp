@@ -26,11 +26,7 @@
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <link rel="stylesheet" href="Styles/Est.css">
         <link rel="icon" type="image/png" href="img/Suenos.png">
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script> 
+        <link href="Vista/css/StylesU.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%
@@ -43,8 +39,11 @@
             cont = (String) obsjes.getAttribute("Contrasena");
             roll = (String) obsjes.getAttribute("Rol");
         %>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-transparent " color-on-scroll="300">
+        <nav class="navbar navbar-expand-lg col-gra b-inf">
+            <div class="container">
+                <div class="text-center">
+                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
+                </div>
                 <a class="navbar-brand" href="Principal.jsp">INICIO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -77,71 +76,151 @@
                         <input class="btn btn-danger mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
                     </form>
                 </div>
-            </nav>
-        </div>
-        <div class="container">
-            <form action="ServletGestionUsu" method="POST">
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="exampleFormControlSelect1">Documento <code>*</code></label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Documento" name="documento" required>
+            </div>
+        </nav>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="ServletGestionUsu" method="POST">
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="documento"><code>*</code> Documento</label>
+                                    <input type="text" class="form-control" id="documento" placeholder="Documento" name="documento" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="nombre"><code>*</code> Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="apellido"><code>*</code> Apellido</label>
+                                    <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="genero">Sexo</label>
+                                    <select name="sexo" id="genero" class="form-control">
+                                        <option value="0">Seleccion</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="mail"><code>*</code> Correo</label>
+                                    <input type="text" class="form-control" id="mail" placeholder="Correo" name="correo" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="cell"><code>*</code> Telefono</label>
+                                    <input type="text" class="form-control" id="cell" placeholder="Telefono" name="telefono" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="adress"><code>*</code> Direccion</label>
+                                    <input type="text" class="form-control" id="adress" placeholder="Direccion" name="direccion" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="pass"><code>*</code> Contraseña</label>
+                                    <input type="text" class="form-control" id="pass" placeholder="Contraseña" name="contra" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+<!--                                    <label for="esta">Estado</label>-->
+                                    <input type="hidden" class="form-control" id="esta" name="estado" value="1" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+<!--                                    <label for="roll">Roll</label>-->
+                                    <input type="hidden" class="form-control" id="roll" name="rol" value="Empleado" readonly="readonly">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-entre" name="CargaCli">Registrar</button>
+                        </form>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="formGroupExampleInput">Nombre <code>*</code></label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Nombre" name="nombre" required>
+                    <div class="col-md-5 offset-1 mt-6">
+                        <h3 class="text-center mb-5">Registrarse</h3>
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel" data-slide-to="1"></li>
+                                <li data-target="#carousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="Vista/img/com-1.jpg" alt="First slide" width="250" height="500">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Comida</h3>
+                                        <p class="lead d-none d-sm-block">Puesta</p>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="Vista/img/com-2.jpg" alt="Second slide" width="250" height="500">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Title</h3>
+                                        <p class="lead d-none d-sm-block">lorem</p>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="Vista/img/com-3.jpg" alt="Third slide" width="250" height="500">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Noche</h3>
+                                        <p class="lead d-none d-sm-block">Noche</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label for="formGroupExampleInput">Apellido <code>*</code></label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Apellido" name="apellido" required>
+            </div>
+        </section>
+        <section class="ff">
+            
+        </section>
+        <footer class="bg-dark text-light py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-inline">
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></li>
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                            <li class="list-inline-item lead mx-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
+                        </ul>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="formGroupExampleInput">Sexo</label>
-                        <select name="sexo" id="" class="form-control">
-                            <option value="0">Seleccion</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="formGroupExampleInput">Correo <code>*</code></label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Correo" name="correo" required>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="formGroupExampleInput">Telefono <code>*</code></label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Telefono" name="telefono" required>
-                    </div>
-                    <div class="form-group col-md-5">
-                        <label for="formGroupExampleInput">Direccion <code>*</code></label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Direccion" name="direccion" required>
+                    <div class="col-md-6 text-sm-right">
+                        <small>Entre sueños</small>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="formGroupExampleInput">Contraseña <code>*</code></label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Contraseña" name="contra" required>
-                    </div>
-                    <div class="form-group col-md-1">
-                        <label for="formGroupExampleInput">Estado</label>
-                        <input type="text" class="form-control" id="inputEmail4" name="estado" value="1" readonly="readonly">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="formGroupExampleInput">Roll</label>
-                        <input type="text" class="form-control" id="inputEmail4" name="rol" value="Empleado" readonly="readonly">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" name="CargaCli">Registrar</button>
-            </form>
-        </div>
-        <div class="container">
-            <footer class="page-footer font-small blue fixed-bottom">
-                <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                    <a href="https://mdbootstrap.com/education/bootstrap/"> EntreSueños.com</a>
-                </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="Styles/js/popper.min.js"></script>
+        <script src="Styles/main.js"></script> 
     </body>
 </html>

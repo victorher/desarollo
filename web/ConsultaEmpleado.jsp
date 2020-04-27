@@ -132,23 +132,23 @@
                         %>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="exampleFormControlSelect1">Documento <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputAddress" readonly="readonly" value="<%=emple.getDocumento()%>" name="documento" required>
+                                    <label for="documento">Documento <code>*</code></label>
+                                    <input type="text" class="form-control" id="documento" readonly="readonly" value="<%=emple.getDocumento()%>" name="documento" required>
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="formGroupExampleInput">Contraseña <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=emple.getClave()%>" name="contra" required>
+                                    <label for="pass">Contraseña <code>*</code></label>
+                                    <input type="text" class="form-control" id="pass" value="<%=emple.getClave()%>" name="contra" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-1">
-                                    <label for="formGroupExampleInput">Estado</label>
-                                    <input type="text" class="form-control" id="inputEmail4" name="estado" value="<%=emple.getEstado()%>" readonly="readonly">
+                                    <label for="estado">Estado</label>
+                                    <input type="hidden" class="form-control" id="estado" name="estado" value="<%=emple.getEstado()%>" readonly="readonly">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="formGroupExampleInput">Roll</label>
-                                    <input type="text" class="form-control" id="inputEmail4" name="rol" value="<%=emple.getRoll()%>" readonly="readonly">
+                                    <label for="rol">Roll</label>
+                                    <input type="text" class="form-control" id="rol" name="rol" value="<%=emple.getRoll()%>" readonly="readonly">
                                 </div>  
                             </div>
                         <% } %>
@@ -157,30 +157,30 @@
                         %>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="formGroupExampleInput">Correo <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=unoemp.getCorreo()%>" name="correo" required>
+                                    <label for="mail">Correo <code>*</code></label>
+                                    <input type="text" class="form-control" id="mail" value="<%=unoemp.getCorreo()%>" name="correo" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="formGroupExampleInput">Telefono <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=unoemp.getTelefono()%>" name="telefono" required>
+                                    <label for="cell">Telefono <code>*</code></label>
+                                    <input type="text" class="form-control" id="cell" value="<%=unoemp.getTelefono()%>" name="telefono" required>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label for="formGroupExampleInput">Direccion <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=unoemp.getDireecion()%>" name="direccion" required>
+                                    <label for="adress">Direccion <code>*</code></label>
+                                    <input type="text" class="form-control" id="adress" value="<%=unoemp.getDireecion()%>" name="direccion" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="formGroupExampleInput">Nombre <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputAddress" value="<%=unoemp.getNombre()%>" name="nombre" required>
+                                    <label for="nombre">Nombre <code>*</code></label>
+                                    <input type="text" class="form-control" id="nombre" value="<%=unoemp.getNombre()%>" name="nombre" required>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label for="formGroupExampleInput">Apellido <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=unoemp.getApellido()%>" name="apellido" required>
+                                    <label for="apellido">Apellido <code>*</code></label>
+                                    <input type="text" class="form-control" id="apellido" value="<%=unoemp.getApellido()%>" name="apellido" required>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="formGroupExampleInput">Sexo</label>
-                                    <select name="sexo" id="" class="form-control">
+                                    <label for="genero">Sexo</label>
+                                    <select name="sexo" id="genero" class="form-control">
                                         <option value="<%=unoemp.getGenero()%>"><%=unoemp.getGenero() %></option>
                                         <option value="Masculino">Masculino</option>
                                         <option value="Femenino">Femenino</option>

@@ -53,7 +53,7 @@
         <nav class="navbar navbar-expand-lg col-gra b-inf">
             <div class="container">
                 <div class="text-center">
-                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
+                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="VAH Logo"></a>
                 </div>
                 <a class="navbar-brand" href="#"><%=roll%></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +96,7 @@
                                 <a class="dropdown-item" href="#">Diseños</a>
                                 <a class="dropdown-item" href="#">Categorias de articulos</a>
                                 <a class="dropdown-item" href="#">Articulos</a>
-                                <a class="dropdown-item" href="#">Pedidos</a>
+                                <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
                             </div>
                         </li>
                         <li class="nav-item">

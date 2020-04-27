@@ -79,44 +79,100 @@
         
         <section>
             <div class="container">
-            <form action="" method="POST">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="exampleFormControlSelect1">Nombre <code>*</code></label>
-                        <input type="text" class="form-control nombre" id="inputAddress" name="nombre" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="" method="POST">
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="nombre"><code>*</code> Nombre</label>
+                                    <input type="text" class="form-control nombre" id="nombre" name="nombre" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="apellido"><code>*</code> Apellido</label>
+                                    <input type="text" class="form-control apellido" id="apellido" name="apellido">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="adress"><code>*</code> Direccion</label>
+                                    <input type="text" class="form-control direccion" id="adress" name="direccion" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="cell"><code>*</code> Telefono</label>
+                                    <input type="text" class="form-control telefono" id="cell" name="telefono" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="mail"><code>*</code> Correo</label>
+                                    <input type="text" class="form-control correo" id="mail" name="correo" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                    <label for="categoria"><code>*</code> Categoria</label>
+                                    <input type="text" class="form-control categoria" id="categoria" name="categoria" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+            <!--                        <label for="estado"><code>*</code> Estado</label>-->
+                                    <input type="hidden" class="form-control estado" id="estado" name="estado" value="Activo" readonly="readonly">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-entre btncarga" name="CargaPro">Registrar</button>
+                        </form>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="formGroupExampleInput">Apellido <code>*</code></label>
-                        <input type="text" class="form-control apellido" id="inputAddress" name="apellido">
+                    <div class="col-md-5 offset-1">
+                        <h3 class="text-center mb-5">Registrarse</h3>
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel" data-slide-to="1"></li>
+                                <li data-target="#carousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="Vista/img/com-1.jpg" alt="First slide" width="250" height="500">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Comida</h3>
+                                        <p class="lead d-none d-sm-block">Puesta</p>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="Vista/img/com-2.jpg" alt="Second slide" width="250" height="500">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Title</h3>
+                                        <p class="lead d-none d-sm-block">lorem</p>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="Vista/img/com-3.jpg" alt="Third slide" width="250" height="500">
+                                    <div class="carousel-caption">
+                                        <h3 class="d-block">Noche</h3>
+                                        <p class="lead d-none d-sm-block">Noche</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="formGroupExampleInput">Direccion <code>*</code></label>
-                        <input type="text" class="form-control direccion" id="inputEmail4" name="direccion" required>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="formGroupExampleInput">Telefono <code>*</code></label>
-                        <input type="text" class="form-control telefono" id="inputEmail4" name="telefono" required>
-                    </div>
-                    <div class="form-group col-md-5">
-                        <label for="formGroupExampleInput">Correo <code>*</code></label>
-                        <input type="text" class="form-control correo" id="inputEmail4" name="correo" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label for="formGroupExampleInput">Categoria <code>*</code></label>
-                        <input type="text" class="form-control categoria" id="inputEmail4" name="categoria" required>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="formGroupExampleInput">Estado <code>*</code></label>
-                        <input type="text" class="form-control estado" id="inputEmail4" name="estado" value="Activo" readonly="readonly">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-entre btncarga" name="CargaPro">Registrar</button>
-            </form>
-        </div>
+            </div>
         </section>
                         
         <section>
