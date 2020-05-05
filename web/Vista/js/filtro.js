@@ -21,15 +21,15 @@ $(document).ready(function(){
     }
 });
 
-//$(document).ready(function(){
-//    $("#search").keyup(function(){
-//        _this = this;
-//        // Mostar el tr que corresponda el resto se oculta
-//        $.each($("#mytable tbody tr"), function() {
-//            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-//                $(this).hide();
-//            else
-//                $(this).show();
-//        });
-//    });
-//});
+$(document).ready(function(){
+    $("#search").keyup(function(){
+        _this = this;
+        // Mostar el tr que corresponda el resto se oculta
+        $.each($("#mytable tbody tr"), function() {
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                $(this).hide();
+            else
+                $(this).show();
+        });
+    });
+});

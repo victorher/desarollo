@@ -71,15 +71,14 @@ public class ServletConsultaProveedorAjax extends HttpServlet {
 
             out.println("                    <tr>");
             out.println("                        <td scope='row'><input class='input-group-text border-0 text-center table proveedorID' value='"+con.getProveedorID()+"' name='proveedorID'></td>");
-            out.println("                        <td><input class='border-0 input-group-text nombr' value='"+con.getNombrePro()+"' name='nombr'></td>");
+            out.println("                        <td><input class='border-0 input-group-text nombre' value='"+con.getNombrePro()+"' name='nombre'></td>");
             out.println("                        <td><input class='border-0 input-group-text apellido' value='"+con.getApellidoPro()+"' name='apellido'></td>");
             out.println("                        <td><input class='border-0 input-group-text direccion' value='"+con.getDireccionPro()+"' name='direccion'></td>");
             out.println("                        <td><input class='border-0 input-group-text telefono' value='"+con.getTelefonoPro()+"' name='telefono'></td>");
             out.println("                        <td><input class='border-0 input-group-text correo' size='30' value='"+con.getCorreoPro()+"' name='correo'></td>");
-            out.println("                        <td><input class='border-0 input-group-text categori' value='"+con.getCategoriaPro()+"' name='categori'></td>");
+            out.println("                        <td><input class='border-0 input-group-text categoria' value='"+con.getCategoriaPro()+"' name='categoria'></td>");
             out.println("                        <td><input class='border-0 input-group-text estado' value='"+con.getEstadoPro()+"' name='estado'></td>");
             out.println("                        <td>");
-            out.println("                            <input type='hidden' name='' value=value='"+con.getProveedorID()+"'>");
             out.println("                            <div class='text-center'>");
             out.println("                                <button type='submit' name='ActualizaPro' class='btn-success img-fluid btnmod'><i class='fa fa-wrench' aria-hidden='true'></i></button>");
             out.println("                            </div>");
@@ -97,6 +96,7 @@ public class ServletConsultaProveedorAjax extends HttpServlet {
             out.println("        </form>");
             out.println("    </div>");
             out.println("</div>");
+            out.println("<script src=\'Vista/js/ActualizaProveedor.js\' type=\'text/javascript\'></script>");
             out.println("</body>");
             out.println("</html>");
         }

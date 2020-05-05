@@ -146,27 +146,27 @@
                     
                     <!--Modal cascading tabs-->
                     <div class="modal-con-tabs">
-                        <!--Panel 7-->
+                        <!--Panel-->
                         <div class="container">
-                            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-                                <form action="ActualizarCliente" method="POST" class="register-form">
-                                    <%
-                                        String co = docu;
-                                        //co = request.getParameter("cod");
-                //                                    JOptionPane.showMessageDialog(null, co);
-                                        ArrayList<ConUsuCliente> listas = new ArrayList();
-                                        ConUsuCliente con = new ConUsuCliente(co); //convas hago referencia al constructor vasio
-                                        GestionCliente Cons = new GestionCliente();
-
-                                        listas = Cons.ConsulClienteUni(con);
-
-                                        for(int i=0; i<listas.size(); i++){
-
-                                            con = listas.get(i);
-
-                                    %>
+                            <div class="tab-pane fade in show active" id="pane" role="tabpanel">
+                                <form action="ActualizarCliente" method="POST">
                                     <!--Body-->
                                     <div class="modal-body mb-1">
+                                        <%
+                                            String co = docu;
+                                            //co = request.getParameter("cod");
+//                                                        JOptionPane.showMessageDialog(null, co);
+                                            ArrayList<ConUsuCliente> listas = new ArrayList();
+                                            ConUsuCliente con = new ConUsuCliente(co); //convas hago referencia al constructor vasio
+                                            GestionCliente Cons = new GestionCliente();
+
+                                            listas = Cons.ConsulClienteUni(con);
+
+                                            for(int i = 0; i < listas.size(); i++){
+
+                                                con = listas.get(i);
+
+                                        %>
 
                                         <div class="md-form form-sm mb-2">
                                             <label for="documento"><code>*</code> Documento</label>
@@ -222,9 +222,10 @@
                                             <input type="hidden" class="form-control roll" id="inputEmail4" name="rol" value="<%=con.getRol()%>" readonly="readonly">
                                         </div>
                                         
-                                    <% } %>
+                                        <% } %>
+                                        
                                         <div class="text-center mt-2">
-                                            <button type="submit" class="btn btn-outline-entre waves-effect ml-auto btnmod" name="ActualizaCli">Actualizar
+                                            <button type="submit" class="btn btn-outline-entre waves-effect ml-auto btnmod mt-4" name="ActualizaCli">Actualizar
                                                 <i class="fa fa-sign-in ml-1"></i>
                                             </button>
                                         </div>
@@ -234,10 +235,6 @@
                                 <!--Footer-->
                                 <div class="container">
                                     <div class="modal-footer">
-                                        <div class="options text-center text-md-right mt-1">
-                                            <p>Not a member? <a href="#" class="blue-text bg-orange">Sign Up</a></p>
-                                            <p>Forgot <a href="#" class="blue-text bg-orange">Password?</a></p>
-                                        </div>
                                         <button type="button" class="btn btn-outline-entre waves-effect ml-auto" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>

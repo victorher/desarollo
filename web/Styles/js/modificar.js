@@ -1,5 +1,6 @@
 $(document).ready(function(){
     //alert("hola");
+    
     $('.btnmod').on('click',function(){
        var btn = $('.btnmod').index(this);
         //alert(btn);

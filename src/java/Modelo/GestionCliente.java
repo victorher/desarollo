@@ -45,7 +45,7 @@ public class GestionCliente {
     public ArrayList<ConUsuCliente> ConsulClienteUni(ConUsuCliente cl){
         ArrayList<ConUsuCliente> lista = new ArrayList<>();
             try {
-                ps = cnn.prepareStatement("CALL pa_ConsultaUsuarioClientesDoc('"+cl.getDocumento()+"')");
+                ps = cnn.prepareStatement("CALL pa_ConsultaUsuarioClientesDoc('"+cl.getFiltro()+"')");
                 rs = ps.executeQuery();
                 while(rs.next()){
                     ConUsuCliente de = new ConUsuCliente(
@@ -71,7 +71,7 @@ public class GestionCliente {
     public ArrayList<ConUsuCliente> ConsulEmpleadoUni(ConUsuCliente cl){
         ArrayList<ConUsuCliente> lista = new ArrayList<>();
             try {
-                ps = cnn.prepareStatement("CALL pa_ConsultaUsuarioEmpleadoDoc('"+cl.getDocumento()+"')");
+                ps = cnn.prepareStatement("CALL pa_ConsultaUsuarioEmpleadoDoc('"+cl.getFiltro()+"')");
                 rs = ps.executeQuery();
                 while(rs.next()){
                     ConUsuCliente de = new ConUsuCliente(

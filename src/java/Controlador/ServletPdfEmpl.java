@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import Modelo.ConUsuCliente;
-import Modelo.GestionCliente;
+import Modelo.ConUsuEmpleado;
+import Modelo.GestionEmpleados;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -32,8 +32,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-@WebServlet(name = "ServletPDF", urlPatterns = {"/ServletPDF"})
-public class ServletPDF extends HttpServlet {
+@WebServlet(name = "ServletPdfEmpl", urlPatterns = {"/ServletPdfEmpl"})
+public class ServletPdfEmpl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,67 +45,69 @@ public class ServletPDF extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         if(request.getParameter("btnpdf")!=null){
             this.pdf(request, response);
         }
     }
     
     protected void pdf(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         try {
             response.setContentType("application/pdf");
             OutputStream out = response.getOutputStream();
-            ArrayList<ConUsuCliente> list = new ArrayList<>();
-            ConUsuCliente cons = new ConUsuCliente();
-            GestionCliente cli = new GestionCliente();
+            ArrayList<ConUsuEmpleado> listas = new ArrayList();
+            ConUsuEmpleado con = new ConUsuEmpleado();
+            GestionEmpleados Cons = new GestionEmpleados();
             
-            list = cli.ConsultaCliente();
+            listas = Cons.ConsultaEmpleado();
             
             Document documento = new Document(PageSize.LETTER.rotate());
+            
             try {
                 PdfWriter.getInstance(documento, out);
             } catch (Exception e) {
             }
+            
             documento.open();
+            
             Paragraph pg = new Paragraph();
-            Font tutilo = new Font (Font.FontFamily.HELVETICA,16, Font.BOLD, BaseColor.BLUE);
-            pg.add(new Phrase("LISTADO DE USUARIOS", tutilo));
+            
+            Font titulo = new Font(Font.FontFamily.HELVETICA,16,Font.BOLD,BaseColor.BLUE);
+            pg.add(new Phrase("LISTADO DE EMPLEADOS", titulo));
             pg.setAlignment(Element.ALIGN_CENTER);
+            pg.add(new Phrase(Chunk.NEWLINE)); //Crea una nueva linea
             pg.add(new Phrase(Chunk.NEWLINE));
-            pg.add(new Phrase(Chunk.NEWLINE));
-                
-                PdfPTable tabla = new PdfPTable(5);
-                tabla.setWidthPercentage(90);
-                
-                PdfPCell nom = new PdfPCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.BLACK)));
-                PdfPCell ape = new PdfPCell(new Paragraph("Apellido", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));
-                PdfPCell dir = new PdfPCell(new Paragraph("Direccion", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));
-                PdfPCell gen = new PdfPCell(new Paragraph("Genero", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));
-                PdfPCell tel = new PdfPCell(new Paragraph("Telefono", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.GREEN)));   
+            
+            PdfPTable tabla = new PdfPTable(5);
+            tabla.setWidthPercentage(90);
+            
+            PdfPCell nom = new PdfPCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.BLACK)));
+            PdfPCell ape = new PdfPCell(new Paragraph("Apellido", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.BLUE)));
+            PdfPCell tel = new PdfPCell(new Paragraph("Telefono", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.BLUE)));
+            PdfPCell gen = new PdfPCell(new Paragraph("Genero", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.BLUE)));
+            PdfPCell dir = new PdfPCell(new Paragraph("Dirección", FontFactory.getFont("Arial", 12, Font.BOLDITALIC, BaseColor.BLUE)));
             
             documento.add(pg);
             tabla.addCell(nom);
             tabla.addCell(ape);
-            tabla.addCell(dir);
-            tabla.addCell(gen);
             tabla.addCell(tel);
+            tabla.addCell(gen);
+            tabla.addCell(dir);
             
-            for(int i = 0; i < list.size(); i++){
-                cons = list.get(i);
-                
-                tabla.addCell(cons.getNombre());
-                tabla.addCell(cons.getApellido());
-                tabla.addCell(cons.getDireccion());
-                tabla.addCell(cons.getGenero());
-                tabla.addCell(cons.getTelefono());
+            for(int i=0; i<listas.size(); i++){
+                con = listas.get(i);
+                tabla.addCell(con.getNombre());
+                tabla.addCell(con.getApellido());
+                tabla.addCell(con.getTelefono());
+                tabla.addCell(con.getGenero());
+                tabla.addCell(con.getDireccion());
             }
             
             documento.add(tabla);
             documento.close();
-                    
             
-        } catch (Exception e) {
+        }catch (Exception e) {
         }
     }
 

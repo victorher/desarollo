@@ -22,7 +22,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="img/Suenos.png">
+        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <title>Entre Sueños</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">

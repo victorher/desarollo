@@ -48,7 +48,7 @@
                 <div class="text-center">
                     <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="VAH Logo"></a>
                 </div>
-                <a class="navbar-brand" href="Principal.jsp">INICIO</a>
+                <a class="navbar-brand" href="<%=roll%>.jsp">INICIO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -95,48 +95,49 @@
             arra = sele.SelectDiseno();
         %>
         <section>
+            <!--Registra un proveedor-->
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="ServletPedidos" method="POST">
+                        <form action="" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="documento"><code>*</code> Documento</label>
-                                    <input type="text" class="form-control" id="documento" name="documento" value="<%=docu%>"readonly="readonly">
+                                    <input type="text" class="form-control documento" id="documento" name="documento" value="<%=docu%>" readonly="readonly">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <!--<label for="estado"><code>*</code> Estado</label>-->
-                                    <input type="hidden" class="form-control" id="estado" name="estado" value="Pedido" readonly="readonly">
+                                    <input type="hidden" class="form-control estado" id="estado" name="estado" value="Pedido" readonly="readonly">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="dateini"><code>*</code> Fecha Pedido</label>
-                                    <input type="date" class="form-control" id="dateini" name="fepedido" min="">
+                                    <input type="date" class="form-control dateini" id="dateini" name="fepedido" min="">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="detefin"><code>*</code> Fecha Entrega</label>
-                                    <input type="date" class="form-control" id="datefin" name="feentrega">
+                                    <input type="date" class="form-control datefin" id="datefin" name="feentrega">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="direccion"><code>*</code> Direccion Entrega</label>
-                                    <input type="text" class="form-control" id="direccion" name="direntrega" value="<%=direcc%>">
+                                    <input type="text" class="form-control direccion" id="direccion" name="direntrega" value="<%=direcc%>">
                                 </div>
                                 <div class="form-group col-md-10">
                                     <!--<label for="tipo"><code>*</code> Tipo</label>-->
-                                    <input type="hidden" class="form-control" id="tipo" name="tipo" value="Distribucion" readonly="readonly">
+                                    <input type="hidden" class="form-control tipo" id="tipo" name="tipo" value="Distribucion" readonly="readonly">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="articulo"><code>*</code> Nombre Articulo</label>
-                                    <select class="form-control" id="articulo" name="articulo">
+                                    <select class="form-control articulo" id="articulo" name="articulo">
                                         <option value="">Seleccionar</option>
                                         <%
                                             for(int i = 0; i < lista.size(); i++){
@@ -149,7 +150,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="diseno"><code>*</code> Nombre del diseño</label>
-                                    <select name="diseno" id="diseno" class="form-control">
+                                    <select name="diseno" id="diseno" class="form-control diseno">
                                         <option value="">Seleccionar</option>
                                         <% for(int a = 0; a < arra.size(); a++){ 
                                             dise = arra.get(a);
@@ -162,22 +163,22 @@
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="descripcion"><code>*</code> Descripcion</label>
-                                    <input type="text" class="form-control" id="descripcion" name="descripcion" min="">
+                                    <input type="text" class="form-control descripcion" id="descripcion" name="descripcion" min="">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="cantidad"><code>*</code> Cantidad</label>
-                                    <input type="text" class="form-control" id="cantidad" name="cantidad">
+                                    <input type="text" class="form-control cantidad" id="cantidad" name="cantidad">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-10">
                                     <label for="precio"><code>*</code> Precio</label>
-                                    <input type="text" class="form-control" id="precio" name="precio">
+                                    <input type="text" class="form-control precio" id="precio" name="precio">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-entre" name="CargaPed">Registrar</button>
+                            <button type="submit" class="btn btn-entre btnEnviar" name="CargaPed">Registrar</button>
                         </form>
                     </div>
                     <div class="col-md-6 mt-5">
@@ -249,28 +250,53 @@
         </footer>
         <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Vista/js/RegistraPedido.js" type="text/javascript"></script>
         <script src="Styles/js/bootstrap.min.js"></script>
         <script src="Styles/js/popper.min.js"></script>
         <script src="Styles/main.js"></script> 
         <Script>
             (function (){
                 fecha = new Date();
+                
                 var dia = fecha.getDate();
-                var dia2 = fecha.getDate()+6;
+                var finmes = new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+                var ultimo = finmes[fecha.getMonth()]; //console.log(ultimo);
+                var dia2 = fecha.getDate() + 6;
                 var mes = fecha.getMonth()+1;
+                var mes2 = fecha.getMonth()+1;
                 var year = fecha.getFullYear();
+                if(ultimo === 30){
+                    if(dia2 === 31){dia2 = 1; mes2 = mes2 + 1;}
+                    if(dia2 === 32){dia2 = 2; mes2 = mes2 + 1;}
+                    if(dia2 === 33){dia2 = 3; mes2 = mes2 + 1;}
+                    if(dia2 === 34){dia2 = 4; mes2 = mes2 + 1;}
+                    if(dia2 === 35){dia2 = 5; mes2 = mes2 + 1;}
+                    if(dia2 === 36){dia2 = 6; mes2 = mes2 + 1;}
+                }
+                if(ultimo === 31){
+                    if(dia2 === 32){dia2 = 1; mes2 = mes2 + 1;}
+                    if(dia2 === 33){dia2 = 2; mes2 = mes2 + 1;}
+                    if(dia2 === 34){dia2 = 3; mes2 = mes2 + 1;}
+                    if(dia2 === 35){dia2 = 4; mes2 = mes2 + 1;}
+                    if(dia2 === 36){dia2 = 5; mes2 = mes2 + 1;}
+                    if(dia2 === 37){dia2 = 6; mes2 = mes2 + 1;}
+                }
                 if(dia<10){
                     dia='0'+dia;
                 }
                 if(dia2<10){
-                    dia='0'+dia;
+                    dia2='0'+dia2;
                 }
                 if(mes<10){
                     mes = '0'+mes;
                 }
-                var f = year+"-"+mes+"-"+dia;
-                var f2 = year+"-"+mes+"-"+dia2;
-//                alert(f);
+                if(mes2<10){
+                    mes2 = '0'+mes2;
+                }
+                var f = year+"-"+mes+"-"+dia; //console.log(f);
+                var f2 = year+"-"+mes2+"-"+dia2;
+//                var f2 = (f + 6);
+//                alert(f2);
                 var da = document.getElementsByTagName('input');
                 da[3].value = f;
                 da[4].value = f2;

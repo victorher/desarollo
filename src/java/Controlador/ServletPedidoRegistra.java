@@ -5,8 +5,10 @@
  */
 package Controlador;
 
-import Modelo.GestionProveedores;
-import Modelo.Proveedoresgetset;
+import Modelo.GestionDestalles;
+import Modelo.GestionPedidos;
+import Modelo.Pedidosgetset;
+import Modelo.detallesGetSet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,8 +22,8 @@ import javax.swing.JOptionPane;
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-@WebServlet(name = "ActualizaProveedor", urlPatterns = {"/ActualizaProveedor"})
-public class ActualizaProveedor extends HttpServlet {
+@WebServlet(name = "ServletPedidoRegistra", urlPatterns = {"/ServletPedidoRegistra"})
+public class ServletPedidoRegistra extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,30 +38,37 @@ public class ActualizaProveedor extends HttpServlet {
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String ID, Nom, Apell, Dir, Telef, Corr, Cate, Esta;
-            ID = request.getParameter("proveedorID");
-            Nom = request.getParameter("nombre");
-            Apell = request.getParameter("apellido");
-            Dir = request.getParameter("direccion");
-            Telef = request.getParameter("telefono");
-            Corr = request.getParameter("correo");
-            Cate = request.getParameter("categoria");
-            Esta = request.getParameter("estado");
-//            JOptionPane.showMessageDialog(null, ID+"\n"+Nom+"\n"+Apell+"\n"+Dir+"\n"+Telef+"\n"+Corr+"\n"+Cate+"\n"+Esta);
-            Proveedoresgetset usu = new Proveedoresgetset(ID, Nom, Apell, Dir, Telef, Corr, Cate, Esta);
-            GestionProveedores us = new GestionProveedores();
-            boolean dat = us.ActaulizarProveedor(usu);
-//            if(dat){
-//                out.println("Datos actualizados");
-//            }
-            if(dat){
-//                JOptionPane.showMessageDialog(null, "Datos actualizados");
-//                response.sendRedirect("ConsultaProveedores.jsp");
-                request.getRequestDispatcher("ConsultaProveedores.jsp").forward(request, response);
-            }
-            else{
-//                JOptionPane.showMessageDialog(null, "Error al actualizar proveedor");
-                response.sendRedirect("ConsultaProveedores.jsp");
+            String doc, est, fecped, fecentr, direcc, tipo, idA, idD, desc, canti, prec;
+            idA = request.getParameter("articulo");
+            idD = request.getParameter("diseno");
+            desc = request.getParameter("descripcion");
+            canti = request.getParameter("cantidad");
+            prec = request.getParameter("precio");
+            doc = request.getParameter("documento");
+            est = request.getParameter("estado");
+            fecped = request.getParameter("fepedido");
+            fecentr = request.getParameter("feentrega");
+            direcc = request.getParameter("direntrega");
+            tipo = request.getParameter("tipo");
+            JOptionPane.showMessageDialog(null, idA+"\n"+idD+"\n"+desc+"\n"+canti+"\n"+prec);
+            detallesGetSet dise = new detallesGetSet(idA, idD, desc, canti, prec);
+            GestionDestalles gdet = new GestionDestalles();
+            boolean desen = gdet.IncertarDetalles(dise);
+//            gdet.IncertarDetalles(dise);
+            JOptionPane.showMessageDialog(null, desen);
+            if(desen){
+                JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
+                Pedidosgetset usu = new Pedidosgetset(doc, est, fecped, fecentr, direcc, tipo);
+                GestionPedidos us = new GestionPedidos();
+                boolean dat = us.IncertarPedido(usu);
+                if(dat){
+//                    response.sendRedirect("CreaPedidos.jsp");
+                    request.getRequestDispatcher("CreaPedidos.jsp").forward(request, response);
+//                JOptionPane.showMessageDialog(null, "Datos guardados");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al guardar pedido");
+                response.sendRedirect("CreaPedidos.jsp");
             }
         }
     }

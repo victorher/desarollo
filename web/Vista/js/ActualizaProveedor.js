@@ -27,8 +27,8 @@ $(document).ready(function(){
        
        $.ajax({
             type: 'POST',
-            url: "ActualizaProveedor",
-            data: {
+            url: 'ActualizaProveedor',
+            data:{
                 proveedorID: id,
                 nombre: name,
                 apellido: lastname,
@@ -37,6 +37,11 @@ $(document).ready(function(){
                 correo: mail,
                 categoria: arc,
                 estado: obs
+            },
+            success: function (res) {
+//                $('#res').html(res);
+                console.log(res);
+//                alert('Se incerto correctamente');
             }
        });
     });

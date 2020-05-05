@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <!--<link rel="stylesheet" href="Styles/Est.css">-->
-        <link rel="icon" type="image/png" href="img/Suenos.png">
+        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <link rel="stylesheet" href="Vista/css/StylesU.css">
     </head>
     <body>
@@ -195,8 +195,17 @@
         </section>
         <section id="slider"  class="bg-entre">
             <div class="container">
-                <div class="row col-md-2 mb-2 offset-md-10">
-                    <input type="text" class="form-control pull-right" id="search" placeholder="&#x1F50D; Buscar">
+                <div class="row mb-2">
+                    <div class="col-md-2">
+                        <form action="ServletPdfEmpl" class="form-inline my-2">
+                            <div class="form-group">
+                                <input class="btn btn-success" type="submit" name="btnpdf" value="Exportar">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-2 offset-md-8">
+                        <input type="text" class="form-control pull-right" id="search" placeholder="&#x1F50D; Buscar">
+                    </div>
                 </div>
                 <div class="row dataTables_length table-responsive text-nowrap vertical-table">
                     <table class="table table-striped table-bordered table-hover table-sm" id="mytable" cellspacing="0" width="100%">

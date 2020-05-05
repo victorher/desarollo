@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  * 
@@ -66,11 +67,18 @@ public class GestionDestalles {
             ps.setString(3, de.getDescripcion());
             ps.setString(4, de.getCantidad());
             ps.setString(5, de.getPrecio());
+//            JOptionPane.showMessageDialog(null, 
+//                    de.getIdArticulo()+" - "+
+//                    de.getIdDIseno()+" - "+
+//                    de.getDescripcion()+" - "+
+//                    de.getCantidad()+" - "+
+//                    de.getPrecio());
             int d = ps.executeUpdate();
-            while(d>0){
+            while(d > 0){
                 dat = true;
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + " IncertarPedido");
         }
         return dat;
     }

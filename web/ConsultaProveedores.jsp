@@ -22,7 +22,7 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="img/Suenos.png">
+        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <title>Entre Suenos</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
@@ -99,9 +99,9 @@
             }
         </script>
         <section>
-            <div class="container container-cards">
+            <div class="container container-cards" id="res">
                 <div class="table">
-                    <form action="" method="POST">
+                    <form action="ActualizaProveedor" method="POST">
                         <table class="table-responsive table-hover table-borderless table-sm">
                             <thead>
                                 <tr style="background: linear-gradient(-90deg, #8E2DE2, #4A00E0);">
