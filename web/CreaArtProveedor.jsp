@@ -25,6 +25,12 @@
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <link rel="stylesheet" href="Styles/Est.css">
         <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Vista/js/gestionArtProveedor.js" type="text/javascript"></script>
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="Styles/js/popper.min.js"></script>
+        <script src="Styles/main.js"></script> 
     </head>
     <body>
         <%
@@ -78,13 +84,14 @@
         </nav>
         <section>
             <div class="container">
+                
                 <div class="row">
                     <div class="col-md-6">
                         <header>
                             <h2 class="text-center">Creacion de nuevos productos</h2>
                         </header>
                         <section>
-                            <form action="ServletCatArticulo" method="POST">
+                            <form action="" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="nomb"><code>*</code> Nombre</label>
@@ -99,12 +106,14 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form group offset-lg-9">
-                                        <button type="submit" class="btn btn-entre" name="CargaArt">Registrar</button>
+                                        <button type="button" class="btn btn-entre carga" name="CargaArt">Registrar</button>
+                                        <button type="button" class="btn btn-entre consulta" name="consulta">Consultar</button>
                                     </div>
                                 </div>
                             </form>
                         </section>
                     </div>
+                    
                     <div class="col-md-6">
                         <div class="card">
                             <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -152,6 +161,11 @@
                     </div>
                 </div>
             </div>
+        </section>       
+        <section>
+            <table id="contenedor">
+
+            </table>
         </section>
         <section class="ff">
             
@@ -173,10 +187,6 @@
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script> 
+        
     </body>
 </html>

@@ -27,9 +27,9 @@ public class ServletCatArticulo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if(request.getParameter("CargaArt")!=null){
-                IncertaArtProveedor(request,response);
-            }
+//            if(request.getParameter("CargaArt")!=null){
+//                IncertaArtProveedor(request,response);
+//            }
 //            if(request.getParameter("ActualizaArt")!=null){
 //                ActualizaArtProveedor(request,response);
 //            }
@@ -39,25 +39,25 @@ public class ServletCatArticulo extends HttpServlet {
         }
     }
     /*REGISTRA UNA CATEGORIA*/
-    protected void IncertaArtProveedor(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            String Nom, Des;
-            Nom = request.getParameter("nombre");
-            Des = request.getParameter("descripcion");
-//            JOptionPane.showMessageDialog(null, Nom+"\n"+Des);
-            CatArticulogetset usu = new CatArticulogetset(Nom, Des);
-            GestionArtCategoria us = new GestionArtCategoria();
-            boolean dat = us.IncertarCatArticulo(usu);
-            if(dat){
-                JOptionPane.showMessageDialog(null, "Datos guardados");
-                response.sendRedirect("CreaArtProveedor.jsp");
-            }else{
-                JOptionPane.showMessageDialog(null, "Error al guardar la categoria");
-                response.sendRedirect("CreaArtProveedor.jsp");
-            }
-        }
-    }
+//    protected void IncertaArtProveedor(HttpServletRequest request, HttpServletResponse response)
+//        throws ServletException, IOException {
+//        try (PrintWriter out = response.getWriter()) {
+//            String Nom, Des;
+//            Nom = request.getParameter("nombre");
+//            Des = request.getParameter("descripcion");
+////            JOptionPane.showMessageDialog(null, Nom+"\n"+Des);
+//            CatArticulogetset usu = new CatArticulogetset(Nom, Des);
+//            GestionArtCategoria us = new GestionArtCategoria();
+//            boolean dat = us.IncertarCatArticulo(usu);
+//            if(dat){
+//                JOptionPane.showMessageDialog(null, "Datos guardados");
+//                response.sendRedirect("CreaArtProveedor.jsp");
+//            }else{
+//                JOptionPane.showMessageDialog(null, "Error al guardar la categoria");
+//                response.sendRedirect("CreaArtProveedor.jsp");
+//            }
+//        }
+//    }
     /*ACTUALIZA UNA CATEGORIA*/
 //    protected void ActualizaArtProveedor(HttpServletRequest request, HttpServletResponse response)
 //        throws ServletException, IOException {
