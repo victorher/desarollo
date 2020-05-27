@@ -1,0 +1,32 @@
+body{
+    background: #F6F1FC;
+}
+nav{  
+    background: linear-gradient(-90deg, #8E2DE2, #4A00E0); 
+}
+
+.cont{  
+    background: #F6F1FC;
+    box-shadow:1px 7px 50px #a2a2a2;
+}
+
+.btnn{  
+    outline: none;
+    background: linear-gradient(-90deg, #8E2DE2, #4A00E0); 
+    border-radius: 50px;
+   
+}
+
+.btnn:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+}
+   
+.card-headerl{
+    box-shadow:1px 7px 15px #a2a2a2;
+    margin:-25px -25px 0px -25px;	 
+}
+
+.divisor{
+    height: 20px;
+}
