@@ -85,8 +85,8 @@
                         <form action="ServletDiseno" enctype="multipart/form-data" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="numero"><code>*</code> Numero Detalle</label>
-                                    <input type="text" class="form-control" id="numero" name="numdetalle" required>
+                                    <label for="titulo"><code>*</code> Titulo Producto</label>
+                                    <input type="text" class="form-control" id="titulo" name="numdetalle" required>
                                 </div>
                             </div>
                             <div class="form-row">
