@@ -107,7 +107,7 @@
                                 <div class="form-row">
                                     <div class="form group offset-lg-9">
                                         <button type="button" class="btn btn-entre carga" name="CargaArt">Registrar</button>
-                                        <button type="button" class="btn btn-entre consulta" name="consulta">Consultar</button>
+                                        <!--<button type="button" class="btn btn-entre consulta" name="consulta">Consultar</button>-->
                                     </div>
                                 </div>
                             </form>

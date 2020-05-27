@@ -8,7 +8,7 @@ const swalWithBootstrapButtons = Swal.mixin({
     cancelButton: 'btn btn-danger'
   },
   buttonsStyling: false
-})
+});
 
 swalWithBootstrapButtons.fire({
   title: 'Esta seguro',
@@ -24,7 +24,7 @@ swalWithBootstrapButtons.fire({
       'Deleted!',
       'Your file has been deleted.',
       'success'
-    )
+    );
   } else if (
     /* Read more about handling dismissals below */
     result.dismiss === Swal.DismissReason.cancel
@@ -33,7 +33,7 @@ swalWithBootstrapButtons.fire({
       'Cancelled',
       'Your imaginary file is safe :)',
       'error'
-    )
+    );
   }
-})
+});
 

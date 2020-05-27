@@ -3,9 +3,9 @@ $(document).ready(function (){
     $('.carga').on('click',function (){
         incertar();
     });
-    $('.consulta').on('click',function (){
+//    $('.consulta').on('click',function (){
        cargarJson(); 
-    });
+//    });
 });
 
 function incertar(){
@@ -62,8 +62,7 @@ function cargarJson(){
                                         name="descripcion">
                                 </td>
                             </tr>
-                        </tbody>
-                    `;
+                        </tbody>`;
                 };
             }
         }

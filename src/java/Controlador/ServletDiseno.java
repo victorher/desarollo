@@ -61,25 +61,25 @@ public class ServletDiseno extends HttpServlet {
 
             String nombre = NumDet + "_" + nomfoto;
             String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\EntreSuenos\\web\\img\\" + nombre;
-            String Url3 = "C:\\xampp\\htdocs\\EntreSuenos\\img\\" + nombre;
+//            String Url3 = "C:\\xampp\\htdocs\\EntreSuenos\\img\\" + nombre;
             String Url2 = nombre;
             
             InputStream file = foto.getInputStream();
             InputStream archivo = foto.getInputStream();
             File f = new File(Url);
-            File fa = new File(Url3);
+//            File fa = new File(Url3);
             FileOutputStream sal = new FileOutputStream(f);
-            FileOutputStream otro = new FileOutputStream(fa);
+//            FileOutputStream otro = new FileOutputStream(fa);
             int num = file.read(); //read es un metodo de la clase file
             int num1 = archivo.read(); //read es un metodo de la clase file
             while(num != -1){
                 sal.write(num);
                 num = file.read();
             }
-            while(num1 != -1){
-                otro.write(num1);
-                num1 = archivo.read();
-            }
+//            while(num1 != -1){
+//                otro.write(num1);
+//                num1 = archivo.read();
+//            }
 //            JOptionPane.showMessageDialog(null, NumDet+"\n"+TexDis+"\n"+TamDis+"\n"+
 //                    ColDis+"\n"+PrecDis+"\n"+ObsDis+"\n"+Url2);
             Disenogetset usu = new Disenogetset(NumDet, TexDis, TamDis, ColDis, PrecDis, ObsDis, Url2);
@@ -144,7 +144,7 @@ public class ServletDiseno extends HttpServlet {
             IDDiseno = request.getParameter("cod");
             nombre = request.getParameter("numdetalle");
             String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\EntreSuenos\\web\\img\\" + nombre;
-            String Url3 = "C:\\xampp\\htdocs\\EntreSuenos\\img\\" + nombre;
+//            String Url3 = "C:\\xampp\\htdocs\\EntreSuenos\\img\\" + nombre;
             //JOptionPane.showMessageDialog(null, IDDiseno);
             Disenogetset cli = new Disenogetset(IDDiseno);
             GestionDiseno us = new GestionDiseno();

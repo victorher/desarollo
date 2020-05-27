@@ -25,6 +25,14 @@
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <link rel="stylesheet" href="Styles/Est.css">
         <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Vista/js/ConsultaProveedor.js" type="text/javascript"></script>
+        <script src="Vista/js/InsertarUsuariosPro.js" type="text/javascript"></script>
+        <script src="Vista/js/ActualizaProveedor.js" type="text/javascript"></script>
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="Styles/js/popper.min.js"></script>
+        <script src="Styles/main.js"></script> 
     </head>
     <body>
         <%
@@ -199,13 +207,5 @@
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Vista/js/ConsultaProveedor.js" type="text/javascript"></script>
-        <script src="Vista/js/InsertarUsuariosPro.js" type="text/javascript"></script>
-        <script src="Vista/js/ActualizaProveedor.js" type="text/javascript"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script> 
     </body>
 </html>

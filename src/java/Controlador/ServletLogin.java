@@ -38,6 +38,7 @@ public class ServletLogin extends HttpServlet {
                 Usuariogetset usgs = new Usuariogetset(us, co);
                 Logueo lo = new Logueo();
                 usu = lo.login(usgs);
+//                JOptionPane.showMessageDialog(null, usu+" ingresa");
                 if(usu.size()>0){
                     for(int i = 0; i < usu.size(); i++){
                         usgs = usu.get(i);
@@ -46,9 +47,9 @@ public class ServletLogin extends HttpServlet {
                         cont = usgs.getClave();
                         rol = usgs.getRoll();
                         est = usgs.getEstado();
+//                        JOptionPane.showMessageDialog(null, "User: "+doc+" Pass: "+cont+" "+rol);
                         ArrayList<GeneroEmpGS> gen = new ArrayList<>();
                         GeneroEmpGS sex = new GeneroEmpGS(docu);
-                        //JOptionPane.showMessageDialog(null, doc+" "+cont+" "+rol);
                         
                         //INGRESA COMO ADMINISTRADOR////
                         if(us.equals(doc) && co.equals(cont) && adm.equals(rol)){

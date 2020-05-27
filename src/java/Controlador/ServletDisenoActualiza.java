@@ -52,7 +52,7 @@ public class ServletDisenoActualiza extends HttpServlet {
 //            String nombre = NumDet + "_" + nomfoto;
 //            String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\EntreSuenos\\web\\img\\" + nombre;
 //            String Url2 = "img/" + nombre;
-            String Url2 = "defecto.png";
+            String Url2 = "defecto.jpg";
             
 //            InputStream file = foto.getInputStream();
 //            File f = new File(Url);

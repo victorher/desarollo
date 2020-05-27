@@ -9,7 +9,7 @@
          response.addHeader("Cache-control", "must-revalidate");
          response.addHeader("Cache-control", "no-cache");
          response.addHeader("Cache-control", "no-store");
-         if(session.getAttribute("Documento")==null){
+         if(session.getAttribute("Documento") == null){
              request.getRequestDispatcher("index.jsp").forward(request, response);
          }
         } catch (Exception e) {

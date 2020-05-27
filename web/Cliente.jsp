@@ -26,7 +26,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Entre Sueños</title>
@@ -79,7 +79,7 @@
                                 <a class="dropdown-item" href="#">Proveedor</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Diseño</a>
-                                <a class="dropdown-item" href="#">Diseños</a>
+                                <a class="dropdown-item" href="Disenos.jsp">Diseños</a>
                                 <a class="dropdown-item" href="#">Categorias de articulos</a>
                                 <a class="dropdown-item" href="#">Articulos</a>
                                 <a class="dropdown-item" href="#">Pedidos</a>

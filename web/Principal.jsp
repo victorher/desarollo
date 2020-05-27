@@ -43,6 +43,7 @@
             roll = (String) obsjes.getAttribute("Rol");
             direcc = (String) obsjes.getAttribute("Direccion");
         %>
+        <!--<script type="text/javascript">alert('Bienvenido al sistema');</script>-->
         <nav class="navbar navbar-expand-lg col-gra b-inf">
             <div class="container">
                 <div class="text-center">
