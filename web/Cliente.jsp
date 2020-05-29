@@ -1,3 +1,6 @@
+<%@page import="Modelo.GestionDiseno"%>
+<%@page import="Modelo.Disenogetset"%>
+<%@page import="Modelo.Disenogetset"%>
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="Modelo.Clientegetset"%>
 <%@page import="Modelo.GestionCliente"%>
@@ -37,6 +40,9 @@
         <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -74,15 +80,7 @@
                             Consultar
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Empleados</a>
-                                <a class="dropdown-item" href="#">Clientes</a>
-                                <a class="dropdown-item" href="#">Proveedor</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Diseño</a>
                                 <a class="dropdown-item" href="Disenos.jsp">Diseños</a>
-                                <a class="dropdown-item" href="#">Categorias de articulos</a>
-                                <a class="dropdown-item" href="#">Articulos</a>
-                                <a class="dropdown-item" href="#">Pedidos</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -90,45 +88,30 @@
                                 Registrar
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Empleados</a>
-                                <a class="dropdown-item" href="#">Clientes</a>
-                                <a class="dropdown-item" href="#">Proveedores</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Diseños</a>
-                                <a class="dropdown-item" href="#">Categorias de articulos</a>
-                                <a class="dropdown-item" href="#">Articulos</a>
                                 <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=docu%></a>
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=nom+" "+ape%></a>
                         </li>
                     </ul>
                     <br>
+                    <form class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-entre form-control mr-sm-2" type="button" data-toggle="modal" data-target="#register">Ver Datos</button>
+                    </form>
                     <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
                         <button class="btn btn-outline-invert form-control mr-sm-2" name="btn" type="submit">Cerrar Sesion</button>
                     </form>
-                    <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-entre form-control mr-sm-2" type="button" data-toggle="modal" data-target="#register">Actualizar</button>
-                    </form>
+                    
                 </div> 
             </div>
         </nav>
         
-        <section id="slider" class="bg-datos">               
-            <div class="text-center">
-                <label class="alert"><%=gen%> </label>
-                <label class="alert"><%=docu%> </label>
-                <label class="alert"><%=cont%> </label>
-                <label class="alert"><%=roll%> </label>
-            </div>
-        </section>
+     
         <section class="page-header section-dark bg-light-grey">
             <div class="container position-relative">
-                <h1 class="mb-5">Entre sueños</h1>
-                <div class="uno" id="uno">
-                    <label><%=nom+" "+ape%> </label>
-                </div>
+                <h1 class="mb-5 text-center font-weight-bold">Bienvenido a Entre sueños</h1>
+                
             </div>
         </section>
         
@@ -248,7 +231,7 @@
             <!--/.Content-->
         </div>
 
-        <section id="slider">
+        <!--<section id="slider">
             <div class="container">
                 <div class="row mt-4">
                     <div class="col-md-7">
@@ -367,10 +350,54 @@
                     <a href="#" class="text-muted">Ver todos nuestros diseños <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
+        </section>-->
+        
+        <section>
+            <div class="container text-center">
+                <h3>Los mejores Diseños</h3>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <%
+                        ArrayList<Disenogetset> listasD = new ArrayList<>();
+                        Disenogetset dis = new Disenogetset();
+                        GestionDiseno muestra = new GestionDiseno();
+                        listasD = muestra.ConsultarDisenos();
+                        for(int i = 0; i < listasD.size(); i++){
+                            dis = listasD.get(i); %>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <img 
+                            title="Productos con medidas de <%= dis.getTexDiseno() %>"
+                            alt="Diseño con color <%= dis.getColDiseno()%>"
+                            class="card-img-top"
+                            src="img/<%= dis.getImagen() %>"
+                            data-toggle="popover"
+                            data-trigger="hover"
+                            data-content="<%= dis.getNumDetalle() %> <%= dis.getObserDiseno() %>"
+                            />
+                            <div class="card-body">
+                                <spam><b><%= dis.getNumDetalle()%></b></spam>
+                                <h5 class="card-title"><b>$ <%= dis.getPreDiseno() %>.00</b></h5>
+                                <p class="card-text"><%= dis.getTamDiseno() %></p>
+                                <form action="" method="post">
+                                    <button class="btn btn-entre"
+                                    name="enviar"
+                                    value="Agregar"
+                                    type="submit"
+                                    >
+                                        Agregar al carrito
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
         </section>
-        <section class="ff">
-            
-        </section>
+        
         <footer class="bg-dark text-light py-2">
             <div class="container">
                 <div class="row">
@@ -388,9 +415,14 @@
                 </div>
             </div>
         </footer>
+        <script>
+            $(function(){
+                $('[data-toggle="popover"]').popover()
+            });
+        </script>
         <script src="Styles/js/jquery-3.4.1.min.js"></script>
         <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
+        <!--<script src="Styles/js/bootstrap.min.js"></script>-->
         <script src="Styles/js/popper.min.js"></script>
         <script src="Vista/usuario.js"></script>
         <!--<script src="Vista/js/ModificaClienteUni.js"></script>-->
