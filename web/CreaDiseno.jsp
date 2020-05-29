@@ -199,7 +199,7 @@
                     <div class="col-md-3 mb-4">
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="text-center">Mejor diseño</h2>
+                                <h2 class="text-center"><%= imag.getImagen()%></h2>
                             </div>
                             <div class="card-body text-center">
                                 <img src="img/<%= imag.getImagen() %>" width="200" height="180">
