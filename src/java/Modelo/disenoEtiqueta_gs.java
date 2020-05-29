@@ -3,11 +3,19 @@ package Modelo;
 
 public class disenoEtiqueta_gs {
     private String idDis;
+    private String Titulo;
     private String imagen;
     private String precio;
 
     public disenoEtiqueta_gs(String idDis, String imagen, String precio) {
         this.idDis = idDis;
+        this.imagen = imagen;
+        this.precio = precio;
+    }
+
+    public disenoEtiqueta_gs(String idDis, String Titulo, String imagen, String precio) {
+        this.idDis = idDis;
+        this.Titulo = Titulo;
         this.imagen = imagen;
         this.precio = precio;
     }
@@ -42,6 +50,14 @@ public class disenoEtiqueta_gs {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String Titulo) {
+        this.Titulo = Titulo;
     }
     
 }
