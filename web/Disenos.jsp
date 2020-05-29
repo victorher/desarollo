@@ -185,9 +185,9 @@
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="Email">
                             </div>
-                            <div class="form-group">
+<!--                            <div class="form-group">
                                 <input type="number" class="form-control" placeholder="Numero telefonico">
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <textarea class="form-control" placeholder="Mensaje"></textarea>
                             </div>
