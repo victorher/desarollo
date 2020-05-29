@@ -1,9 +1,7 @@
 package Controlador;
 
-import Modelo.GestionDestalles;
 import Modelo.GestionPedidos;
 import Modelo.Pedidosgetset;
-import Modelo.detallesGetSet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -39,43 +37,6 @@ public class ServletPedidos extends HttpServlet {
             }
         }
     }
-    /*REGISTRA UN PEDIDO*/
-//    protected void IncertaPedido(HttpServletRequest request, HttpServletResponse response)
-//        throws ServletException, IOException {
-//        try (PrintWriter out = response.getWriter()) {
-//            String doc, est, fecped, fecentr, direcc, tipo, idA, idD, desc, canti, prec;
-//            doc = request.getParameter("documento");
-//            est = request.getParameter("estado");
-//            fecped = request.getParameter("fepedido");
-//            fecentr = request.getParameter("feentrega");
-//            direcc = request.getParameter("direntrega");
-//            tipo = request.getParameter("tipo");
-//            idA = request.getParameter("articulo");
-//            idD = request.getParameter("diseno");
-//            desc = request.getParameter("descripcion");
-//            canti = request.getParameter("cantidad");
-//            prec = request.getParameter("precio");
-////            JOptionPane.showMessageDialog(null, idA+"\n"+idD+"\n"+desc+"\n"+canti+"\n"+prec);
-//            detallesGetSet dise = new detallesGetSet(idA, idD, desc, canti, prec);
-//            GestionDestalles gdet = new GestionDestalles();
-//            boolean desen = gdet.IncertarDetalles(dise);
-////            gdet.IncertarDetalles(dise);
-//            
-//            if(desen){
-////                JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
-//                Pedidosgetset usu = new Pedidosgetset(doc, est, fecped, fecentr, direcc, tipo);
-//                GestionPedidos us = new GestionPedidos();
-//                boolean dat = us.IncertarPedido(usu);
-//                if(dat){
-//                    response.sendRedirect("CreaPedidos.jsp");
-//                }
-////                JOptionPane.showMessageDialog(null, "Datos guardados");
-//            }else{
-//                JOptionPane.showMessageDialog(null, "Error al guardar pedido");
-//                response.sendRedirect("CreaPedidos.jsp");
-//            }
-//        }
-//    }
     /*ACTUALIZA UN PEDIDO*/
     protected void ActualizaPedido(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
