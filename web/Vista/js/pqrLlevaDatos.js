@@ -11,7 +11,7 @@ $(document).ready(function (){
 
         $.ajax({
             type: 'POST',
-            url: "",
+            url: "ServletCargaPQR",
             data:{
                 nombre: nom,
                 email: ema,
