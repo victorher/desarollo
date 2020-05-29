@@ -149,84 +149,86 @@
 
                             <!--Panel 8-->
                             <div class="tab-pane fade" id="panel8" role="tabpanel">
+                                <form action="ServletGestionUsu" method="POST">
+                                    <!--Body-->
+                                    <div class="modal-body">
+                                      <div class="form-row">
+                                          <div class="md-form form-sm col-md-6">
+                                            <i class="far fa-address-card prefix"></i>
+                                            <input type="number" id="modalLRInput12 documento" class="form-control form-control-sm validate documento" name="documento">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput12">Documento</label>
+                                          </div>
 
-                              <!--Body-->
-                              <div class="modal-body">
-                                <div class="form-row">
-                                    <div class="md-form form-sm col-md-6">
-                                      <i class="far fa-address-card prefix"></i>
-                                      <input type="number" id="modalLRInput12 documento" class="form-control form-control-sm validate documento" name="documento">
-                                      <label data-error="wrong" data-success="right" for="modalLRInput12">Documento</label>
-                                    </div>
+                                          <div class="md-form form-sm col-md-6">
+                                            <i class="fas fa-ad prefix"></i>
+                                            <input type="text" id="modalLRInput13 nombre" class="form-control form-control-sm validate nombre" name="nombre">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Nombre</label>
+                                          </div>
+                                      </div>
+                                      <div class="form-row">
+                                          <div class="md-form form-sm col-md-6">
+                                            <i class="fas fa-ad prefix"></i>
+                                            <input type="text" id="modalLRInput13 apellido" class="form-control form-control-sm validate apellido" name="apellido">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Apellido</label>
+                                          </div>
 
-                                    <div class="md-form form-sm col-md-6">
-                                      <i class="fas fa-ad prefix"></i>
-                                      <input type="text" id="modalLRInput13 nombre" class="form-control form-control-sm validate nombre" name="nombre">
-                                      <label data-error="wrong" data-success="right" for="modalLRInput13">Nombre</label>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="md-form form-sm col-md-6">
-                                      <i class="fas fa-ad prefix"></i>
-                                      <input type="text" id="modalLRInput13 apellido" class="form-control form-control-sm validate apellido" name="apellido">
-                                      <label data-error="wrong" data-success="right" for="modalLRInput13">Apellido</label>
-                                    </div>
-                                  
-                                    <div class="form-group form-sm col-md-6"> 
-                                        <i class="fas fa-venus-mars fa-2x"></i>
-                                            <label for="genero">Genero</label>
-                                                <select name="sexo" id="sexo" class="form-control sexo">
-                                                    <option value="0">Seleccion</option>
-                                                    <option value="Masculino">Masculino</option>
-                                                    <option value="Femenino">Femenino</option>
-                                                </select>  
-                                    </div>  
-                                </div>
-                                <div class="form-row">   
-                                    <div class="md-form form-sm col-md-6">
-                                      <i class="fas fa-envelope prefix"></i>
-                                      <input type="email" id="modalLRInput13 correo" class="form-control form-control-sm validate correo" name="correo">
-                                      <label data-error="wrong" data-success="right" for="modalLRInput13">Correo</label>
-                                    </div>
+                                          <div class="form-group form-sm col-md-6"> 
+                                              <i class="fas fa-venus-mars fa-2x"></i>
+                                                  <label for="genero">Genero</label>
+                                                      <select name="sexo" id="sexo" class="form-control sexo">
+                                                          <option value="0">Seleccion</option>
+                                                          <option value="Masculino">Masculino</option>
+                                                          <option value="Femenino">Femenino</option>
+                                                      </select>  
+                                          </div>  
+                                      </div>
+                                      <div class="form-row">   
+                                          <div class="md-form form-sm col-md-6">
+                                            <i class="fas fa-envelope prefix"></i>
+                                            <input type="email" id="modalLRInput13 correo" class="form-control form-control-sm validate correo" name="correo">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Correo</label>
+                                          </div>
 
-                                    <div class="md-form form-sm col-md-6">
-                                      <i class="fas fa-mobile-alt prefix"></i>
-                                      <input type="text" id="modalLRInput13 telefono" class="form-control form-control-sm validate telefono" name="telefono">
-                                      <label data-error="wrong" data-success="right" for="modalLRInput13">Telefono</label>
-                                    </div>
-                                </div>
-                                <div class="form-row">    
-                                    <div class="md-form form-sm col-md-6">
-                                      <i class="fas fa-map-marker prefix"></i>
-                                      <input type="text" id="modalLRInput13 direccion" class="form-control form-control-sm validate direccion" name="direccion">
-                                      <label data-error="wrong" data-success="right" for="modalLRInput13">Direccion</label>
-                                    </div>
+                                          <div class="md-form form-sm col-md-6">
+                                            <i class="fas fa-mobile-alt prefix"></i>
+                                            <input type="text" id="modalLRInput13 telefono" class="form-control form-control-sm validate telefono" name="telefono">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Telefono</label>
+                                          </div>
+                                      </div>
+                                      <div class="form-row">    
+                                          <div class="md-form form-sm col-md-6">
+                                            <i class="fas fa-map-marker prefix"></i>
+                                            <input type="text" id="modalLRInput13 direccion" class="form-control form-control-sm validate direccion" name="direccion">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Direccion</label>
+                                          </div>
 
-                                    <div class="md-form form-sm col-md-6">
-                                      <i class="fas fa-lock prefix"></i>
-                                      <input type="password" id="modalLRInput13 contra" class="form-control form-control-sm validate contra" name="contra">
-                                      <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
-                                    </div>  
-                                </div>
-                          
-                                <div class="md-form form-sm mb-5">
-                                    <input class="form-control estado" id="inputEmail4 estado" name="estado" value="1" readonly="readonly" type="hidden">
-                                    <input type="hidden" class="form-control rol" id="inputEmail4 rol" name="rol" value="Cliente" readonly="readonly">
-                                </div>    
-                               
-                                <div class="text-center form-sm mt-2">
-                                    <button class="btn btnn text-light" type="submit" name="CargaCli">Registrarse<i class="fas fa-sign-in ml-1"></i></button>
-                                </div>
+                                          <div class="md-form form-sm col-md-6">
+                                            <i class="fas fa-lock prefix"></i>
+                                            <input type="password" id="modalLRInput13 contra" class="form-control form-control-sm validate contra" name="contra">
+                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
+                                          </div>  
+                                      </div>
 
-                              </div>
-                              <!--Footer-->
-                              <!--<div class="modal-footer">
-                                <div class="options text-right">
-                                  <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-                                </div>
-                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                              </div>-->
+                                      <div class="md-form form-sm mb-5">
+                                          <input class="form-control estado" id="inputEmail4 estado" name="estado" value="1" readonly="readonly" type="hidden">
+                                          <input type="hidden" class="form-control rol" id="inputEmail4 rol" name="rol" value="Cliente" readonly="readonly">
+                                      </div>    
+
+                                      <div class="text-center form-sm mt-2">
+                                          <button class="btn btnn text-light" type="submit" name="CargaCli">Registrarse<i class="fas fa-sign-in ml-1"></i></button>
+                                      </div>
+
+                                    </div>
+                                    <!--Footer-->
+                                    <!--<div class="modal-footer">
+                                      <div class="options text-right">
+                                        <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+                                      </div>
+                                      <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                                    </div>-->
+                                  </form>
                             </div>
+                            
                             <!--/.Panel 8-->
                           </div>
                     </div>
