@@ -128,7 +128,7 @@
                         listas = muestra.ConsultarDisenos();
                         for(int i = 0; i < listas.size(); i++){
                             dis = listas.get(i); %>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <div class="card">
                             <img 
                             title="Productos con medidas de <%= dis.getTexDiseno() %>"
