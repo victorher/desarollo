@@ -9,8 +9,8 @@ public class Conexion {
     public Connection Conexiondb(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            //cnn = DriverManager.getConnection("jdbc:mysql://localhost/Entre_Suenos","root","jardines.23"); 
-            cnn = DriverManager.getConnection("jdbc:mysql://localhost/Entre_Suenos","root","");
+            cnn = DriverManager.getConnection("jdbc:mysql://localhost/Entre_Suenos","root","jardines.23"); 
+            //cnn = DriverManager.getConnection("jdbc:mysql://localhost/Entre_Suenos","root","");
             //cnn = DriverManager.getConnection("jdbc:mysql://localhost/Entre_Suenos","root","Gustav199231*");
 //            JOptionPane.showMessageDialog(null, "Conexión establecida");
         } catch (Exception e) {
