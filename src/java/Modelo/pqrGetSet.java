@@ -10,11 +10,10 @@ public class pqrGetSet {
     private String Estado;
     private String Respuesta;
 
-    public pqrGetSet(String Nombre, String Correo, String Mensaje, String Estado) {
+    public pqrGetSet(String Nombre, String Correo, String Mensaje) {
         this.Nombre = Nombre;
         this.Correo = Correo;
         this.Mensaje = Mensaje;
-        this.Estado = Estado;
     }
 
     public String getId() {
