@@ -16,10 +16,10 @@ public class disenoGestiona {
     public ArrayList<disenoEtiqueta_gs> MuestraImagen(){
         ArrayList<disenoEtiqueta_gs> lista = new ArrayList<>();
         try {
-            ps = cnn.prepareStatement("SELECT Dis_IDDiseno, Dis_ImagenDiseno, Dis_PrecioDiseno FROM E_DISENO;");
+            ps = cnn.prepareStatement("SELECT Dis_IDDiseno, Dis_Titulo, Dis_ImagenDiseno, Dis_PrecioDiseno FROM E_DISENO;");
             rs = ps.executeQuery();
             while(rs.next()){
-                disenoEtiqueta_gs mues = new disenoEtiqueta_gs(rs.getString(1), rs.getString(2), rs.getString(3));
+                disenoEtiqueta_gs mues = new disenoEtiqueta_gs(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
                 lista.add(mues);
             }
         } catch (Exception e) {
