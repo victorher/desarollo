@@ -50,19 +50,18 @@ public class ServletPedidoRegistra extends HttpServlet {
             fecentr = request.getParameter("feentrega");
             direcc = request.getParameter("direntrega");
             tipo = request.getParameter("tipo");
-            JOptionPane.showMessageDialog(null, idA+"\n"+idD+"\n"+desc+"\n"+canti+"\n"+prec);
+//            JOptionPane.showMessageDialog(null, idA+"\n"+idD+"\n"+desc+"\n"+canti+"\n"+prec);
             detallesGetSet dise = new detallesGetSet(idA, idD, desc, canti, prec);
             GestionDestalles gdet = new GestionDestalles();
             boolean desen = gdet.IncertarDetalles(dise);
 //            gdet.IncertarDetalles(dise);
-            JOptionPane.showMessageDialog(null, desen);
+//            JOptionPane.showMessageDialog(null, desen);
             if(desen){
-                JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
+//                JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
                 Pedidosgetset usu = new Pedidosgetset(doc, est, fecped, fecentr, direcc, tipo);
                 GestionPedidos us = new GestionPedidos();
                 boolean dat = us.IncertarPedido(usu);
                 if(dat){
-//                    response.sendRedirect("CreaPedidos.jsp");
                     request.getRequestDispatcher("CreaPedidos.jsp").forward(request, response);
 //                JOptionPane.showMessageDialog(null, "Datos guardados");
                 }
