@@ -57,17 +57,17 @@
                     <li class="nav-item">
                       <a class="nav-link text-secondary" href="#">Nosotros</a>
                     </li>
-                    <li class="nav-item">
+<!--                    <li class="nav-item">
                       <a class="nav-link text-secondary" href="#">Pricing</a>
-                    </li>
+                    </li>-->
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle text-secondary" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Dropdown
+                        aria-haspopup="true" aria-expanded="false">Categorias
                       </a>
                       <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Desayunos</a>
+                        <a class="dropdown-item" href="#">15 Años</a>
+                        <a class="dropdown-item" href="#">Arreglos de mesa</a>
                       </div>
                     </li>
                   </ul>
@@ -242,7 +242,7 @@
 
             List=Dis.ConsultarDisenos();
         %>
-        <div class="container border rounded-lg cont view overlay">
+        <div class="container border rounded-lg cont view overlay mt-3">
             <img src="img/Entreseunos.png">
             <a>
                 <div class="mask rgba-white-slight"></div>
@@ -256,22 +256,25 @@
                    Dgs=List.get(i);
                 %>
               
-                <div class="col-3">
+                <div class="col-md-3 mb-4">
                    
                         <div class="card view overlay">
-                            <img src="img/<%=Dgs.getImagen()%>" class="card-img-top img-fluid img-thumbnail" alt="...">
+                            <img 
+                                src="img/<%=Dgs.getImagen()%>" 
+                                class="card-img-top img-fluid img-thumbnail" 
+                                alt="...">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title"><%=Dgs.getPreDiseno()%></h5>
+                                <h5 class="card-title">$ <%=Dgs.getPreDiseno()%>.00</h5>
                                 <!--<p class="card-text"><%=Dgs.getObserDiseno()%></p>-->
                                 <a href="#" class="btn btn-lg btn-secondary">Comprar</a>
                             </div>
                         </div>
                 </div>    
                 
-                            <% } %>
+                <% } %>
             </div>
         </div>
         
