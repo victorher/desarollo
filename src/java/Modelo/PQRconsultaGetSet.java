@@ -17,6 +17,9 @@ public class PQRconsultaGetSet {
         this.FechaRegistro = FechaRegistro;
     }
 
+    public PQRconsultaGetSet() {
+    }
+
     public PQRconsultaGetSet(String id) {
         this.id = id;
     }
