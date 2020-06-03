@@ -93,8 +93,9 @@ a:hover {
 }
 
 .col-gra {
-    background: rgb(106, 92, 124);
-    background: linear-gradient(90deg, rgba(106, 92, 124, 1) 0%, rgba(178, 66, 199, 1) 59%);
+/*    background: rgb(106, 92, 124);
+    background: linear-gradient(90deg, rgba(106, 92, 124, 1) 0%, rgba(178, 66, 199, 1) 59%);*/
+    background: rgb(228,218,200);
 }
 
 .b-inf {
