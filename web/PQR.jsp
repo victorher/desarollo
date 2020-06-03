@@ -56,7 +56,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+<!--                        <li class="nav-item active">
                             <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
@@ -88,16 +88,89 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="CreaArtProveedor.jsp">Categoria Articulos</a>
                             </div>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
                         </li>
                     </ul>
                     <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <input class="btn btn-entre form-control mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
+                        <button class="btn btn-entre form-control mr-sm-2" type="submit" name="btn">
+                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </div>
             </div>
         </nav>
     </body>
+    
+    <div class="container mt-4 p-4">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <%%>
+                            <form class="task-form" acction="" method="POST">
+                                <%%>
+                                <div class="form-group">
+                                    <input type="hidden" id="id" placeholder="Id" class="id form-control" name="id" value="<%%>">
+                                </div>
+                                <div class="form-group">
+                                     <textarea id="queja" cols="20" rows="3" class="form-control queja" placeholder="<%%>"></textarea>
+                                </div>
+                                <div class="form-group">
+                                     <textarea id="respuesta" cols="20" rows="6" class="form-control respuesta" name="respuesta" placeholder="Respuesta"></textarea>
+                                </div>
+                                <button type="submit" name="actualizaP" class="btn btn-success carga btn-block text-center">
+                                    Registrar
+                                </button>
+                                <%%>
+                            </form>
+                        <%%>
+                            <form class="task-form">
+                                <div class="form-group">
+                                    <input type="hidden" id="id" placeholder="Id" class="id form-control">
+                                </div>
+                                <div class="form-group">
+                                     <textarea id="queja" cols="20" rows="3" class="form-control queja" placeholder="Queja"></textarea>
+                                </div>
+                                <div class="form-group">
+                                     <textarea id="respuesta" cols="20" rows="6" class="form-control respuesta" placeholder="Respuesta"></textarea>
+                                </div>
+                                <button class="btn btn-success carga btn-block text-center">
+                                    Registrar
+                                </button>
+                            </form>
+                        <%%>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 mt-4">
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <td class="text-center"><b>F_Reclamo</b></td>
+                            <td class="text-center"><b>Queja</b></td>
+                            <td class="text-center"><b>Opc</b></td>
+                        </tr>
+                    </thead>
+                    <tbody class="tareas" id="tareas">
+                        <%%>
+                        <tr>
+                            <td><%%></td>
+                            <td><%%></td>
+                            <td>
+                                <form acction="" method="POST">
+                                    <input type="hidden" name="id" value="<%%>">
+                                    <button type="submit" name="modifica" class="img-thumbnail btn-success btn-block">
+                                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <%%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </html>
