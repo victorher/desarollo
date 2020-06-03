@@ -5,8 +5,6 @@
  */
 package Controlador;
 
-import Modelo.CatArticulogetset;
-import Modelo.GestionArtCategoria;
 import Modelo.PQRconsultaGetSet;
 import Modelo.prrMovimientos;
 import com.google.gson.Gson;
