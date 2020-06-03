@@ -30,6 +30,12 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
         <link rel="stylesheet" href="Styles/Est.css">
         <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Vista/js/Consulta_JSON_PQR.js" type="text/javascript"></script>
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="Styles/js/popper.min.js"></script>
+        <script src="Styles/main.js"></script> 
     </head>
     <body>
         <%
@@ -56,39 +62,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-<!--                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Consultar
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
-                                <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
-                                <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Pedidos</a>
-                                <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="ConsultaArtProveedor.jsp">Categoria Articulos</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Registrar
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
-                                <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
-                                <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
-                                <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="CreaArtProveedor.jsp">Categoria Articulos</a>
-                            </div>
-                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
                         </li>
@@ -145,30 +118,8 @@
                 </div>
             </div>
             <div class="col-md-7 mt-4">
-                <table class="table table-bordered table-sm">
-                    <thead>
-                        <tr>
-                            <td class="text-center"><b>F_Reclamo</b></td>
-                            <td class="text-center"><b>Queja</b></td>
-                            <td class="text-center"><b>Opc</b></td>
-                        </tr>
-                    </thead>
-                    <tbody class="tareas" id="tareas">
-                        <%%>
-                        <tr>
-                            <td><%%></td>
-                            <td><%%></td>
-                            <td>
-                                <form acction="" method="POST">
-                                    <input type="hidden" name="id" value="<%%>">
-                                    <button type="submit" name="modifica" class="img-thumbnail btn-success btn-block">
-                                        <i class="fa fa-wrench" aria-hidden="true"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <%%>
-                    </tbody>
+                <table class="table table-bordered table-sm" id="contenedor">
+
                 </table>
             </div>
         </div>
