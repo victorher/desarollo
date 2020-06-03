@@ -4,16 +4,16 @@
 <%@page session="true"%>
 <%
     try {
-         response.setHeader("Pragma", "no-cache");
-         response.addHeader("Cache-control", "must-revalidate");
-         response.addHeader("Cache-control", "no-cache");
-         response.addHeader("Cache-control", "no-store");
-         if(session.getAttribute("Documento")==null){
-             request.getRequestDispatcher("index.jsp").forward(request, response);
-         }
-        } catch (Exception e) {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
+        response.setHeader("Pragma", "no-cache");
+        response.addHeader("Cache-control", "must-revalidate");
+        response.addHeader("Cache-control", "no-cache");
+        response.addHeader("Cache-control", "no-store");
+    if(session.getAttribute("Documento")==null){
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
+    } catch (Exception e) {
+       request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -91,6 +91,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="PQR.jsp" tabindex="-1" aria-disabled="true">PQR (1)</a>
                         </li>
                     </ul>
                     <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
