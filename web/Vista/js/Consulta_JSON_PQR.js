@@ -30,6 +30,7 @@ function cargarJson(){
         url: "ServletConsultaPQR_JSON",
         dataType: 'json',
         success: function (resul) {
+//            console.log(resul);
             var contenido = document.getElementById('contenedor');
             contenido.innerHTML='';
             var datos = resul.length;
@@ -37,32 +38,27 @@ function cargarJson(){
                 contenido.innerHTML=`
                 <thead>
                     <tr class="btn-success">
-                        <th scope="col" class="text-center">Nombre</th>
-                        <th scope="col" class="text-center">Descripcion</th>
+                        <td scope="col" class="text-center"><b>F_Reclamo</b></td>
+                        <td scope="col" class="text-center"><b>Queja</b></td>
+                        <td scope="col" class="text-center"><b>Opc</b></td>
                     </tr>
                 </thead>`;
                 for(var dat of resul){
-                    contenido.innerHTML+=`
-                        <tbody>
-                            <tr>
-                                <td class="text-center">
-                                    <input 
-                                        size="15" 
-                                        type="text" 
-                                        class="input-group-text text-center border-0 artno" 
-                                        value="${dat.Nom}" 
-                                        name="nombre">
-                                </td>
-                                <td class="text-center">
-                                    <input 
-                                        size="70" 
-                                        type="text" 
-                                        class="input-group-text text-center border-0 descr" 
-                                        value="${dat.Cat}" 
-                                        name="descripcion">
-                                </td>
-                            </tr>
-                        </tbody>`;
+                contenido.innerHTML+=`
+                <tbody>
+                    <tr>
+                        <td>${dat.Mensaje}</td>
+                        <td>${dat.FechaRegistro}</td>
+                        <td>
+                            <form acction="" method="POST">
+                                <input type="hidden" name="id" value="${dat.id}">
+                                <button type="submit" name="modifica" class="img-thumbnail btn-success btn-block">
+                                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>`;
                 };
             }
         }
