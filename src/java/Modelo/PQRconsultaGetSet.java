@@ -17,6 +17,15 @@ public class PQRconsultaGetSet {
         this.FechaRegistro = FechaRegistro;
     }
 
+    public PQRconsultaGetSet(String id) {
+        this.id = id;
+    }
+
+    public PQRconsultaGetSet(String id, String Respuesta) {
+        this.id = id;
+        this.Respuesta = Respuesta;
+    }
+
     public String getId() {
         return id;
     }
