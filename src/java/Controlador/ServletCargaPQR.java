@@ -46,7 +46,7 @@ public class ServletCargaPQR extends HttpServlet {
             boolean dat = prr.IncertarPQR(pqr);
             
             if(dat){
-                request.getRequestDispatcher("CreaPedidos.jsp").forward(request, response);
+                request.getRequestDispatcher("PQR.jsp").forward(request, response);
             }else{
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
@@ -54,7 +54,7 @@ public class ServletCargaPQR extends HttpServlet {
                 out.println("<script type='text/javascript'>alert('Los datos no quedaron cargados');</script>");
                 out.println("</head>");
                 out.println("</html>");
-                request.getRequestDispatcher("CreaPedidos.jsp").forward(request, response);
+                request.getRequestDispatcher("PQR.jsp").forward(request, response);
             }
         }
     }
