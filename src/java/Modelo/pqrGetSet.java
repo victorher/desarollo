@@ -17,6 +17,17 @@ public class pqrGetSet {
         this.Mensaje = Mensaje;
     }
 
+    public pqrGetSet(String id, String Mensaje) {
+        this.id = id;
+        this.Mensaje = Mensaje;
+    }
+
+    public pqrGetSet(String id) {
+        this.id = id;
+    }
+    
+    
+
     public pqrGetSet(String TipoQueja, String Nombre, String Correo, String Mensaje) {
         this.TipoQueja = TipoQueja;
         this.Nombre = Nombre;
