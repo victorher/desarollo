@@ -69,27 +69,16 @@
 
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Disenos.jsp">
+                                Diseños 
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> (1)
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Eventos</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Consultar
+                            <a class="nav-link" href="CreaPedidos.jsp">
+                                Pedidos 
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Disenos.jsp">Diseños</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Registrar
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
-                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=nom+" "+ape%></a>
@@ -97,10 +86,14 @@
                     </ul>
                     <br>
                     <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-entre form-control mr-sm-2" type="button" data-toggle="modal" data-target="#register">Ver Datos</button>
+                        <button class="btn btn-entre form-control mr-sm-2" title="Actualizar" type="button" data-toggle="modal" data-target="#register">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
                     </form>
-                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-outline-invert form-control mr-sm-2" name="btn" type="submit">Cerrar Sesion</button>
+                    <form action="CerrarSesion" method="POST" title="Cerrar Sesion" class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-outline-invert form-control mr-sm-2" name="btn" type="submit">
+                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                        </button>
                     </form>
                     
                 </div> 
@@ -216,11 +209,11 @@
                                     </div>
                                 </form>
                                 <!--Footer-->
-                                <div class="container">
+<!--                                <div class="container">
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-entre waves-effect ml-auto" data-dismiss="modal">Close</button>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <!--/.Panel 8-->
