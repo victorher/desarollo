@@ -101,9 +101,7 @@ public class prrMovimientos {
     public boolean actaulizarPQR(PQRconsultaGetSet p){
         boolean dat = false;
         try {
-            ps = cnn.prepareCall("CALL pa_ActualizaEmpleado("
-                    + "'"+p.getId()+"',"
-                    + "'"+p.getMensaje()+"')");
+            ps = cnn.prepareCall("CALL ActualizarPQR('"+p.getId()+"','"+p.getMensaje()+"')");
             int d = ps.executeUpdate();
             if(d > 0){
                 dat = true;
