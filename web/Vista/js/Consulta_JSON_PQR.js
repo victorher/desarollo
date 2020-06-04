@@ -5,6 +5,7 @@ $(document).ready(function (){
     });
 //    $('.consulta').on('click',function (){
        cargarJson(); 
+       ContadorJson();
 //    });
 });
 
@@ -39,7 +40,8 @@ function cargarJson(){
                 <thead>
                     <tr class="btn-success">
                         <td scope="col" class="text-center"><b>F_Reclamo</b></td>
-                        <td scope="col" class="text-center"><b>Queja</b></td>
+                        <td scope="col" class="text-center"><b>Tipo_PQR</b></td>
+                        <td scope="col" class="text-center"><b>Mensaje</b></td>
                         <td scope="col" class="text-center"><b>Opc</b></td>
                     </tr>
                 </thead>`;
@@ -47,7 +49,8 @@ function cargarJson(){
                 contenido.innerHTML+=`
                 <tbody>
                     <tr>
-                        <td>${dat.Mensaje}</td>
+                        <td>${dat.Nombre}</td>
+                        <td>${dat.TipoPQR}</td>
                         <td>${dat.FechaRegistro}</td>
                         <td>
                             <form acction="" method="POST">
@@ -59,6 +62,31 @@ function cargarJson(){
                         </td>
                     </tr>
                 </tbody>`;
+                };
+            }
+        }
+    });
+};
+
+function ContadorJson(){
+//    alert('ingresa');
+    $.ajax({
+        url: "ServletContadorPQR_JSON",
+        dataType: 'json',
+        success: function (resul) {
+//            console.log(resul);
+            var contenido = document.getElementById('cunta');
+            contenido.innerHTML='';
+            var datos = resul.length;
+            if(datos>0){
+//                contenido.innerHTML=
+                for(var dat of resul){
+                contenido.innerHTML=`
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Administrador    
+                        <spam style="color: red;">(${dat.id})</spam> 
+                    </a> 
+                </li>`;
                 };
             }
         }
