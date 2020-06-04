@@ -182,14 +182,20 @@
                         <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus delectus quas veniam voluptate consequatur doloribus, quidem quia corrupti molestias debitis saepe iure! Reiciendis non ipsa quod repellendus illo dolorem beatae?</p>
                         <form action="" class="mt-6">
                             <div class="form-group">
+                                <select name="" id="" class="form-control pqr">
+                                    <option value="Petición">Petición</option>
+                                    <option value="Queja">Queja</option>
+                                    <option value="Reclamo">Reclamo</option>
+                                    <option value="Sujerencia">Sujerencia</option>
+                                    <option value="Felicitacion">Felicitacion</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <input type="text" class="form-control nombre" placeholder="Nombre">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control email" placeholder="Email">
                             </div>
-<!--                            <div class="form-group">
-                                <input type="number" class="form-control" placeholder="Numero telefonico">
-                            </div>-->
                             <div class="form-group">
                                 <textarea class="form-control mensaje" placeholder="Mensaje"></textarea>
                             </div>
