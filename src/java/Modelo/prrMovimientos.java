@@ -22,10 +22,11 @@ public class prrMovimientos {
     public boolean IncertarPQR(pqrGetSet p){
         boolean dat = false;
             try {
-                ps = cnn.prepareStatement("CALL pqrIncertaDatos(?,?,?)");
-                ps.setString(1, p.getNombre());
-                ps.setString(2, p.getCorreo());
-                ps.setString(3, p.getMensaje());
+                ps = cnn.prepareStatement("CALL pqrIncertaDatos(?,?,?,?)");
+                ps.setString(1, p.getTipoQueja());
+                ps.setString(2, p.getNombre());
+                ps.setString(3, p.getCorreo());
+                ps.setString(4, p.getMensaje());
                 int d = ps.executeUpdate();
                 if(d>0){
                     dat = true;
