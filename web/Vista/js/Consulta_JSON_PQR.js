@@ -1,29 +1,38 @@
 $(document).ready(function (){
 //    alert('ingreso al funtion');
-    $('.carga').on('click',function (){
-        incertar();
-    });
-//    $('.consulta').on('click',function (){
        cargarJson(); 
+       
        ContadorJson();
-//    });
+       
+    $('.carga').on('click',function (){
+        ActualizarPQR();
+    });
 });
 
-//function incertar(){
-////    alert('incertar');
-//    var nom = $('.nombre').val(),
-//        des = $('.descripcion').val();
-//        $.ajax({
-//            type: 'POST',
-//            url: "incertataArtProveedor",
-//            data: {nombre:nom, descripcion:des},
-//            success: function (res) {
-//                if(res) {alert('datos guardados'); cargarJson(); }
-//                else {alert('no se guardaron los datos');}
-////            console.log(res);
-//        }
-//        });
-//};
+function ActualizarPQR(){
+//    alert('incertar');
+    var id = $('.id').val();
+    var mensaje = $('.respuesta').val();
+//        alert(id+"\n"+mensaje);
+    $.ajax({
+        type: "POST",
+        url: "ServletActulizaPQR_AJAX",
+        data: {
+            id: id, 
+            mensaje: mensaje
+        },
+        success: function (res) {
+            if(res) {
+                alert('datos guardados'); 
+                cargarJson(); 
+            }
+            else {
+                alert('no se guardaron los datos');
+            }
+//          console.log(res);
+        }
+    });
+};
 
 function cargarJson(){
 //    alert('ingresa');
