@@ -3,6 +3,10 @@
     Created on : 2/06/2020, 07:24:39 PM
     Author     : VICTORH
 --%>
+<%@page import="Modelo.pqrGetSet"%>
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelo.prrMovimientos"%>
 <%
     try {
         response.setHeader("Pragma", "no-cache");
@@ -55,7 +59,7 @@
                 <div class="text-center">
                     <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
                 </div>
-                <a class="navbar-brand" href="#">INICIO</a>
+                <a class="navbar-brand" href="Principal.jsp">INICIO</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </button>
@@ -78,14 +82,24 @@
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <%%>
+                        <% if(request.getParameter("modifica")!=null){ %>
                             <form class="task-form" acction="" method="POST">
-                                <%%>
+                                <%  
+                                    String co;
+                                    co = request.getParameter("id");
+//                                    JOptionPane.showMessageDialog(null, co);
+                                    ArrayList<pqrGetSet> lista = new ArrayList<>();
+                                    pqrGetSet pqr = new pqrGetSet(co);
+                                    prrMovimientos cons = new prrMovimientos();
+                                    lista = cons.ConsultaPQRUni(pqr);
+                                    for(int i = 0; i < lista.size();i++){
+                                    pqr = lista.get(i);
+                                %>
                                 <div class="form-group">
-                                    <input type="hidden" id="id" placeholder="Id" class="id form-control" name="id" value="<%%>">
+                                    <input type="text" id="id" placeholder="Id" class="id form-control" name="id" value="<%=pqr.getId() %>">
                                 </div>
                                 <div class="form-group">
-                                     <textarea id="queja" cols="20" rows="3" class="form-control queja" placeholder="<%%>"></textarea>
+                                     <textarea id="queja" cols="20" rows="3" class="form-control queja" placeholder="<%=pqr.getMensaje() %>"></textarea>
                                 </div>
                                 <div class="form-group">
                                      <textarea id="respuesta" cols="20" rows="6" class="form-control respuesta" name="respuesta" placeholder="Respuesta"></textarea>
@@ -93,9 +107,9 @@
                                 <button type="submit" name="actualizaP" class="btn btn-success carga btn-block text-center">
                                     Registrar
                                 </button>
-                                <%%>
+                                <% } %>
                             </form>
-                        <%%>
+                        <% }else { %>
                             <form class="task-form">
                                 <div class="form-group">
                                     <input type="hidden" id="id" placeholder="Id" class="id form-control">
@@ -110,7 +124,7 @@
                                     Registrar
                                 </button>
                             </form>
-                        <%%>
+                        <% } %>
                     </div>
                 </div>
             </div>
