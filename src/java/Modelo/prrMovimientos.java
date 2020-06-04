@@ -41,14 +41,33 @@ public class prrMovimientos {
     public ArrayList<PQRconsultaGetSet> ConsultaPQR(){
         ArrayList<PQRconsultaGetSet> lista = new ArrayList<>();
         try {
-            ps=cnn.prepareStatement("SELECT p_ID, p_FechaRegistro, p_Mensaje FROM E_pqr WHERE p_Respuesta IS NULL");
+            ps=cnn.prepareStatement("SELECT p_ID, p_TipoComentario, p_FechaRegistro, p_Mensaje FROM E_pqr WHERE p_Respuesta IS NULL");
             rs=ps.executeQuery();
            
             while(rs.next()){
                 PQRconsultaGetSet pqr = new PQRconsultaGetSet(
                         rs.getString(1), 
                         rs.getString(2), 
-                        rs.getString(3));
+                        rs.getString(3),
+                        rs.getString(4));
+                lista.add(pqr);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        return lista;
+    }
+    
+    //Consulta todos las pqrs que estan sin responder
+    public ArrayList<PQRconsultaGetSet> Contador(){
+        ArrayList<PQRconsultaGetSet> lista = new ArrayList<>();
+        try {
+            ps=cnn.prepareStatement("SELECT COUNT(*) FROM E_pqr WHERE p_Respuesta IS NULL");
+            rs=ps.executeQuery();
+           
+            while(rs.next()){
+                PQRconsultaGetSet pqr = new PQRconsultaGetSet(
+                        rs.getString(1));
                 lista.add(pqr);
             }
         } catch (SQLException e) {
