@@ -27,9 +27,9 @@ header::before {
 nav {
     width: 100%;
     height: 80px;
-    background: rgba(222, 193, 230, 0.829);
+    background: rgba(222, 193, 230, 0.9);
     border-bottom: 1px solid transparent;
-    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+    box-shadow: 5px 7px 8px 0 rgba(116, 74, 152, .6);
     position: fixed;
     top: 0;
     z-index: 100;
@@ -101,5 +101,183 @@ nav {
     margin-top: 14px;
     color: rgb(131, 103, 155);
 }
-
-
+.titulo {
+    text-align: center;
+    font-family: cursive;
+    font-size: 45px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+}
+.tarjetas {
+    background: rgb(249, 243, 252);
+}
+.contenedor_articulo {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    /*justify-content: space-around;*/
+}
+.articulo {
+    width: 30%;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 25px 30px 40px 30px; 
+    transition: 0.5s;
+}
+.articulo:hover {
+    box-shadow: 0px 4px 10px rgba(17, 29, 48, .26);
+}
+.articulo img {
+    width: 245px;
+    height: 300px;
+}
+.articulo h3 {
+    margin-top: 8px;
+    margin-bottom: 5px
+}
+.titulo_pqr {
+    text-align: center;
+    font-family: cursive;
+    font-size: 45px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.subtitulo_pqr {
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+    margin-bottom: 60px;
+}
+form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.contenedor_input {
+    width: 50%;
+}
+.contenedor_input input, select {
+    width: 98%;
+    height: 40px;
+    margin-bottom: 16px;
+    padding-left: 10px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-top: 7px solid rgb(222, 193, 230);
+}
+.contenedor_textarea {
+    width: 50%;
+}
+.contenedor_textarea textarea {
+    width: 100%;
+    height: 153px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.contenedor_boton input {
+    width: 150px;
+    height: 30px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    background: rgb(222, 193, 230);
+    cursor: pointer;
+}
+.contenedor_boton input:hover {
+    background: rgb(153, 48, 180);
+    color:  #fff;
+}
+footer {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(249, 243, 252);
+}
+.footer_logo img {
+    width: 150px;
+    height: 80px;
+    margin-left: 180px;
+}
+.footer_redes {
+    margin-right: 180px;
+}
+.footer_redes h4 {
+    color: rgb(153, 48, 180);
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+.footer_redes div {
+    display: flex;
+    justify-content: space-between;
+}
+.footer_redes i {
+    font-size: 20px;
+    display: inline-block;
+    color: rgb(222, 193, 230);
+    border: 1px solid rgb(153, 48, 180);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    line-height: 36px;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease-in-out 0.3s;
+}
+.footer_redes i:hover {
+    color: #fff;
+    background: rgb(153, 48, 180);
+}
+.overley {
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.overley.active {
+    visibility: visible;
+}
+.popup {
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    box-shadow: 0px, 0px, 5px, 0px rgba(0, 0, 0, .3);
+    border-radius: 3px;
+    transition: .5s ease all;
+    transform: scale(0.7);
+    opacity: 0;
+}
+.popup .btnCerrar {
+    display: block;
+    text-align: right;
+}
+.popup.active {
+    opacity: 1;
+    transform: scale(1);
+}
+.formularioIniciar {
+    visibility: hidden;
+}
+.formularioIniciar.active {
+    visibility: visible;
+}
+.formularioRegistar {
+    visibility: hidden;
+}
