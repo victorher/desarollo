@@ -62,9 +62,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto" id="cunta">
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
-                        </li>
                     </ul>
                     <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
                         <button class="btn btn-entre form-control mr-sm-2" type="submit" name="btn">
