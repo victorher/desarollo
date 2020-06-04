@@ -8,7 +8,7 @@ $(document).ready(function (){
         var ema = $('.email').val();
         var mens = $('.mensaje').val();
         
-//        alert(pqr+" "+nom+" "+ema+" "+mens);
+//        alert(pqr+"\n"+nom+"\n"+ema+"\n"+mens);
 
         $.ajax({
             type: 'POST',
