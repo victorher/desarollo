@@ -83,7 +83,7 @@
                 <div class="card">
                     <div class="card-body">
                         <% if(request.getParameter("modifica")!=null){ %>
-                            <form class="task-form" acction="" method="POST">
+                            <form class="task-form" acction="">
                                 <%  
                                     String co;
                                     co = request.getParameter("id");
@@ -112,15 +112,15 @@
                         <% }else { %>
                             <form class="task-form">
                                 <div class="form-group">
-                                    <input type="hidden" id="id" placeholder="Id" class="id form-control">
+                                    <input type="hidden" id="id" placeholder="Id" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                     <textarea id="queja" cols="20" rows="3" class="form-control queja" placeholder="Queja"></textarea>
+                                     <textarea id="queja" cols="20" rows="3" class="form-control" placeholder="Queja"></textarea>
                                 </div>
                                 <div class="form-group">
-                                     <textarea id="respuesta" cols="20" rows="6" class="form-control respuesta" placeholder="Respuesta"></textarea>
+                                     <textarea id="respuesta" cols="20" rows="6" class="form-control" placeholder="Respuesta"></textarea>
                                 </div>
-                                <button class="btn btn-success carga btn-block text-center">
+                                <button class="btn btn-success btn-block text-center">
                                     Registrar
                                 </button>
                             </form>
