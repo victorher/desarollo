@@ -35,12 +35,13 @@ public class ServletCargaPQR extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String nombre, email, mensaje;
+            String tipo, nombre, email, mensaje;
+            tipo = request.getParameter("tipo");
             nombre = request.getParameter("nombre");
             email = request.getParameter("email");
             mensaje = request.getParameter("mensaje");
             
-            pqrGetSet pqr = new pqrGetSet(nombre, email, mensaje);
+            pqrGetSet pqr = new pqrGetSet(tipo, nombre, email, mensaje);
             prrMovimientos prr = new prrMovimientos();
             boolean dat = prr.IncertarPQR(pqr);
             
