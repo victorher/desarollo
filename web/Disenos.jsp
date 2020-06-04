@@ -65,7 +65,7 @@
 
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+<!--                        <li class="nav-item active">
                             <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
@@ -101,20 +101,20 @@
                                 <a class="dropdown-item" href="#">Articulos</a>
                                 <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
                             </div>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=docu%></a>
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=nom%> <%=ape%></a>
                         </li>
                     </ul>
                     <br>
-                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-outline-invert form-control mr-sm-2" title="Cerrar Sesion" name="btn" type="submit">
-                            <i class="fa fa-power-off" aria-hidden="true"></i>
-                        </button>
-                    </form>
                     <form class="form-inline my-2 my-lg-0">
                         <button class="btn btn-entre form-control mr-sm-2" title="Actualizar" type="button" data-toggle="modal" data-target="#register">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-outline-invert form-control mr-sm-2" title="Cerrar Sesion" name="btn" type="submit">
+                            <i class="fa fa-power-off" aria-hidden="true"></i>
                         </button>
                     </form>
                 </div> 
