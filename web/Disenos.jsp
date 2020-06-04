@@ -191,13 +191,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control nombre" placeholder="Nombre">
+                                <input type="text" class="form-control nombre" placeholder="Nombre" title="No colocar numeros en este campo" pattern="[A-Za-z]" required="">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control email" placeholder="Email">
+                                <input type="email" class="form-control email" title="Ingrese un correo electronico" placeholder="Email" required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control mensaje" placeholder="Mensaje"></textarea>
+                                <textarea class="form-control mensaje" title="Dejanos saber tus comentarios" placeholder="Mensaje" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-secondary btn-cargaDato">Enviar Comentario</button>
                         </form>
