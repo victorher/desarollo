@@ -39,7 +39,7 @@ public class ServletActulizaPQR_AJAX extends HttpServlet {
             String id, mensaje;
             id = request.getParameter("id");
             mensaje = request.getParameter("mensaje");
-            JOptionPane.showMessageDialog(null, id+" "+mensaje);
+//            JOptionPane.showMessageDialog(null, id+" "+mensaje);
             
             PQRconsultaGetSet pqr = new PQRconsultaGetSet(id, mensaje);
             prrMovimientos prr = new prrMovimientos();
