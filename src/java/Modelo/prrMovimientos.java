@@ -79,7 +79,7 @@ public class prrMovimientos {
     //Consulta una pqr para cargarla en los input
     public ArrayList<pqrGetSet> ConsultaPQRUni(pqrGetSet p){
         ArrayList<pqrGetSet> lista = new ArrayList<>();
-        JOptionPane.showMessageDialog(null, p.getId());
+//        JOptionPane.showMessageDialog(null, p.getId());
         try {
             ps=cnn.prepareStatement("CALL ConsultaUnicaPQR('"+p.getId()+"')");
             rs=ps.executeQuery();
