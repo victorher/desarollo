@@ -2,6 +2,7 @@ package Modelo;
 
 public class pqrGetSet {
     private String id;
+    private String TipoQueja;
     private String Nombre;
     private String Correo;
     private String Mensaje;
@@ -14,6 +15,21 @@ public class pqrGetSet {
         this.Nombre = Nombre;
         this.Correo = Correo;
         this.Mensaje = Mensaje;
+    }
+
+    public pqrGetSet(String TipoQueja, String Nombre, String Correo, String Mensaje) {
+        this.TipoQueja = TipoQueja;
+        this.Nombre = Nombre;
+        this.Correo = Correo;
+        this.Mensaje = Mensaje;
+    }
+
+    public String getTipoQueja() {
+        return TipoQueja;
+    }
+
+    public void setTipoQueja(String TipoQueja) {
+        this.TipoQueja = TipoQueja;
     }
 
     public String getId() {
