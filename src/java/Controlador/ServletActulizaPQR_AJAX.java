@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +39,7 @@ public class ServletActulizaPQR_AJAX extends HttpServlet {
             String id, mensaje;
             id = request.getParameter("id");
             mensaje = request.getParameter("mensaje");
+            JOptionPane.showMessageDialog(null, id+" "+mensaje);
             
             PQRconsultaGetSet pqr = new PQRconsultaGetSet(id, mensaje);
             prrMovimientos prr = new prrMovimientos();
