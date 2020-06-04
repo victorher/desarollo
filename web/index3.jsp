@@ -8,9 +8,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="Styles/js/index3_1.js" type="text/javascript"></script>
+        <script src="Styles/js/index3.js" type="text/javascript"></script>
         <script src="https://kit.fontawesome.com/60cc7e3bb5.js" crossorigin="anonymous"></script>
-        <link href="Styles/css/index3_2.css" rel="stylesheet" type="text/css"/>
+        <link href="Styles/css/index3.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
     </head>
     <body>
