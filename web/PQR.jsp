@@ -96,7 +96,7 @@
                                     pqr = lista.get(i);
                                 %>
                                 <div class="form-group">
-                                    <input type="text" id="id" placeholder="Id" class="id form-control" name="id" value="<%=pqr.getId() %>">
+                                    <input type="hidden" id="id" placeholder="Id" class="id form-control" name="id" value="<%=pqr.getId() %>">
                                 </div>
                                 <div class="form-group">
                                      <textarea id="queja" cols="20" rows="3" class="form-control queja" placeholder="<%=pqr.getMensaje() %>"></textarea>
