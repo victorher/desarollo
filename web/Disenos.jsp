@@ -108,10 +108,14 @@
                     </ul>
                     <br>
                     <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-outline-invert form-control mr-sm-2" name="btn" type="submit">Cerrar Sesion</button>
+                        <button class="btn btn-outline-invert form-control mr-sm-2" title="Cerrar Sesion" name="btn" type="submit">
+                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                        </button>
                     </form>
                     <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-entre form-control mr-sm-2" type="button" data-toggle="modal" data-target="#register">Actualizar</button>
+                        <button class="btn btn-entre form-control mr-sm-2" title="Actualizar" type="button" data-toggle="modal" data-target="#register">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </div> 
             </div>
