@@ -65,45 +65,13 @@
 
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto">
-<!--                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> (1)
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Eventos</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Consultar
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Empleados</a>
-                                <a class="dropdown-item" href="#">Clientes</a>
-                                <a class="dropdown-item" href="#">Proveedor</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Diseño</a>
-                                <a class="dropdown-item" href="Disenos.jsp">Diseños</a>
-                                <a class="dropdown-item" href="#">Categorias de articulos</a>
-                                <a class="dropdown-item" href="#">Articulos</a>
-                                <a class="dropdown-item" href="#">Pedidos</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Registrar
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Empleados</a>
-                                <a class="dropdown-item" href="#">Clientes</a>
-                                <a class="dropdown-item" href="#">Proveedores</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Diseños</a>
-                                <a class="dropdown-item" href="#">Categorias de articulos</a>
-                                <a class="dropdown-item" href="#">Articulos</a>
-                                <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
-                            </div>
-                        </li>-->
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=nom%> <%=ape%></a>
+                            <a class="nav-link disabled" href="#" tabindex="-1" title="Cliente" aria-disabled="true"><%=nom%> <%=ape%></a>
                         </li>
                     </ul>
                     <br>
