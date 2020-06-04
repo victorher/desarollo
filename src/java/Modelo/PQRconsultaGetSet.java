@@ -3,6 +3,7 @@ package Modelo;
 
 public class PQRconsultaGetSet {
     private String id;
+    private String TipoPQR;
     private String Nombre;
     private String Correo;
     private String Mensaje;
@@ -15,6 +16,22 @@ public class PQRconsultaGetSet {
         this.id = id;
         this.Mensaje = Mensaje;
         this.FechaRegistro = FechaRegistro;
+    }
+    
+    
+    public PQRconsultaGetSet(String id, String TipoPQR, String Nombre, String FechaRegistro) {
+        this.id = id;
+        this.TipoPQR = TipoPQR;
+        this.Nombre = Nombre;
+        this.FechaRegistro = FechaRegistro;
+    }
+
+    public String getTipoPQR() {
+        return TipoPQR;
+    }
+
+    public void setTipoPQR(String TipoPQR) {
+        this.TipoPQR = TipoPQR;
     }
 
     public PQRconsultaGetSet() {
