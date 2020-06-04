@@ -77,18 +77,18 @@ public class prrMovimientos {
     }
     
     //Consulta una pqr para cargarla en los input
-    public ArrayList<PQRconsultaGetSet> ConsultaPQRUni(PQRconsultaGetSet p){
-        ArrayList<PQRconsultaGetSet> lista = new ArrayList<>();
+    public ArrayList<pqrGetSet> ConsultaPQRUni(pqrGetSet p){
+        ArrayList<pqrGetSet> lista = new ArrayList<>();
+        JOptionPane.showMessageDialog(null, p.getId());
         try {
             ps=cnn.prepareStatement("CALL ConsultaUnicaPQR('"+p.getId()+"')");
             rs=ps.executeQuery();
             //JOptionPane.showMessageDialog(null, "Datos Consultados");
            
             while(rs.next()){
-                PQRconsultaGetSet pqr = new PQRconsultaGetSet(
+                pqrGetSet pqr = new pqrGetSet(
                         rs.getString(1), 
-                        rs.getString(2), 
-                        rs.getString(3));
+                        rs.getString(2));
                 lista.add(pqr);
             }
         } catch (SQLException e) {
