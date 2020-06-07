@@ -28,6 +28,12 @@
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <link rel="stylesheet" href="Styles/Est.css">
         <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <script src="Styles/js/modificar.js"></script>   <!--modificar -->
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="Styles/js/popper.min.js"></script>
+        <script src="Styles/main.js"></script>
     </head>
     <body>
         <%
@@ -93,7 +99,7 @@
         
         <div class="container container-cards mt-5">
             <div class="table">
-                <form action="" enctype="multipart/form-data" method="POST">
+                <form action="" enctype="multipart/form-data">
                     <table class="table-responsive table-hover table-borderless table-sm">
                         <thead>
                             <tr class="btn-danger">
@@ -105,9 +111,9 @@
                                 <th scope="col">Precio</th>
                                 <th scope="col">Observaciones</th>
                                 <th scope="col">Imagen</th>
-                                <!--<th scope="col">ModImagen</th>-->
-                                <th scope="col">Actualizar</th>
-                                <th scope="col">Eliminar</th>
+                                <th scope="col">ModImagen</th>
+                                <th scope="col">Opcion</th>
+                                <!--<th scope="col">Eliminar</th>-->
                             </tr>
                         </thead>
                         <tbody>
@@ -129,17 +135,17 @@
                                     <td><input type="text" class="input-group-text table text-center border-0 text-warning predis" value="<%=con.getPreDiseno()%>" name="prediseno"></td>
                                     <td><input type="text" class="input-group-text border-0 obdis" value="<%=con.getObserDiseno()%>" name="obsdiseno"></td>
                                     <td><img src="img/<%=con.getImagen()%>" class="img-thumbnail img-fluid"></td>
-                                    <!--<td><input type="file"  accept="image/*" value="" name="imgdiseno" class="img-thumbnail img-fluid border-0 imgdis"></td>-->
+                                    <td><input type="file"  accept="image/*" title="Ingresa una imagen" value="Guardar" name="imgdiseno" class="img-thumbnail img-fluid border-0 imgdis"></td>
                                     <td>
-                                        <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
                                         <div class="text-center">
-                                            <button type="button" name="ActualizaDis" class="img-fluid btn-success btnmod"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <input type="hidden" name="cod" value="<%=con.getIDDiseno()%>">
-                                        <div class="text-center">
-                                            <button type="submit" name="EliminaDiseno" class="img-fluid btn-danger" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
+                                            <div class="text-center">
+                                                <button type="button" name="ActualizaDis" class="img-fluid img-thumbnail btn-success btnmod"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+                                            </div>
+                                            <input type="hidden" name="cod" value="<%=con.getIDDiseno()%>">
+                                            <div class="text-center">
+                                                <button type="submit" name="EliminaDiseno" class="img-fluid img-thumbnail btn-danger" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -169,11 +175,5 @@
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Styles/js/modificar.js"></script>   <!--modificar -->
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script>
     </body>
 </html>
