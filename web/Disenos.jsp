@@ -163,7 +163,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control nombre" placeholder="Nombre" title="No colocar numeros en este campo" pattern="[A-Za-z]" required="">
+                                <input type="text" class="form-control nombre" placeholder="Nombre" title="No colocar numeros en este campo"  required="">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control email" title="Ingrese un correo electronico" placeholder="Email" required>
