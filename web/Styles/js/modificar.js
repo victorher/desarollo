@@ -21,10 +21,11 @@ $(document).ready(function(){
        var  col = codis.val();
        var  pre = predis.val();
        var  obs = obdis.val();
-       var  img = 'Digite';
+       var  img = imgdis.val();
        //mostrar los datos
         //alert(id+"\n"+num+"\n"+ted+"\n"+tad+"\n"+col+"\n"+pre+"\n"+obs+"\n"+img);
        $.ajax({
+           type: 'POST',
            url:'ServletDisenoActualiza',
            data:{ //es un arreglo
                iddiseno: id,
