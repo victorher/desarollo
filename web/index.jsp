@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 28/04/2020, 02:59:03 PM
-    Author     : PC1
---%>
-
 <%@page import="Modelo.GestionDiseno"%>
 <%@page import="Modelo.Disenogetset"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,274 +6,184 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="icon" type="image/png" href="img/Suenos.png">
-        <title>Entre Sueños</title>
-        <!-- MDB icon -->
-        <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-        <!-- Google Fonts Roboto -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-        <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="MBD/css/bootstrap.min.css">
-        <!-- Material Design Bootstrap -->
-        <link rel="stylesheet" href="MBD/css/mdb.min.css">
-        <!-- Your custom styles (optional) -->
-        <link rel="stylesheet" href="MBD/css/style.css">
-        <!-- jQuery -->
-        <script type="text/javascript" src="MBD/js/jquery.min.js"></script>
-        <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="MBD/js/popper.min.js"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="MBD/js/bootstrap.min.js"></script>
-        <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="MBD/js/mdb.min.js"></script>
-        <!-- Your custom scripts (optional) -->
-        <script type="text/javascript"></script>
+        <title>Entre sueños</title>
+        <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="Styles/js/index3.js" type="text/javascript"></script>
+        <script src="https://kit.fontawesome.com/60cc7e3bb5.js" crossorigin="anonymous"></script>
+        <link href="Styles/css/index3.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!--Navbar -->
-        <nav class="mb-1 navbar navbar-expand-lg  nav" color-on-scroll="300">
-            <div class="container">
-                <a class="navbar-brand text-secondary" href="index.jsp">
-                    <img src="img/Suenos.png" width="40" height="30" class="d-inline-block align-top"> Entre Sueños</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-                  aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link text-secondary" href="index.jsp">Inicio
-                        <span class="sr-only">(current)</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-secondary" href="#">Nosotros</a>
-                    </li>
-<!--                    <li class="nav-item">
-                      <a class="nav-link text-secondary" href="#">Pricing</a>
-                    </li>-->
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-secondary" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Categorias
-                      </a>
-                      <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                        <a class="dropdown-item" href="#">Desayunos</a>
-                        <a class="dropdown-item" href="#">15 Años</a>
-                        <a class="dropdown-item" href="#">Arreglos de mesa</a>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li class="nav-item">
-                      <a class="nav-link waves-effect waves-light">
-                        <i class="fab fa-instagram"></i>
-                      </a>
-                    </li>  
-                    <li class="nav-item">
-                      <a class="nav-link waves-effect waves-light">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link waves-effect waves-light">
-                        <i class="fab fa-google-plus-g"></i>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link waves-effect waves-light" data-toggle="modal" data-target="#modalLRForm1">
-                        <i class="fas fa-user"></i>
-                      </a>
-
-                    </li>
-                  </ul>
+         <header>
+            <nav>
+                <section class="contenedor nav">
+                    <div class="logo">
+                        <img src="Vista/img/LOGO-01.png" alt=""/>
+                    </div>
+                    <div class="enlaces_header">
+                        <a id="btnAbrirPopup"><i class="fas fa-user-alt"></i></a>
+                    </div>
+                </section>
+            </nav>
+            <div class="contenedor">
+                <section class="contenido_header">
+                    <section class="textos_header">
+                        <h1>ENTRE SUEÑOS</h1>
+                        <P>Un detalle que sale del corazón, es el tesoro mas valioso</P>
+                    </section>
+                    <img src="img/imagen_header.jpeg" alt=""/>
+                </section>
+            </div>
+        </header>
+        <section class="tarjetas">
+            <div class="contenedor1">
+                <h2 class="titulo">Algunos de nuestros productos</h2>
+                <div class="contenedor_articulo">
+                        <%
+                            ArrayList<Disenogetset> listas = new ArrayList();
+                            Disenogetset con = new Disenogetset();
+                            GestionDiseno Cons = new GestionDiseno();
+                            listas = Cons.ConsultarDisenos();
+                            for(int i=0; i<listas.size(); i++){
+                                con = listas.get(i);
+                        %>
+                        <div class="articulo">
+                            <img src="img/<%=con.getImagen()%>">
+                            <h3><%=con.getNumDetalle()%></h3>
+                            <p><%=con.getTexDiseno()%></p>
+                        </div>
+                        <% } %>
                 </div>
-            </div>    
-        </nav>
-        <!--/.Navbar -->
-        
-        <!--Modal: Login / Register Form-->
-        <div class="modal fade" id="modalLRForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-body l">
-                        <ul class="nav md-pills nav-justified pills-info" role="tablist">
-                            <li class="nav-item">
-                              <a class="nav-link border border-info border-rounded active" data-toggle="tab" href="#panel7" role="tab" aria-selected="true"><i class="fas fa-user mr-1"></i>
-                                Login</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link border border-info border-rounded show" data-toggle="tab" href="#panel8" role="tab" aria-selected="false"><i class="fas fa-user-plus mr-1"></i>
-                                Register</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <!--Panel 7-->
-                            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-                                <form action="ServletLogin" method="POST" class="register-form">
-                                    <!--Body-->
-                                    <div class="modal-body mb-1">
-                                      <div class="md-form form-sm mb-5">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="number" id="modalLRInput10 usu" class="form-control form-control-sm validate usu" name="usu">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput10">Documento</label>
-                                      </div>
-
-                                      <div class="md-form form-sm mb-4">
-                                        <i class="fas fa-lock prefix"></i>
-                                        <input type="password" id="modalLRInput11 con" class="form-control form-control-sm validate con" name="con">
-                                        <label data-error="wrong" data-success="right" for="modalLRInput11">Contraseña</label>
-                                      </div>
-                                      <div class="text-center mt-2">
-                                        <button class="btn btnn text-light" name="btnlogin">Iniciar Sesion <i class="fas fa-sign-in ml-1"></i></button>
-                                      </div>
-                                    </div>
-                                    <!--Footer-->
-                                    <div class="modal-footer">
-                                      <div class="options text-center text-md-right mt-1">
-                                        <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                                        <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                                      </div>
-                                      <button type="button" class="btn btn-outline-info waves-effect ml-auto"  data-dismiss="modal">Close</button>
-                                    </div>
-                                </form>    
+            </div>
+        </section>
+        <section>
+            <div class="contenedor">
+                <h2 class="titulo_pqr">PETICIONES QUEJAS O RECLAMOS</h2>
+                <h4 class="subtitulo_pqr">
+                    En este espacio puedes enviarnos tus peticiones, quejas, reclamos, sugerencias y felicitaciones
+                </h4>
+                <div class="cuerpo_pqr">
+                    <form action="">
+                        <div class="contenedor_input">
+                            <div class="grupo">
+                                <input class="nombre_pqr" type="text" name="" required=""><span class="barra"></span>
+                                <label>Nombre</label>
                             </div>
-                            <!--/.Panel 7-->
-
-                            <!--Panel 8-->
-                            <div class="tab-pane fade" id="panel8" role="tabpanel">
-                                <form action="ServletGestionUsu" method="POST">
-                                    <!--Body-->
-                                    <div class="modal-body">
-                                      <div class="form-row">
-                                          <div class="md-form form-sm col-md-6">
-                                            <i class="far fa-address-card prefix"></i>
-                                            <input type="number" id="modalLRInput12 documento" class="form-control form-control-sm validate documento" name="documento">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput12">Documento</label>
-                                          </div>
-
-                                          <div class="md-form form-sm col-md-6">
-                                            <i class="fas fa-ad prefix"></i>
-                                            <input type="text" id="modalLRInput13 nombre" class="form-control form-control-sm validate nombre" name="nombre">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Nombre</label>
-                                          </div>
-                                      </div>
-                                      <div class="form-row">
-                                          <div class="md-form form-sm col-md-6">
-                                            <i class="fas fa-ad prefix"></i>
-                                            <input type="text" id="modalLRInput13 apellido" class="form-control form-control-sm validate apellido" name="apellido">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Apellido</label>
-                                          </div>
-
-                                          <div class="form-group form-sm col-md-6"> 
-                                              <i class="fas fa-venus-mars fa-2x"></i>
-                                                  <label for="genero">Genero</label>
-                                                      <select name="sexo" id="sexo" class="form-control sexo">
-                                                          <option value="0">Seleccion</option>
-                                                          <option value="Masculino">Masculino</option>
-                                                          <option value="Femenino">Femenino</option>
-                                                      </select>  
-                                          </div>  
-                                      </div>
-                                      <div class="form-row">   
-                                          <div class="md-form form-sm col-md-6">
-                                            <i class="fas fa-envelope prefix"></i>
-                                            <input type="email" id="modalLRInput13 correo" class="form-control form-control-sm validate correo" name="correo">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Correo</label>
-                                          </div>
-
-                                          <div class="md-form form-sm col-md-6">
-                                            <i class="fas fa-mobile-alt prefix"></i>
-                                            <input type="text" id="modalLRInput13 telefono" class="form-control form-control-sm validate telefono" name="telefono">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Telefono</label>
-                                          </div>
-                                      </div>
-                                      <div class="form-row">    
-                                          <div class="md-form form-sm col-md-6">
-                                            <i class="fas fa-map-marker prefix"></i>
-                                            <input type="text" id="modalLRInput13 direccion" class="form-control form-control-sm validate direccion" name="direccion">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Direccion</label>
-                                          </div>
-
-                                          <div class="md-form form-sm col-md-6">
-                                            <i class="fas fa-lock prefix"></i>
-                                            <input type="password" id="modalLRInput13 contra" class="form-control form-control-sm validate contra" name="contra">
-                                            <label data-error="wrong" data-success="right" for="modalLRInput13">Contraseña</label>
-                                          </div>  
-                                      </div>
-
-                                      <div class="md-form form-sm mb-5">
-                                          <input class="form-control estado" id="inputEmail4 estado" name="estado" value="1" readonly="readonly" type="hidden">
-                                          <input type="hidden" class="form-control rol" id="inputEmail4 rol" name="rol" value="Cliente" readonly="readonly">
-                                      </div>    
-
-                                      <div class="text-center form-sm mt-2">
-                                          <button class="btn btnn text-light" type="submit" name="CargaCli">Registrarse<i class="fas fa-sign-in ml-1"></i></button>
-                                      </div>
-
-                                    </div>
-                                    <!--Footer-->
-                                    <!--<div class="modal-footer">
-                                      <div class="options text-right">
-                                        <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-                                      </div>
-                                      <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                                    </div>-->
-                                  </form>
+                            <div class="grupo">
+                                <input class="email_pqr" type="email" name="" required=""><span class="barra"></span>
+                                <label>Email</label>
                             </div>
-                            
-                            <!--/.Panel 8-->
-                          </div>
+                            <select class="select_pqr">
+                                <option value="">Selecciona el tipo de pqr que deseas colocar</option>
+                                <option value="peticion">Peticion</option>
+                                <option value="queja">Queja</option>
+                                <option value="reclamo">Reclamo</option>
+                                <option value="sugerencia">sugerencia</option>
+                                <option value="felicitacion">Felicitacion</option>
+                            </select>
+                        </div>
+                        <div class="contenedor_textarea">
+                            <textarea name="" cols="30" rows="10" placeholder="ingrese su mensaje..."></textarea><span class="barraTex"></span>
+                        </div>
+                        <div class="contenedor_boton">
+                            <input type="button" value="enviar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer_logo">
+                <img src="Vista/img/LOGO-01.png">
+            </div>
+            <div class="footer_redes">
+                <h4>Redes Sociales</h4>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        </footer>
+        <div class="contenedor">
+            <div class="overley" id="overley">
+                <div class="popup" id="popup">
+                    <div class="contenedeorBtnCerrar">
+                    <a href="#" id="btnCerrar" class="btnCerrar">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                    </div>
+                    <div class="botones">
+                        <a id="iniciar" >Iniciar Sesion</a>
+                        <a id="registrar" >Registrarse</a>
+                    </div>
+                    <div class="formularioIniciar" id="FormularioIniciar">
+                        <h2>Iniciar Sesion</h2>
+                        <form action="ServletLogin" method="POST">
+                            <div class="formularioGrupo">
+                                <input type="text" name="usu" required=""><span class="barra"></span>
+                                <label>Digita tu numero de cedula</label>
+                            </div>
+                            <div class="formularioGrupo">
+                                <input type="password" name="con" required=""><span class="barra"></span>
+                                <label>Digita tu clave</label>
+                            </div>
+                            <button name="btnlogin">Iniciar</button>
+                        </form>
+                    </div>
+                    <div class="formularioRegistar" id="formularioRegistar">
+                        <h2>Registrar usuario</h2>
+                        <form action="ServletGestionUsu" method="POST">
+                            <div class="registrarGrupo">
+                                <input type="text" name="documento" required="">
+                                <span class="barra"></span>
+                                <label id="label">Documento</label>
+                            </div>
+                            <div class="registrarGrupo">
+                                <input type="text" name="nombre" required="">
+                                <span class="barra"></span>
+                                <label id="label1">Nombre</label>
+                            </div>
+                            <div class="registrarGrupo">
+                                <input type="text" name="apellido" required="">
+                                <span class="barra"></span>
+                                <label id="label2">Apellido</label>
+                            </div>
+                            <div class="registrarGrupo">
+                                <select name="sexo" required="">
+                                    <option value=""></option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                                <label id="label3">Genero</label>
+                            </div>
+                            <div class="registrarGrupo">
+                                <input type="email" name="correo" required="">
+                                <span class="barra"></span>
+                                <label id="label4">Correo</label>
+                            </div>
+                            <div class="registrarGrupo">
+                                <input type="text" name="telefono" required="">
+                                <span class="barra"></span>
+                                <label id="label5">Telefono</label>
+                            </div>
+                            <div class="registrarGrupo">
+                                <input type="text" name="direccion" required="">
+                                <span class="barra"></span>
+                                <label id="label6">Direccion</label>
+                            </div>
+                            <div class="registrarGrupo">
+                                <input type="password" name="contra" required="">
+                                <span class="barra"></span>
+                                <label id="label7">Contraseña</label>
+                            </div>
+                            <input type="hidden" name="estado" value="1">
+                            <input type="hidden" name="rol" value="Cliente">
+                            <button type="submit" name="CargaCli">Registrar</button>
+                        </form>
                     </div>
                 </div>
-            </div> 
-        </div>
-        <%
-            ArrayList<Disenogetset> List = new ArrayList<Disenogetset>();
-            Disenogetset Dgs = new Disenogetset();
-            GestionDiseno Dis = new GestionDiseno();
-
-            List=Dis.ConsultarDisenos();
-        %>
-        <div class="container border rounded-lg cont view overlay mt-3">
-            <img src="img/Entreseunos.png">
-            <a>
-                <div class="mask rgba-white-slight"></div>
-            </a>
-        </div>
-        
-        <div class="container">
-            <div class="col-12 divisor"></div> 
-            <div class="row">
-                <% for(int i=0; i<List.size(); i++){
-                   Dgs=List.get(i);
-                %>
-              
-                <div class="col-md-3 mb-4">
-                   
-                        <div class="card view overlay">
-                            <img 
-                                src="img/<%=Dgs.getImagen()%>" 
-                                class="card-img-top img-fluid img-thumbnail" 
-                                alt="...">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title">$ <%=Dgs.getPreDiseno()%>.00</h5>
-                                <!--<p class="card-text"><%=Dgs.getObserDiseno()%></p>-->
-                                <a href="#" class="btn btn-lg btn-secondary">Comprar</a>
-                            </div>
-                        </div>
-                </div>    
-                
-                <% } %>
             </div>
         </div>
-        
-       
-        
-      
     </body>
 </html>
