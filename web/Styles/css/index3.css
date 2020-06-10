@@ -163,17 +163,76 @@ form {
 .contenedor_input {
     width: 50%;
 }
-.contenedor_input input, select {
+form .grupo {
+    position: relative
+}
+.contenedor_input input {
     width: 98%;
     height: 40px;
     margin-bottom: 16px;
     padding-left: 10px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
 }
-input[type="text"]:focus,
-input[type="email"]:focus,
-select:focus,
-textarea:focus {
-    border-top: 7px solid rgb(222, 193, 230);
+.nombre_pqr:focus,
+.email_pqr:focus {
+    outline: none;
+    /*border-bottom: 5px solid rgb(222, 193, 230);*/
+}
+label {
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: 0.5s ease all;
+    pointer-events: none;
+}
+.nombre_pqr:focus~label,
+.nombre_pqr:valid~label{
+    top: -14px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.email_pqr:focus~label,
+.email_pqr:valid~label{
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.barra {
+    position: relative;
+    display: block;
+    width: 98%;
+}
+.barra::before {
+    content: "";
+    height: 4px;
+    width: 0%;
+    bottom: 15px;
+    position: absolute;
+    background: rgb(222, 193, 230);
+    transition: 0.3s ease width;
+    left: 0;
+}
+.nombre_pqr:focus~.barra::before {
+    width: 100%;
+}
+.email_pqr:focus~.barra::before {
+    width: 100%;
+}
+.contenedor_input select {
+    width: 98%;
+    height: 40px;
+    margin-bottom: 16px;
+    padding-left: 5px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
+}
+.select_pqr:focus {
+    outline: none;
+    border-bottom: 5px solid rgb(222, 193, 230);
 }
 .contenedor_textarea {
     width: 50%;
@@ -183,6 +242,31 @@ textarea:focus {
     height: 153px;
     padding-top: 10px;
     padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
+    border-left: 1px solid rgb(222, 193, 230);
+}
+textarea:focus {
+    outline: none;
+    /*border-bottom: 5px solid rgb(222, 193, 230);*/
+}
+.barraTex {
+    position: relative;
+    display: block;
+    width: 98%;
+}
+.barraTex::before {
+    content: "";
+    height: 4px;
+    width: 0%;
+    bottom: 0px;
+    position: absolute;
+    background: rgb(222, 193, 230);
+    transition: 0.3s ease width;
+    left: 0;
+}
+textarea:focus~.barraTex::before {
+    width: 100%;
 }
 .contenedor_boton input {
     width: 150px;
@@ -191,8 +275,10 @@ textarea:focus {
     border-radius: 30px;
     background: rgb(222, 193, 230);
     cursor: pointer;
+    outline: none;
 }
 .contenedor_boton input:hover {
+    outline: none;
     background: rgb(153, 48, 180);
     color:  #fff;
 }
@@ -255,18 +341,33 @@ footer {
     visibility: visible;
 }
 .popup {
-    width: 200px;
-    height: 200px;
-    background: #fff;
+    width: 400px;
+    height: 450px;
+    /*overflow-y: auto;*/
+    background: rgb(249, 243, 252);
     box-shadow: 0px, 0px, 5px, 0px rgba(0, 0, 0, .3);
     border-radius: 3px;
     transition: .5s ease all;
     transform: scale(0.7);
     opacity: 0;
 }
-.popup .btnCerrar {
-    display: block;
-    text-align: right;
+.popup .contenedeorBtnCerrar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 10px 10px 0;
+}
+.popup .contenedeorBtnCerrar .btnCerrar {
+    width: 20px;
+    border: 1px solid rgb(153, 48, 180);
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 2px;
+    background: rgb(222, 193, 230);
+}
+.popup .contenedeorBtnCerrar .btnCerrar:hover {
+    background: rgb(153, 48, 180);
+    color:  #fff;
 }
 .popup.active {
     opacity: 1;
@@ -280,4 +381,196 @@ footer {
 }
 .formularioRegistar {
     visibility: hidden;
+}
+.formularioRegistar.active {
+    visibility: visible;
+    position: fixed;
+    top: 80px;
+}
+.popup .botones {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+.popup .botones a {
+    width: 40%;
+    border: 1px solid rgb(153, 48, 180);
+    border-radius: 30px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    background: rgb(222, 193, 230);
+    cursor: pointer;
+}
+.popup .botones a:hover {
+    background: rgb(153, 48, 180);
+    color:  #fff;
+}
+.popup .formularioIniciar {
+    height: 0px;
+}
+.popup .formularioIniciar h2 {
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.popup .formularioIniciar form .formularioGrupo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+    position: relative;
+}
+.popup .formularioIniciar form .formularioGrupo input{
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    background: rgb(249, 243, 252);
+    margin-bottom: 16px;
+    padding-left: 10px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
+}
+.popup .formularioIniciar form .formularioGrupo input:focus {
+    outline: none;
+}
+.popup .formularioIniciar form .formularioGrupo label {
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 12px;
+    left: 70px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+.popup .formularioIniciar form .formularioGrupo input:focus~label,
+.popup .formularioIniciar form .formularioGrupo input:valid~label{
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.popup .formularioIniciar form .formularioGrupo .barra {
+    position: relative;
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+.popup .formularioIniciar form .formularioGrupo .barra::before {
+    content: "";
+    height: 4px;
+    width: 0%;
+    bottom: 15px;
+    position: absolute;
+    background: rgb(222, 193, 230);
+    transition: 0.3s ease width;
+    left: 0;
+}
+.popup .formularioIniciar form .formularioGrupo input:focus~.barra::before {
+    width: 100%;
+}
+.popup .formularioIniciar form button {
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 30px;
+    background: rgb(222, 193, 230);
+    cursor: pointer;
+    outline: none;
+}
+.popup .formularioIniciar form button:hover {
+    outline: none;
+    background: rgb(153, 48, 180);
+    color:  #fff;
+}
+.popup .formularioRegistar h2 {
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.popup .formularioRegistar form .registrarGrupo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+    position: relative;
+}
+.popup .formularioRegistar form .registrarGrupo input, select{
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    background: rgb(249, 243, 252);
+    margin-bottom: 16px;
+    padding-left: 10px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
+}
+.popup .formularioRegistar form .registrarGrupo input:focus,
+.popup .formularioRegistar form .registrarGrupo select:focus{
+    outline: none;
+}
+.popup .formularioRegistar form .registrarGrupo label {
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 12px;
+    left: 66px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+.popup .formularioRegistar form .registrarGrupo input:focus~label,
+.popup .formularioRegistar form .registrarGrupo input:valid~label{
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.popup .formularioRegistar form .registrarGrupo select:focus~label,
+.popup .formularioRegistar form .registrarGrupo select:valid~label{
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.popup .formularioRegistar form .registrarGrupo .barra {
+    position: relative;
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+.popup .formularioRegistar form .registrarGrupo .barra::before {
+    content: "";
+    height: 4px;
+    width: 0%;
+    bottom: 15px;
+    position: absolute;
+    background: rgb(222, 193, 230);
+    transition: 0.3s ease width;
+    left: 0;
+}
+.popup .formularioRegistar form .registrarGrupo input:focus~.barra::before {
+    width: 100%;
+}
+.popup .formularioRegistar form button {
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    background: rgb(222, 193, 230);
+    cursor: pointer;
+    outline: none;
+}
+.popup .formularioRegistar form button:hover {
+    outline: none;
+    background: rgb(153, 48, 180);
+    color:  #fff;
 }
