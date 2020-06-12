@@ -99,11 +99,10 @@
         
         <div class="container container-cards mt-5">
             <div class="table">
-                <form action="" enctype="multipart/form-data">
-                    <table class="table-responsive table-hover table-borderless table-sm">
+                <form action="" enctype="multipart/form-data" id="frm">
+                    <table class="table-responsive table-hover table-borderless table-sm" id="tabla">
                         <thead>
                             <tr class="btn-danger">
-                                <th scope="col">Codigo</th>
                                 <th scope="col">Numero</th>
                                 <th scope="col">Texto</th>
                                 <th scope="col">Tamano</th>
@@ -127,7 +126,7 @@
 
                                     con = listas.get(i); %>
                                 <tr>
-                                    <td><input type="text" class="input-group-text table text-center border-0 iddis" value="<%=con.getIDDiseno()%>"></td>
+                                    <input type="hidden" class="input-group-text table text-center border-0 iddis" value="<%=con.getIDDiseno()%>" name="iddis">
                                     <td><input type="text" class="input-group-text table text-center border-0 nudeta" value="<%=con.getNumDetalle()%>" name="numdetalle"></td>
                                     <td><input type="text" class="input-group-text border-0 tedis" value="<%=con.getTexDiseno()%>" name="texdiseno"></td>
                                     <td><input type="text" class="input-group-text border-0 tadis" value="<%=con.getTamDiseno()%>" name="tamdiseno"></td>
@@ -140,9 +139,8 @@
                                         <div class="text-center">
                                             <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
                                             <div class="text-center">
-                                                <button type="button" name="ActualizaDis" class="img-fluid img-thumbnail btn-success btnmod"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+                                                <button type="button" name="ActualizaDis" class="img-fluid img-thumbnail btn-success btnmod" id="btnmod"><i class="fa fa-wrench" aria-hidden="true"></i></button>
                                             </div>
-                                            <input type="hidden" name="cod" value="<%=con.getIDDiseno()%>">
                                             <div class="text-center">
                                                 <button type="submit" name="EliminaDiseno" class="img-fluid img-thumbnail btn-danger" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             </div>
