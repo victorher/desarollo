@@ -4,6 +4,7 @@ import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -30,7 +31,7 @@ public class GestionDiseno {
                             rs.getString(8));
                     lista.add(us);
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e+" ConsultarDisenos Gestion disenos");
             }
         return lista;
@@ -53,7 +54,7 @@ public class GestionDiseno {
                             rs.getString(8));
                     lisuni.add(cl);
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e+" ConsulUniDiseno Gestion Diseno");
             }
         return lisuni;
@@ -74,7 +75,7 @@ public class GestionDiseno {
                 if(d>0)
                     dat = true;
                 
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e+" IncertarDiseno");
             }
         return dat;
@@ -97,7 +98,7 @@ public class GestionDiseno {
                 dat = true;
             }
             //JOptionPane.showMessageDialog(null, "Si hay datos");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e+" ActaulizarDiseno");
         }
         return dat;
@@ -111,7 +112,7 @@ public class GestionDiseno {
             if(d > 0){
                 dat = true;
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e + " EliminarDiseno");
         }
         return dat;
