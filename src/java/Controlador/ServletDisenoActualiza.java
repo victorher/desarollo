@@ -7,7 +7,10 @@ package Controlador;
 
 import Modelo.Disenogetset;
 import Modelo.GestionDiseno;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -15,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import javax.swing.JOptionPane;
 
 /**
@@ -46,27 +50,31 @@ public class ServletDisenoActualiza extends HttpServlet {
             ColDis = request.getParameter("coldiseno");
             PrecDis = request.getParameter("prediseno");
             ObsDis = request.getParameter("obsdiseno");
-//            Part foto = request.getPart("imgdiseno");
-//            String nomfoto = foto.getSubmittedFileName();
-            //JOptionPane.showMessageDialog(null, IDDiseno);
-//            String nombre = NumDet + "_" + nomfoto;
-//            String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\EntreSuenos\\web\\img\\" + nombre;
-//            String Url2 = "img/" + nombre;
-            String Url2 = "defecto.jpg";
+            Part foto = request.getPart("imgdiseno");
+            String nomfoto = foto.getSubmittedFileName();
+//            JOptionPane.showMessageDialog(null, IDDiseno+" "+NumDet+" "+TexDis+" "+TamDis+" "+ColDis+" "+PrecDis+" "+ObsDis+" "+foto);
+            String nombre = IDDiseno + "_" + nomfoto;
+            String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\desarollo\\web\\img\\" + nombre;
+            String Url2 = nombre;
+            if (Url2.equals(IDDiseno+"_")) {
+                Url2 = "defecto.jpg";
+            }
+//            
             
-//            InputStream file = foto.getInputStream();
-//            File f = new File(Url);
-//            FileOutputStream sal = new FileOutputStream(f);
-//            int num = file.read(); //read es un metodo de la clase file
-//            while(num != -1){
-//                sal.write(num);
-//                num = file.read();
-//            }
+            InputStream file = foto.getInputStream();
+            File f = new File(Url);
+            FileOutputStream sal = new FileOutputStream(f);
+            int num = file.read(); //read es un metodo de la clase file
+            while(num != -1){
+                sal.write(num);
+                num = file.read();
+            }
 //            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+NumDet+"\n"+TexDis+"\n"+
 //                    TamDis+"\n"+ColDis+"\n"+PrecDis+"\n"+ObsDis+"\n"+Url2);
             Disenogetset usu = new Disenogetset(IDDiseno, NumDet, TexDis, TamDis, ColDis, PrecDis, ObsDis, Url2);
             GestionDiseno us = new GestionDiseno();
             boolean dat = us.ActaulizarDiseno(usu);
+            out.print(dat);
             if(dat){
 //                JOptionPane.showMessageDialog(null, "Datos actualizados");
                 response.sendRedirect("ConsultaDiseno.jsp");
