@@ -60,7 +60,7 @@ public class ServletDiseno extends HttpServlet {
             String nomfoto = foto.getSubmittedFileName();
 
             String nombre = NumDet + "_" + nomfoto;
-            String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\EntreSuenos\\web\\img\\" + nombre;
+            String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\desarollo\\web\\img\\" + nombre;
 //            String Url3 = "C:\\xampp\\htdocs\\EntreSuenos\\img\\" + nombre;
             String Url2 = nombre;
             
