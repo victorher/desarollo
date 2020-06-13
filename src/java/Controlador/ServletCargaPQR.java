@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,27 +36,31 @@ public class ServletCargaPQR extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String tipo, nombre, email, mensaje;
-            tipo = request.getParameter("tipo");
-            nombre = request.getParameter("nombre");
-            email = request.getParameter("email");
-            mensaje = request.getParameter("mensaje");
-            
-            pqrGetSet pqr = new pqrGetSet(tipo, nombre, email, mensaje);
-            prrMovimientos prr = new prrMovimientos();
-            boolean dat = prr.IncertarPQR(pqr);
-            
-            if(dat){
-                request.getRequestDispatcher("PQR.jsp").forward(request, response);
-            }else{
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<script type='text/javascript'>alert('Los datos no quedaron cargados');</script>");
-                out.println("</head>");
-                out.println("</html>");
-                request.getRequestDispatcher("PQR.jsp").forward(request, response);
-            }
+//            String opc = request.getParameter("op");
+//            JOptionPane.showMessageDialog(null, opc);
+//            if(opc.equals("enviar")){
+                String tipo, nombre, email, mensaje;
+                nombre = request.getParameter("nombre");
+                email = request.getParameter("email");
+                tipo = request.getParameter("tipo");
+                mensaje = request.getParameter("mensaje");
+//                JOptionPane.showMessageDialog(null, tipo+"\n"+nombre+"\n"+email+"\n"+mensaje);
+                pqrGetSet pqr = new pqrGetSet(tipo, nombre, email, mensaje);
+                prrMovimientos prr = new prrMovimientos();
+                boolean dat = prr.IncertarPQR(pqr);
+                out.print(dat);
+    //            if(dat){
+    //                request.getRequestDispatcher("PQR.jsp").forward(request, response);
+    //            }else{
+    //                out.println("<!DOCTYPE html>");
+    //                out.println("<html>");
+    //                out.println("<head>");
+    //                out.println("<script type='text/javascript'>alert('Los datos no quedaron cargados');</script>");
+    //                out.println("</head>");
+    //                out.println("</html>");
+    //                request.getRequestDispatcher("PQR.jsp").forward(request, response);
+    //            }
+//            }
         }
     }
 
