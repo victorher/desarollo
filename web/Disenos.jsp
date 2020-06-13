@@ -154,7 +154,7 @@
                         <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus delectus quas veniam voluptate consequatur doloribus, quidem quia corrupti molestias debitis saepe iure! Reiciendis non ipsa quod repellendus illo dolorem beatae?</p>
                         <form action="" class="mt-6">
                             <div class="form-group">
-                                <select name="" id="" class="form-control pqr">
+                                <select name="" id="" class="form-control tipo">
                                     <option value="Petición">Petición</option>
                                     <option value="Queja">Queja</option>
                                     <option value="Reclamo">Reclamo</option>
