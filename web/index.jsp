@@ -7,11 +7,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Entre sueños</title>
-        <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="Styles/js/index3.js" type="text/javascript"></script>
-        <script src="https://kit.fontawesome.com/60cc7e3bb5.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <link href="Styles/css/index3.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="Styles/js/index3.js" type="text/javascript"></script>
+        <!--<script src="Vista/js/llevaPQRdatosFETCH.js" type="text/javascript"></script>-->
+        <script src="Vista/js/pqrLlevaDatos.js" type="text/javascript"></script>
     </head>
     <body>
          <header>
@@ -63,30 +66,30 @@
                     En este espacio puedes enviarnos tus peticiones, quejas, reclamos, sugerencias y felicitaciones
                 </h4>
                 <div class="cuerpo_pqr">
-                    <form action="">
+                    <form action="" id="frm" method="POST">
                         <div class="contenedor_input">
                             <div class="grupo">
-                                <input class="nombre_pqr" type="text" name="" required=""><span class="barra"></span>
+                                <input class="nombre_pqr nombre" type="text" name="nombre" required="" id="nombre"><span class="barra"></span>
                                 <label>Nombre</label>
                             </div>
                             <div class="grupo">
-                                <input class="email_pqr" type="email" name="" required=""><span class="barra"></span>
+                                <input class="email_pqr email" type="email" name="email" required="" id="email"><span class="barra"></span>
                                 <label>Email</label>
                             </div>
-                            <select class="select_pqr">
+                            <select class="select_pqr tipo" id="tipo" name="tipo">
                                 <option value="">Selecciona el tipo de pqr que deseas colocar</option>
-                                <option value="peticion">Peticion</option>
-                                <option value="queja">Queja</option>
-                                <option value="reclamo">Reclamo</option>
-                                <option value="sugerencia">sugerencia</option>
-                                <option value="felicitacion">Felicitacion</option>
+                                <option value="Petición">Petición</option>
+                                <option value="Queja">Queja</option>
+                                <option value="Reclamo">Reclamo</option>
+                                <option value="Sugerencia">sugerencia</option>
+                                <option value="Felicitacion">Felicitacion</option>
                             </select>
                         </div>
                         <div class="contenedor_textarea">
-                            <textarea name="" cols="30" rows="10" placeholder="ingrese su mensaje..."></textarea><span class="barraTex"></span>
+                            <textarea name="mensaje" cols="30" rows="10" placeholder="ingrese su mensaje..." class="mensaje" id="mensaje"></textarea><span class="barraTex"></span>
                         </div>
                         <div class="contenedor_boton">
-                            <input type="button" value="enviar">
+                            <input type="button" value="enviar" class="btn-cargaDato" name="btn-cargaDato" id="btn-cargaDato">
                         </div>
                     </form>
                 </div>
