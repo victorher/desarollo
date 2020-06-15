@@ -56,5 +56,13 @@ $(document).ready(function(e){
         FormularioIniciar.classList.remove('active');
         formularioRegistar.classList.add('active');
         popup.style.overflow = "auto";
+        label.style.transition = "0.3s ease";
+        label1.style.transition = "0.3s ease";
+        label2.style.transition = "0.3s ease";
+        label3.style.transition = "0.3s ease";
+        label4.style.transition = "0.3s ease";
+        label5.style.transition = "0.3s ease";
+        label6.style.transition = "0.3s ease";
+        label7.style.transition = "0.3s ease";
     });
 });
