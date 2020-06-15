@@ -342,8 +342,7 @@ footer {
 }
 .popup {
     width: 400px;
-    height: 450px;
-    /*overflow-y: auto;*/
+    height: 400px;
     background: rgb(249, 243, 252);
     box-shadow: 0px, 0px, 5px, 0px rgba(0, 0, 0, .3);
     border-radius: 3px;
@@ -404,9 +403,6 @@ footer {
 .popup .botones a:hover {
     background: rgb(153, 48, 180);
     color:  #fff;
-}
-.popup .formularioIniciar {
-    height: 0px;
 }
 .popup .formularioIniciar h2 {
     font-family: cursive;
@@ -573,4 +569,25 @@ footer {
     outline: none;
     background: rgb(153, 48, 180);
     color:  #fff;
+}
+/*RESPONOSIVE*/
+@media screen and (max-width:450px) {
+    .textos_header h1 {
+        font-size: 30px;
+    }
+    .textos_header p {
+        font-size: 20px;
+    }
+    .titulo {
+        font-size: 30px
+    }
+    .articulo {
+        width: 45%;
+    }
+    .titulo_pqr {
+        font-size: 30px;
+    }
+    .subtitulo_pqr {
+        font-size: 20px;
+    }
 }
