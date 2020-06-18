@@ -28,9 +28,13 @@ $(document).ready(function(e){
     });
     
     var btnAbrirPopup = document.getElementById('btnAbrirPopup');
+    var btnAbrirCarrito = document.getElementById('carrito');
     var overley = document.getElementById('overley');
     var popup = document.getElementById('popup');
+    var carritoModal = document.getElementById('carritoModal');
+    var carritoPopup = document.getElementById('carritoPopup');
     var btnCerrarPopup = document.getElementById('btnCerrar');
+    var btnCerrarCarrito = document.getElementById('btnCerrarCarrito');
     var formularioActualizar = document.getElementById('formularioActualizar');
     
     btnAbrirPopup.addEventListener('click', function(){
@@ -45,5 +49,15 @@ $(document).ready(function(e){
         popup.classList.remove('active');
         document.getElementsByTagName("nav")[0].style.top = "0px";
         document.querySelectorAll(".hamburguer")[0].style.color = "rgb(153, 48, 180)";
+    });
+    btnAbrirCarrito.addEventListener('click', function(){
+        carritoModal.classList.add('active');
+        carritoPopup.classList.add('active');
+        document.getElementsByTagName("nav")[0].style.top = "-100px";
+    });
+    btnCerrarCarrito.addEventListener('click', function(){
+        carritoModal.classList.remove('active');
+        carritoPopup.classList.remove('active');
+        document.getElementsByTagName("nav")[0].style.top = "0px";
     });
 });
