@@ -34,7 +34,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Entre Sueños</title>
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
-        <link href="Styles/css/cliente1.css" rel="stylesheet" type="text/css"/>
+        <link href="Styles/css/cliente.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
