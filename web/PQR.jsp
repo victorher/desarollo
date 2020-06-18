@@ -13,9 +13,9 @@
         response.addHeader("Cache-control", "must-revalidate");
         response.addHeader("Cache-control", "no-cache");
         response.addHeader("Cache-control", "no-store");
-    if(session.getAttribute("Documento")==null){
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-    }
+        if(session.getAttribute("Documento")==null){
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     } catch (Exception e) {
        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
@@ -83,7 +83,7 @@
                 <div class="card">
                     <div class="card-body">
                         <% if(request.getParameter("modifica")!=null){ %>
-                            <form class="task-form" acction="">
+                        <form class="task-form" acction="" id="frm">
                                 <%  
                                     String co;
                                     co = request.getParameter("id");
@@ -96,13 +96,13 @@
                                     pqr = lista.get(i);
                                 %>
                                 <div class="form-group">
-                                    <input type="hidden" id="id" placeholder="Id" class="id form-control" name="id" value="<%=pqr.getId() %>">
+                                    <input type="text" id="id" placeholder="Id" class="form-control id" name="id" value="<%=pqr.getId() %>">
                                 </div>
                                 <div class="form-group">
-                                     <textarea id="queja" cols="20" rows="3" class="form-control queja" placeholder="<%=pqr.getMensaje() %>"></textarea>
+                                     <textarea id="queja" cols="20" rows="3" class="form-control" placeholder="<%=pqr.getMensaje() %>"></textarea>
                                 </div>
                                 <div class="form-group">
-                                     <textarea id="respuesta" cols="20" rows="6" class="form-control respuesta" name="respuesta" placeholder="Respuesta"></textarea>
+                                     <textarea id="respuesta" cols="20" rows="6" class="form-control mensaje" name="mensaje" placeholder="Respuesta"></textarea>
                                 </div>
                                 <button type="submit" name="actualizaP" class="btn btn-success carga btn-block text-center">
                                     Registrar
@@ -112,7 +112,7 @@
                         <% }else { %>
                             <form class="task-form">
                                 <div class="form-group">
-                                    <input type="hidden" id="id" placeholder="Id" class="form-control">
+                                    <input type="text" id="id" placeholder="Id" class="form-control">
                                 </div>
                                 <div class="form-group">
                                      <textarea id="queja" cols="20" rows="3" class="form-control" placeholder="Queja"></textarea>
