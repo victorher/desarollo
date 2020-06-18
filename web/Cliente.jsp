@@ -34,7 +34,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Entre Sueños</title>
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
-        <link href="Styles/css/cliente.css" rel="stylesheet" type="text/css"/>
+        <link href="Styles/css/cliente1_1.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
@@ -60,7 +60,7 @@
                         <img src="Vista/img/LOGO-01.png" alt=""/>
                         <a class="quitar"><%=roll%></a>
                         <a class="quitar"><%=nom+" "+ape%></a>
-                        <a class="nav-link" href="Disenos.jsp">
+                        <a class="carrito" id="carrito" href="#">
                             <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> (1)
                         </a>
                     </div>
@@ -83,8 +83,8 @@
             <div class="overley" id="overley">
                 <!--Content-->
                 <div class="popup" id="popup">
-                    <div>
-                        <a href="#" id="btnCerrar" class="btnCerrar">
+                    <div class="contenedorBtnCerrar">
+                        <a href="Cliente.jsp" id="btnCerrar" class="btnCerrar">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -149,6 +149,7 @@
 
                             <div class="formularioGrupo">
                                 <input type="text" class="pass" id="pass" value="<%=con.getClave()%>" name="contra" required>
+                                <span class="barra"></span>
                                 <label>Contraseña</label>
                             </div>
                             <input  id="est" name="estado" value="<%=con.getEstado()%>" type="hidden">
@@ -158,6 +159,39 @@
                                 <i class="fa fa-sign-in ml-1"></i>
                             </button>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- En este div va el carrito de compras aqui mostramos la seleccion de los productos que comprara el cliente -->
+        <div class="contenedor">
+            <div class="carritoModal" id="carritoModal">
+                <div class="carritoPopup" id="carritoPopup">
+                    <div class="contenedorBtnCerrarCarrito">
+                        <a href="Cliente.jsp" id="btnCerrarCarrito" class="btnCerrarCarrito">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="bodyCarrito" id="bodyCarrito">
+                        <h2>Carrito de compras</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Direccion</th>
+                                    <th>Articulo</th>
+                                    <th>Descripcion</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
