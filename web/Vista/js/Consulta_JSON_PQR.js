@@ -10,21 +10,22 @@ $(document).ready(function (){
 });
 
 function ActualizarPQR(){
-//    alert('incertar');
+//    alert('Actualizar');
     var id = $('.id').val();
-    var mensaje = $('.respuesta').val();
+    var mensaje = $('.mensaje').val();
 //        alert(id+"\n"+mensaje);
     $.ajax({
         type: "POST",
         url: "ServletActulizaPQR_AJAX",
         data: {
-            id: id, 
-            mensaje: mensaje
+            masid: id, 
+            texto: mensaje
         },
         success: function (res) {
             if(res) {
                 alert('datos guardados'); 
                 cargarJson(); 
+                $('.task-form').trigger('reset');
             }
             else {
                 alert('no se guardaron los datos');
