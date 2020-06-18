@@ -37,14 +37,14 @@ public class ServletActulizaPQR_AJAX extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String id, mensaje;
-            id = request.getParameter("id");
-            mensaje = request.getParameter("mensaje");
+            id = request.getParameter("masid");
+            mensaje = request.getParameter("texto");
 //            JOptionPane.showMessageDialog(null, id+" "+mensaje);
             
             PQRconsultaGetSet pqr = new PQRconsultaGetSet(id, mensaje);
             prrMovimientos prr = new prrMovimientos();
             boolean dat = prr.actaulizarPQR(pqr);
-            
+//            out.print(dat);
             if(dat){
                 request.getRequestDispatcher("PQR.jsp").forward(request, response);
             }else{
