@@ -157,13 +157,13 @@ nav {
     transform: scale(0.7);
     opacity: 0;
 }
-.popup .contenedeorBtnCerrar {
+.popup .contenedorBtnCerrar {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     padding: 10px 10px 10px 0;
 }
-.popup .contenedeorBtnCerrar .btnCerrar {
+.popup .contenedorBtnCerrar .btnCerrar {
     width: 20px;
     border: 1px solid rgb(153, 48, 180);
     border-radius: 50%;
@@ -171,7 +171,7 @@ nav {
     padding-top: 2px;
     background: rgb(222, 193, 230);
 }
-.popup .contenedeorBtnCerrar .btnCerrar:hover {
+.popup .contenedorBtnCerrar .btnCerrar:hover {
     background: rgb(153, 48, 180);
     color:  #fff;
 }
@@ -210,11 +210,8 @@ nav {
     padding-left: 10px;
     display: block;
     border: none;
-    border-bottom: 1px solid rgb(222, 193, 230);
-}
-.popup .formularioActualizar form .formularioGrupo input:focus
-.popup .formularioActualizar form .formularioGrupo select:focus{
     outline: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
 }
 .popup .formularioActualizar form .formularioGrupo label {
     font-size: 16px;
@@ -270,6 +267,84 @@ nav {
     background: rgb(153, 48, 180);
     color:  #fff;
 }
+/*En esta seccion le daremos los estilos al modal del carrito de compras*/
+.carritoModal {
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.carritoModal.active {
+    visibility: visible;
+}
+.carritoPopup {
+    width: 70%;
+    height: 400px;
+    overflow-y: auto;
+    background: rgb(249, 243, 252);
+    box-shadow: 0px, 0px, 5px, 0px rgba(0, 0, 0, .3);
+    border-radius: 3px;
+    transition: .5s ease all;
+    transform: scale(0.7);
+    opacity: 0;
+}
+.carritoPopup .contenedorBtnCerrarCarrito {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 10px 10px 0;
+}
+.carritoPopup .contenedorBtnCerrarCarrito .btnCerrarCarrito {
+    width: 20px;
+    border: 1px solid rgb(153, 48, 180);
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 2px;
+    background: rgb(222, 193, 230);
+}
+.carritoPopup .contenedorBtnCerrarCarrito .btnCerrarCarrito:hover {
+    background: rgb(153, 48, 180);
+    color:  #fff;
+}
+.carritoPopup.active {
+    opacity: 1;
+    transform: scale(1);
+}
+.carritoPopup .bodyCarrito {
+    width: 100%;
+    height: 100%;
+}
+.carritoPopup .bodyCarrito h2 {
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.carritoPopup .bodyCarrito table {
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+}
+.carritoPopup .bodyCarrito table thead {
+    height: 30px;
+    background: rgb(222, 193, 230);
+    font-family: cursive;
+    color: rgb(153, 48, 180);
+    border-bottom: 3px solid rgb(153, 48, 180);;
+    padding: 0;
+}
+.carritoPopup .bodyCarrito table tbody tr:nth-child(even) {
+    background-color: #ddd;
+}
+/*En esta seccion le damos los estilos a las tarjetas que van a mostrar los productos*/
 .titulo {
     text-align: center;
     font-family: cursive;
