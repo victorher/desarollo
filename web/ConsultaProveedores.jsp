@@ -20,6 +20,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
@@ -99,22 +100,22 @@
             }
         </script>
         <section>
-            <div class="container container-cards" id="res">
+            <div class="p-4 container-cards" id="res">
                 <div class="table">
                     <form action="ActualizaProveedor" method="POST">
                         <table class="table-responsive table-hover table-borderless table-sm">
                             <thead>
                                 <tr style="background: linear-gradient(-90deg, #8E2DE2, #4A00E0);">
-                                    <th scope="col" class="text-center">Codigo</th>
-                                    <th scope="col" class="text-center">Nombre</th>
-                                    <th scope="col" class="text-center">Apellidos</th>
-                                    <th scope="col" class="text-center">Direccion</th>
-                                    <th scope="col" class="text-center">Telefono</th>
-                                    <th scope="col" class="text-center">Correo</th>
-                                    <th scope="col" class="text-center">Categoria</th>
-                                    <th scope="col" class="text-center">Estado</th>
-                                    <th scope="col" class="text-center">Actualizar</th>
-                                    <th scope="col" class="text-center">Eliminar</th>
+                                    <!--<th class="text-center">Codigo</th>-->
+                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Apellidos</th>
+                                    <th class="text-center">Direccion</th>
+                                    <th class="text-center">Telefono</th>
+                                    <th class="text-center">Correo</th>
+                                    <th class="text-center">Categoria</th>
+                                    <th class="text-center">Estado</th>
+                                    <th class="text-center">--</th>
+                                    <!--<th scope="col" class="text-center">Eliminar</th>-->
                                 </tr>
                             </thead>
                             <tbody>
@@ -132,25 +133,70 @@
                                 %>
 
                                 <tr>
-                                    <td scope="row"><input class="input-group-text border-0 text-center table proveedorID" value="<%=con.getProveedorID()%>" name="proveedorID"></td>
-                                    <td><input class="border-0 input-group-text nombre" value="<%=con.getNombrePro()%>" name="nombre"></td>
-                                    <td><input class="border-0 input-group-text apellido" value="<%=con.getApellidoPro()%>" name="apellido"></td>
-                                    <td><input class="border-0 input-group-text direccion" value="<%=con.getDireccionPro()%>" name="direccion"></td>
-                                    <td><input class="border-0 input-group-text telefono" value="<%=con.getTelefonoPro()%>" name="telefono"></td>
-                                    <td><input class="border-0 input-group-text correo" size="30" value="<%=con.getCorreoPro()%>" name="correo"></td>
-                                    <td><input class="border-0 input-group-text categoria" value="<%=con.getCategoriaPro()%>" name="categoria"></td>
-                                    <td><input class="border-0 input-group-text estado" value="<%=con.getEstadoPro()%>" name="estado"></td>
+                                    <!--<td>-->
+                            <input type="hidden" class="input-group-text border-0 text-center table proveedorID" value="<%=con.getProveedorID()%>" name="proveedorID">
+                                    <!--</td>-->
                                     <td>
-                                        <input type="hidden" name="" value="">
-                                        <div class="text-center">
-                                            <button type="submit" name="ActualizaPro" class="btn-success img-fluid btnmod"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                        </div>
+                                        <input size="9" 
+                                            class="border-0 input-group-text nombre" 
+                                            value="<%=con.getNombrePro()%>" 
+                                            name="nombre">
                                     </td>
                                     <td>
-                                        <input type="hidden" name="" value="" class="text-center">
+                                        <input size="9" 
+                                            class="border-0 input-group-text apellido" 
+                                            value="<%=con.getApellidoPro()%>" 
+                                            name="apellido">
+                                    </td>
+                                    <td>
+                                        <input size="20" 
+                                            class="border-0 input-group-text direccion" 
+                                            value="<%=con.getDireccionPro()%>" 
+                                            name="direccion">
+                                    </td>
+                                    <td>
+                                        <input size="8" 
+                                            class="border-0 input-group-text telefono" 
+                                            value="<%=con.getTelefonoPro()%>" 
+                                            name="telefono">
+                                    </td>
+                                    <td>
+                                        <input size="24" 
+                                            class="border-0 input-group-text correo" 
+                                            value="<%=con.getCorreoPro()%>" 
+                                            name="correo">
+                                    </td>
+                                    <td>
+                                        <select name="categoria" id="categoria" class="border-0 input-group-text categoria">
+                                            <option value="<%=con.getCategoriaPro()%>"><%=con.getCategoriaPro()%></option>
+                                            <option value="Posillos">Posillos</option>
+                                            <option value="Porcelanas">Porcelanas</option>
+                                            <option value="Flores">Flores</option>
+                                            <option value="Termos">Termos</option>
+                                            <option value="Cajas">Cajas</option>
+                                            <option value="Chocolates">Chocolates</option>
+                                            <option value="Dulces">Dulces</option>
+                                        </select>
+                                    </td>
+                                    <td>                                    
+                                        <select name="estado" id="estado" class="border-0 input-group-text estado">
+                                            <option value="<%=con.getEstadoPro()%>"><%=con.getEstadoPro()%></option>
+                                            <option value="Activo">Activo</option>
+                                            <option value="Inactivo">Inactivo</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <!--<input type="hidden" name="" value="">-->
                                         <div class="text-center">
-                                            <button type="submit" name="EliminaPro" class="btn-danger img-fluid" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            <button type="submit" name="ActualizaPro" class="btn-success img-thumbnail img-fluid btnmod">
+                                                <i class="fa fa-wrench" aria-hidden="true"></i>
+                                            </button>
                                         </div>
+<!--                                        <div class="text-center">
+                                            <button type="submit" name="EliminaPro" class="btn-danger img-thumbnail img-fluid" onclick="return Eliminar()">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </button>
+                                        </div>-->
                                     </td>
                                 </tr>
                                 <% } %>
