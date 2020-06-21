@@ -26,7 +26,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <title>Entre Sueños</title>
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
-        <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
@@ -54,7 +53,7 @@
                 <section class="nav">
                     <div class="logo">
                         <img src="Vista/img/LOGO-01.png" alt=""/>
-                        <a><%=roll%></a>
+                        <a href="Principal.jsp"><%=roll%></a>
                         <a><%=nom+" "+ape%></a>
                         <a href="PQR.jsp">PQR</a>
                         <div id="cunta"></div>
@@ -96,6 +95,78 @@
                 </section>
             </nav>
         </header>
+        <section class="contenedorTabla">
+            <div class="consultarEmpleado">
+                <h2>Registro empleados</h2>
+                <div class="input">
+                    <form action="ServletPdfEmpl" class="form-inline my-2">
+                        <button type="submit" name="btnpdf" value="Exportar">Exportar pdf Empleados</button>
+                    </form>
+                    <div class="formularioGrupo">
+                        <input type="text" id="search" required="">
+                        <span class="barra"></span>
+                        <label>&#x1F50D; Buscar por numero de cedula</label>
+                    </div>
+                </div>
+                <div class="tabla">
+                    <table id="mytable">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Documento</th>
+                                <th>Telefono</th>
+                                <th>Genero</th>
+                                <th>Direccion</th>
+                                <th>Correo</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                ArrayList<ConUsuEmpleado> listas = new ArrayList();
+                                ConUsuEmpleado con = new ConUsuEmpleado(); //convas hago referencia al constructor vasio
+                                GestionEmpleados Cons = new GestionEmpleados();
+
+                                listas = Cons.ConsultaEmpleado();
+
+                                for(int i=0; i<listas.size(); i++){
+
+                                    con = listas.get(i);
+
+                            %>
+
+                            <tr>
+                                <td><%=con.getNombre()%></td>
+                                <td><%=con.getApellido()%></td>
+                                <td><%=con.getDocumento()%></td>
+                                <td><%=con.getTelefono()%></td>
+                                <td><%=con.getGenero()%></td>
+                                <td><%=con.getDireccion()%></td>
+                                <td><%=con.getCorreo()%></td>
+                                <td>
+                                    <div class="opciones">
+                                        <form action="" method="POST">
+                                            <input type="hidden" name="cod" value="<%=con.getDocumento()%>">
+                                            <button type="submit" name="modifica" value="ACTUALIZAR" title="Actualizar"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+                                        </form>
+                                        <form action="ServletGestionUsu" method="POST">
+                                            <input type="hidden" name="cod" value="<%=con.getDocumento()%>">
+                                            <button type="submit" name="EliminaUsuario" value="ELIMINAR" onclick="return Eliminar()" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <%
+                               }
+                            %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>        
+        </section>
+        <% } %>
         <%  
             String co;
             co = request.getParameter("cod");
@@ -119,160 +190,98 @@
                 }
             }
         </script>
-        <section id="slider">
-            <div class="container">
-                <% if(request.getParameter("modifica")!=null){ %>
+        <% if(request.getParameter("modifica")!=null){ %>
+        <section class="contenedor">
+            <div class="cuerpo">
+                <div class="formularioActualizar" id="formularioActualizar">
+                    <% for(int a = 0; a < listaEmp.size();a ++){
+                        unoemp = listaEmp.get(a);
+                    %>
+                    <h2>Actualizar los datos de <%=unoemp.getNombre()%></h2>
+                    <% } %>
                     <form action="ServletGestionUsu" method="POST">
                         <% for(int i = 0; i < listaUsu.size();i++){
                             emple = listaUsu.get(i);
                         %>
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <label for="documento">Documento <code>*</code></label>
-                                    <input type="text" class="form-control" id="documento" readonly="readonly" value="<%=emple.getDocumento()%>" name="documento" required>
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="pass">Contraseña <code>*</code></label>
-                                    <input type="text" class="form-control" id="pass" value="<%=emple.getClave()%>" name="contra" required>
-                                </div>
+                            <div class="formularioGrupo">
+                                <input type="text" id="documento" readonly="readonly" value="<%=emple.getDocumento()%>" name="documento" required>
+                                <span class="barra"></span>
+                                <label class="docu">Documento</label>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-1">
-                                    <label for="estado">Estado</label>
-                                    <input type="hidden" class="form-control" id="estado" name="estado" value="<%=emple.getEstado()%>" readonly="readonly">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="rol">Roll</label>
-                                    <input type="text" class="form-control" id="rol" name="rol" value="<%=emple.getRoll()%>" readonly="readonly">
-                                </div>  
+                            <div class="formularioGrupo">
+                                <input type="text" id="pass" value="<%=emple.getClave()%>" name="contra" required readonly> 
+                                <span class="barra"></span>
+                                <label class="docu">Contraseña</label>
+                            </div>
+                            <div class="formularioGrupo">
+                                <select id="estado" name="estado"  required="">
+                                    <option value="<%=emple.getEstado()%>">
+                                        <%
+                                            String selectEstado = emple.getEstado();
+                                            if (selectEstado.equals("0")) {
+                                        %>
+                                        Inactivo
+                                        <% } %>
+                                        <%
+                                            if (selectEstado.equals("1")) {
+                                        %>
+                                        Activo
+                                        <% } %>
+                                    </option>
+                                    <option value="0">Inactivo</option>
+                                    <option value="1">Activo</option>
+                                </select>
+                                <span class="barra"></span>
+                                <label>Estado</label>
+                            </div>
+                            <div class="formularioGrupo">
+                                <input type="text" id="rol" name="rol" value="<%=emple.getRoll()%>" required="" readonly="">
+                                <span class="barra"></span>
+                                <label class="docu">Roll</label>
                             </div>
                         <% } %>
                         <% for(int a = 0; a < listaEmp.size();a ++){
                             unoemp = listaEmp.get(a);
                         %>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="mail">Correo <code>*</code></label>
-                                    <input type="text" class="form-control" id="mail" value="<%=unoemp.getCorreo()%>" name="correo" required>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="cell">Telefono <code>*</code></label>
-                                    <input type="text" class="form-control" id="cell" value="<%=unoemp.getTelefono()%>" name="telefono" required>
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label for="adress">Direccion <code>*</code></label>
-                                    <input type="text" class="form-control" id="adress" value="<%=unoemp.getDireecion()%>" name="direccion" required>
-                                </div>
+                            <div class="formularioGrupo">
+                                <input type="text" id="mail" value="<%=unoemp.getCorreo()%>" name="correo" required="">
+                                <span class="barra"></span>
+                                <label>Correo</label>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="nombre">Nombre <code>*</code></label>
-                                    <input type="text" class="form-control" id="nombre" value="<%=unoemp.getNombre()%>" name="nombre" required>
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label for="apellido">Apellido <code>*</code></label>
-                                    <input type="text" class="form-control" id="apellido" value="<%=unoemp.getApellido()%>" name="apellido" required>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="genero">Sexo</label>
-                                    <select name="sexo" id="genero" class="form-control">
-                                        <option value="<%=unoemp.getGenero()%>"><%=unoemp.getGenero() %></option>
-                                        <option value="Masculino">Masculino</option>
-                                        <option value="Femenino">Femenino</option>
-                                    </select>
-                                </div>
+                            <div class="formularioGrupo">
+                                <input type="text" id="cell" value="<%=unoemp.getTelefono()%>" name="telefono" required="">
+                                <span class="barra"></span>
+                                <label>Telefono</label>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="ActualizaEmp">Actualizar</button>
+                            <div class="formularioGrupo">
+                                <input type="text" id="adress" value="<%=unoemp.getDireecion()%>" name="direccion" required="">
+                                <span class="barra"></span>
+                                <label>Direccion</label>
+                            </div>
+                            <div class="formularioGrupo">
+                                <input type="text" id="nombre" value="<%=unoemp.getNombre()%>" name="nombre" required="">
+                                <span class="barra"></span>
+                                <label>Nombre</label>
+                            </div>
+                            <div class="formularioGrupo">
+                                <input type="text" id="apellido" value="<%=unoemp.getApellido()%>" name="apellido" required="">
+                                <span class="barra"></span>
+                                <label>Apellido</label>
+                            </div>
+                            <div class="formularioGrupo">
+                                <select name="sexo" id="genero" class="form-control">
+                                    <option value="<%=unoemp.getGenero()%>"><%=unoemp.getGenero() %></option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                                <span class="barra"></span>    
+                                <label for="genero">Sexo</label>
+                            </div>
                         <% } %>
+                        <button type="submit" name="ActualizaEmp">Actualizar <i class="fa fa-sign-in ml-1"></i></button>
                     </form>
-                <% } %>
+                </div>
             </div>
-        </section>
-        <section id="slider"  class="bg-entre cuerpo">
-            <div class="container">
-                <div class="row mb-2">
-                    <div class="col-md-2">
-                        <form action="ServletPdfEmpl" class="form-inline my-2">
-                            <div class="form-group">
-                                <input class="btn btn-success" type="submit" name="btnpdf" value="Exportar">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-2 offset-md-8">
-                        <input type="text" class="form-control pull-right" id="search" placeholder="&#x1F50D; Buscar">
-                    </div>
-                </div>
-                <div class="row dataTables_length table-responsive text-nowrap vertical-table">
-                    <table class="table table-striped table-bordered table-hover table-sm" id="mytable" cellspacing="0" width="100%">
-                        <thead>
-                            <tr class="btn-info">
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Documento</th>
-                                <th scope="col">Roll</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Genero</th>
-                                <th scope="col">Direccion</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Clave</th>
-                                <!--<th scope="col">Estado</th>-->
-                                <th scope="col">Opciones</th>
-                                <!--<th scope="col">Eliminar</th>-->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                ArrayList<ConUsuEmpleado> listas = new ArrayList();
-                                ConUsuEmpleado con = new ConUsuEmpleado(); //convas hago referencia al constructor vasio
-                                GestionEmpleados Cons = new GestionEmpleados();
-
-                                listas = Cons.ConsultaEmpleado();
-
-                                for(int i=0; i<listas.size(); i++){
-
-                                    con = listas.get(i);
-
-                            %>
-
-                            <tr>
-                                <td scope="row"><%=con.getNombre()%></td>
-                                <td><%=con.getApellido()%></td>
-                                <td><%=con.getDocumento()%></td>
-                                <td><%=con.getRol()%></td>
-                                <td><%=con.getTelefono()%></td>
-                                <td><%=con.getGenero()%></td>
-                                <td><%=con.getDireccion()%></td>
-                                <td><%=con.getCorreo()%></td>
-                                <td><%=con.getClave()%></td>
-<!--                                <td></td>-->
-                                <td class="text-center">
-                                    <div class="text-center">
-                                        <form action="" method="POST" class="mx-2">
-                                            <input type="hidden" name="cod" value="<%=con.getDocumento()%>">
-                                            <div class="text-center">
-                                                <button type="submit" name="modifica" value="ACTUALIZAR" class="rounded-circle float-right img-fluid"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                            </div>
-                                        </form>
-    <!--                                </td>
-                                    <td>-->
-                                        <form action="ServletGestionUsu" method="POST">
-                                            <input type="hidden" name="cod" value="<%=con.getDocumento()%>">
-                                            <div class="text-center">
-                                                <button type="submit" name="EliminaUsuario" value="ELIMINAR" class="btn-danger rounded-circle float-right img-fluid" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <%
-                               }
-                            %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>        
         </section>
         <% } %>
         <footer>
