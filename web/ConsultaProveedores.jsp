@@ -178,6 +178,7 @@
                                             <option value="Botellones">Botellones</option>
                                             <option value="Confiteria">Confiteria</option>
                                             <option value="Bombas">Bombas</option>
+                                        </select>
                                     </td>
                                     <td>
                                         <select id="estado" name="estado"  required="" class="estado" >
