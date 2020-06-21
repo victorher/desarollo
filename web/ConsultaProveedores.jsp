@@ -140,18 +140,25 @@
 
                                 <tr>
                                     <!--<td>-->
-                            <input type="hidden" class="input-group-text border-0 text-center table proveedorID" value="<%=con.getProveedorID()%>" name="proveedorID">
+                                        <input type="hidden" 
+                                               class="input-group-text border-0 table proveedorID" 
+                                               value="<%=con.getProveedorID()%>" 
+                                               name="proveedorID">
                                     <!--</td>-->
                                     <td>
                                         <input size="9" 
                                             class="border-0 input-group-text nombre" 
-                                            value="<%=con.getNombrePro()%>" 
+                                            value="<%=con.getNombrePro()%>"
+                                            title="Ingresar solo letras y un espacio entre palabras"
+                                            pattern="[a-zA-Z ]{2,254}"
                                             name="nombre">
                                     </td>
                                     <td>
                                         <input size="9" 
                                             class="border-0 input-group-text apellido" 
-                                            value="<%=con.getApellidoPro()%>" 
+                                            value="<%=con.getApellidoPro()%>"
+                                            title="Ingresar solo letras y un espacio entre palabras"
+                                            pattern="[a-zA-Z ]{2,254}"
                                             name="apellido">
                                     </td>
                                     <td>
@@ -163,7 +170,7 @@
                                     <td>
                                         <input size="8" 
                                             class="border-0 input-group-text telefono" 
-                                            value="<%=con.getTelefonoPro()%>" 
+                                            value="<%=con.getTelefonoPro()%>"
                                             name="telefono">
                                     </td>
                                     <td>
