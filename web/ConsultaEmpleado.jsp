@@ -45,9 +45,8 @@
             cont = (String) obsjes.getAttribute("Contrasena");
             roll = (String) obsjes.getAttribute("Rol");
             
-            if (roll.equals("Administrador")) {
+            if (roll.equalsIgnoreCase("Administrador")) {
         %>
-        
         <header>
             <nav>
                 <section class="nav">
@@ -95,6 +94,16 @@
                 </section>
             </nav>
         </header>
+        <script type="text/javascript">
+            function Eliminar(){
+                var Respuesta = confirm("Desea eliminar este registro?");
+                if(Respuesta===true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        </script>
         <section class="contenedorTabla">
             <div class="consultarEmpleado">
                 <h2>Registro empleados</h2>
@@ -166,7 +175,6 @@
                 </div>
             </div>        
         </section>
-        <% } %>
         <%  
             String co;
             co = request.getParameter("cod");
@@ -180,16 +188,6 @@
             GestionEmpleados emp = new GestionEmpleados();
             listaEmp = emp.ConsulUniEmpleado(unoemp);
         %>
-        <script type="text/javascript">
-            function Eliminar(){
-                var Respuesta = confirm("Desea eliminar este registro?");
-                if(Respuesta===true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-        </script>
         <% if(request.getParameter("modifica")!=null){ %>
         <section class="contenedor">
             <div class="cuerpo">
@@ -218,12 +216,12 @@
                                     <option value="<%=emple.getEstado()%>">
                                         <%
                                             String selectEstado = emple.getEstado();
-                                            if (selectEstado.equals("0")) {
+                                            if (selectEstado.equalsIgnoreCase("0")) {
                                         %>
                                         Inactivo
                                         <% } %>
                                         <%
-                                            if (selectEstado.equals("1")) {
+                                            if (selectEstado.equalsIgnoreCase("1")) {
                                         %>
                                         Activo
                                         <% } %>
@@ -297,5 +295,6 @@
                 </div>
             </div>
         </footer>
+        <% } %>
     </body>
 </html>
