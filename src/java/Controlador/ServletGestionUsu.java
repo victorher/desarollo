@@ -187,7 +187,7 @@ public class ServletGestionUsu extends HttpServlet {
                 GestionCliente gem = new GestionCliente();
                 boolean datcl = gem.actaulizarCliente(dhl);
                 if(datcl){
-                    JOptionPane.showMessageDialog(null, "Datos actualizados");
+//                    JOptionPane.showMessageDialog(null, "Datos actualizados");
                     response.sendRedirect("ConsultaCliente.jsp");
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al actualizar Cliente");
