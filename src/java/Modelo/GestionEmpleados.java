@@ -89,6 +89,31 @@ public class GestionEmpleados {
             }
         return lisuni;
     }
+    // consultar administrador
+    public ArrayList<AdministradorGetSet> ConsultarAdministrador(AdministradorGetSet em){
+        ArrayList<AdministradorGetSet> consultar = new ArrayList<>();
+            try {
+                ps = cnn.prepareStatement("CALL pa_ConsultaUsuarioAdministradorDoc('"+em.getDocumento()+"')");
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    AdministradorGetSet cl = new AdministradorGetSet(
+                            rs.getString(1), 
+                            rs.getString(2), 
+                            rs.getString(3), 
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getString(6),
+                            rs.getString(7),
+                            rs.getString(8),
+                            rs.getString(9),
+                            rs.getString(10));
+                    consultar.add(cl);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e+" ConsultarAdministrador");
+            }
+        return consultar;
+    }
     //Incertar nuevos empleados 
     public boolean IncertarEmpleado(Empleadogetset em){
         boolean dat = false;
