@@ -101,10 +101,11 @@
                                     <!--<input type="text" class="form-control" id="tamdis" name="tamdiseno" required>-->
                                     <select class="form-control" id="tamdis" name="tamdiseno">
                                         <option value="">Seleccionar</option>
-                                        <option value="10 X 10">10 X 10</option>
-                                        <option value="12 X 12">12 X 12</option>
-                                        <option value="15 X 15">15 X 15</option>
-                                        <option value="20 X 20">20 X 20</option>
+                                        <option value="10 cm X 10 cm">10 cm X 10 cm</option>
+                                        <option value="12 cm X 12 cm">12 cm X 12 cm</option>
+                                        <option value="15 cm X 15 cm">15 cm X 15 cm</option>
+                                        <option value="20 cm X 20 cm">20 cm X 20 cm</option>
+                                        <option value="30 cm X 30 cm">30 cm X 30 cm</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -114,6 +115,10 @@
                                         <option value="Rojo">Rojo</option>
                                         <option value="Caoba">Caoba</option>
                                         <option value="Azul">Azul</option>
+                                        <option value="Azul y Blanco">Azul y Blanco</option>
+                                        <option value="Verde y Amarillo">Verde y Amarillo</option>
+                                        <option value="Negro y Morado">Negro y Morado</option>
+                                        <option value="Morado y Azul">Morado y Azul</option>
                                         <option value="Frutos rojos">Frutos rojos</option>
                                     </select>
                                 </div>
