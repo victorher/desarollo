@@ -1,5 +1,5 @@
-<%@page import="Modelo.Usuario"%>
-<%@page import="Modelo.Usuariogetset"%>
+<%@page import="Modelo.GestionEmpleados"%>
+<%@page import="Modelo.AdministradorGetSet"%>
 <%@page import="java.util.ArrayList"%>
 <%@page session="true"%>
 <%
@@ -24,11 +24,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <title>Entre Sueños</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-        <link rel="stylesheet" href="Styles/Est.css">
-        <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="Styles/js/principal.js" type="text/javascript"></script>
     </head>
     <body>
         
@@ -44,178 +44,141 @@
             direcc = (String) obsjes.getAttribute("Direccion");
         %>
         <!--<script type="text/javascript">alert('Bienvenido al sistema');</script>-->
-        <nav class="navbar navbar-expand-lg col-gra b-inf">
-            <div class="container">
-                <div class="text-center">
-                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
-                </div>
-                <a class="navbar-brand" href="#">INICIO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <header>
+            <nav>
+                <section class="nav">
+                    <div class="logo">
+                        <img src="Vista/img/LOGO-01.png" alt=""/>
+                        <a><%=roll%></a>
+                        <a><%=nom+" "+ape%></a>
+                        <a href="PQR.jsp">PQR</a>
+                        <div id="cunta"></div>
+                    </div>
+                    <div class="enlaces_header">
+                        <div class="uno">
+                            <a href="#">
                                 Consultar
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
-                                <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
-                                <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Pedidos</a>
-                                <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="ConsultaArtProveedor.jsp">Categoria Articulos</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </div>
+                        <div class="uno_uno">
+                            <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
+                            <a class="dropdown-item" href="ConsultaArtProveedor.jsp">Categoria Articulos</a>
+                        </div>
+                        <div class="dos">
+                            <a href="#">
                                 Registrar
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
-                                <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
-                                <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
-                                <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="CreaArtProveedor.jsp">Categoria Articulos</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="PQR.jsp" tabindex="-1" aria-disabled="true">PQR (1)</a>
-                        </li>
-                    </ul>
-                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <input class="btn btn-entre form-control mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <section class="bg-light-grey">
-            <h1 id="h">Pagina del administrador</h1>
-            <div class="text-center">
-                <label class="alert"><%=gen%> </label>
-                <label class="alert"><%=docu%> </label>
-                <label class="alert"><%=cont%> </label>
-                <label class="alert"><%=roll%> </label>
-            </div>
-        </section>
-        <section>
-            <div class="uno" id="uno">
-                <label><%=nom+" "+ape%> </label>
-            </div>
-            <%
-                ArrayList<Usuariogetset> us = new ArrayList<>();
-                Usuariogetset re = new Usuariogetset();
-                Usuario reu = new Usuario();
-                us = reu.ConsultarUsu();
-                for(int i = 0; i < us.size(); i++){
-                    re = us.get(i);
-
-            %>
-                <div class="dos" id="dos">
-                    <label><%=re.getDocumento() %> </label>
-                </div>
-                <div class="tres" id="tres">
-                    <table class="table-responsive-md">
-                        <thead>
-                            <tr>
-                                <th scope="col">Contraseña</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><%=re.getClave() %></td>
-                                <td><%=re.getRoll()%></td>
-                                <td><%=re.getEstado()%></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            <% }%>
-        </section>
-        <section id="slider">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="Vista/img/cieAzul.jpg" alt="Second slide">
-                        <div class="carousel-caption">
                         </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="Vista/img/monEver.jpg" alt="First slide">
-                        <div class="carousel-caption">
-                            <h3 class="d-block">Auto</h3>
-                            <p class="lead d-none d-sm-block">Mercedes</p>
+                        <div class="dos_uno">
+                            <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
+                            <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
+                            <a class="dropdown-item" href="CreaArtProveedor.jsp">Categoria Articulos</a>
                         </div>
+                        <form action="CerrarSesion" method="POST">
+                            <button type="submit" name="btn">Cerrar Sesion</button>
+                        </form>
+                    </div>
+                    <div class="hamburguer">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </section>
+            </nav>
+        </header>
+        <section class="contenedor">
+            <div class="cuerpo">
+            <div class="formularioActualizar" id="formularioActualizar">
+                <h2>Mis datos personales</h2>
+                <form action="ActualizarCliente" method="POST">
+
+                    <%
+                        String co = docu;
+                        //co = request.getParameter("cod");
+//                                                        JOptionPane.showMessageDialog(null, co);
+                        ArrayList<AdministradorGetSet> listas = new ArrayList();
+                        AdministradorGetSet con = new AdministradorGetSet(co); //convas hago referencia al constructor vasio
+                        GestionEmpleados Cons = new GestionEmpleados();
+
+                        listas = Cons.ConsultarAdministrador(con);
+
+                        for(int i = 0; i < listas.size(); i++){
+
+                            con = listas.get(i);
+
+                    %>
+
+                    <div class="formularioGrupo">
+                        <input type="text" class="doc" id="documento" value="<%=con.getDocumento()%>" name="documento" readonly="" required>
+                        <span class="barra"></span>
+                        <label class="docu">Documento</label>
+                    </div>
+                    <div class="formularioGrupo">
+                        <input type="text" class="nom" id="nombre" value="<%=con.getNombre()%>" name="nombre" required>
+                        <span class="barra"></span>
+                        <label>Nombre</label>
+                    </div>
+                    <div class="formularioGrupo">
+                        <input type="text" class="apell" id="apellido" value="<%=con.getApellido()%>" name="apellido" required>
+                        <span class="barra"></span>
+                        <label>Apellido</label>
+                    </div>
+                    <div class="formularioGrupo">
+                        <select name="sexo" id="genero" class="gen">
+                            <option value="<%=con.getGenero()%>"><%=con.getGenero()%></option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                        <label for="genero">Genero</label>
+                    </div>
+                    <div class="formularioGrupo">
+                        <input type="email" class="mail" id="mail" value="<%=con.getCorreo()%>" name="correo" required>
+                        <span class="barra"></span>
+                        <label>Correo</label>
+                    </div>
+                    <div class="formularioGrupo">
+                        <input type="text" class="form-control tel" id="telefono" value="<%=con.getTelefono()%>" name="telefono" required>
+                        <span class="barra"></span>
+                        <label>Telefono</label>
+                    </div>
+                    <div class="formularioGrupo">
+                        <input type="text" class="dir" id="direc" value="<%=con.getDireccion()%>" name="direccion" required>
+                        <span class="barra"></span>
+                        <label>Direccion</label>
                     </div>
 
-
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="Vista/img/monSnow.jpg" alt="Third slide">
-                        <div class="carousel-caption">
-                            <h3 class="d-block">Noche</h3>
-                            <p class="lead d-none d-sm-block">Noche</p>
-                        </div>
+                    <div class="formularioGrupo">
+                        <input type="text" class="pass" id="pass" value="<%=con.getClave()%>" name="contra" required>
+                        <span class="barra"></span>
+                        <label>Contraseña</label>
                     </div>
-
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                    <input  id="est" name="estado" value="<%=con.getEstado()%>" type="hidden">
+                    <input type="hidden" class="roll" id="roll" name="rol" value="<%=con.getRol()%>">
+                    <% } %>
+                    <button type="submit" class="btnmod" name="">Actualizar
+                        <i class="fa fa-sign-in ml-1"></i>
+                    </button>
+                </form>
+            </div>
             </div>
         </section>
-        <section class="ff">
-            
-        </section>
-        <footer class="bg-dark text-light py-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-inline">
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 text-sm-right">
-                        <small>Entre sueños</small>
-                    </div>
+        <footer>
+            <div class="footer_logo">
+                <img src="Vista/img/LOGO-01.png">
+            </div>
+            <div class="footer_redes">
+                <h4>Redes Sociales</h4>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Vista/js/filtro.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-        <script src="Styles/main.js"></script>
-        <script src="Vista/js/TablaScroll.js"></script>
     </body>
 </html>
