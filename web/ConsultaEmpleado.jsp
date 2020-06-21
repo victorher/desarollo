@@ -25,12 +25,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <title>Entre Sueños</title>
-        <!--<link rel="shortcut icon" href="#" />-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
-        <!--<link rel="stylesheet" href="Styles/Est.css">-->
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
-        <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
+        <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="Styles/js/principal.js" type="text/javascript"></script>
+        <script src="Vista/js/filtro.js"></script>
+        <script src="Vista/js/Eliminar.js"></script>
     </head>
     <body>
         <%
@@ -42,64 +45,57 @@
             docu = (String) obsjes.getAttribute("Documento");
             cont = (String) obsjes.getAttribute("Contrasena");
             roll = (String) obsjes.getAttribute("Rol");
+            
+            if (roll.equals("Administrador")) {
         %>
-        <nav class="navbar navbar-expand-lg col-gra b-inf">
-            <div class="container">
-                <div class="text-center">
-                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
-                </div>
-                <a class="navbar-brand" href="Principal.jsp">INICIO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Regalos</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <header>
+            <nav>
+                <section class="nav">
+                    <div class="logo">
+                        <img src="Vista/img/LOGO-01.png" alt=""/>
+                        <a><%=roll%></a>
+                        <a><%=nom+" "+ape%></a>
+                        <a href="PQR.jsp">PQR</a>
+                        <div id="cunta"></div>
+                    </div>
+                    <div class="enlaces_header">
+                        <div class="uno">
+                            <a href="#">
+                                Consultar
+                            </a>
+                        </div>
+                        <div class="uno_uno">
+                            <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
+                            <a class="dropdown-item" href="ConsultaArtProveedor.jsp">Categoria Articulos</a>
+                        </div>
+                        <div class="dos">
+                            <a href="#">
                                 Registrar
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Empleado</a>
-                                <a class="dropdown-item" href="#">Cliente</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
-                        </li>
-                    </ul>
-                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <input class="btn btn-entre mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card container">
-                            <h3 class="py-2">Empleados registrados</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, assumenda, iusto, nisi cumque voluptate sed deleniti quis facere aliquid nihil tempora dolore quo voluptatum esse veniam molestias eum sit debitis.</p>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card container">
-                            <h3 class="py-2">Empleados registrados</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, assumenda, iusto, nisi cumque voluptate sed deleniti quis facere aliquid nihil tempora dolore quo voluptatum esse veniam molestias eum sit debitis.</p>
+                        <div class="dos_uno">
+                            <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
+                            <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
+                            <a class="dropdown-item" href="CreaArtProveedor.jsp">Categoria Articulos</a>
                         </div>
+                        <form action="CerrarSesion" method="POST">
+                            <button type="submit" name="btn">Cerrar Sesion</button>
+                        </form>
                     </div>
-                </div>
-            </div>
-        </section>
+                    <div class="hamburguer">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </section>
+            </nav>
+        </header>
         <%  
             String co;
             co = request.getParameter("cod");
@@ -193,7 +189,7 @@
                 <% } %>
             </div>
         </section>
-        <section id="slider"  class="bg-entre">
+        <section id="slider"  class="bg-entre cuerpo">
             <div class="container">
                 <div class="row mb-2">
                     <div class="col-md-2">
@@ -278,36 +274,19 @@
                 </div>
             </div>        
         </section>
-        <section class="ff">
-            
-        </section>
-        <footer class="bg-dark text-light py-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-inline">
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 text-sm-right">
-                        <small>Entre sueños</small>
-                    </div>
+        <% } %>
+        <footer>
+            <div class="footer_logo">
+                <img src="Vista/img/LOGO-01.png">
+            </div>
+            <div class="footer_redes">
+                <h4>Redes Sociales</h4>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://ajax.goog&#x1F50Dleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Vista/js/filtro.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <!--<script type="text/javascript" charse t="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>-->
-        <script src="Styles/main.js"></script>
-        <!--<script src="Vista/js/TablaScroll.js"></script>-->
-        <script src="Vista/js/Eliminar.js"></script>
     </body>
 </html>
