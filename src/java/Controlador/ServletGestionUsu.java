@@ -72,7 +72,7 @@ public class ServletGestionUsu extends HttpServlet {
                 GestionEmpleados gem = new GestionEmpleados();
                 boolean datem = gem.IncertarEmpleado(emp);
                 if(datem){
-                    JOptionPane.showMessageDialog(null, "Datos guardados");
+//                    JOptionPane.showMessageDialog(null, "Datos guardados");
                     response.sendRedirect("CreaEmpleado.jsp");
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al guardar Empleado");
@@ -111,7 +111,7 @@ public class ServletGestionUsu extends HttpServlet {
                 GestionCliente gem = new GestionCliente();
                 boolean datcl = gem.IncertarCliente(dhl);
                 if(datcl){
-                    JOptionPane.showMessageDialog(null, "Datos guardados");
+//                    JOptionPane.showMessageDialog(null, "Datos guardados");
                     response.sendRedirect("CreaCliente.jsp");
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al guardar Cliente");
@@ -148,7 +148,7 @@ public class ServletGestionUsu extends HttpServlet {
                 GestionEmpleados gem = new GestionEmpleados();
                 boolean datem = gem.actaulizarEmpleado(emp);
                 if(datem){
-                    JOptionPane.showMessageDialog(null, "Datos actualizados");
+//                    JOptionPane.showMessageDialog(null, "Datos actualizados");
                     response.sendRedirect("ConsultaEmpleado.jsp");
                 }else{
                     JOptionPane.showMessageDialog(null, "Error al actualizar Empleado");
