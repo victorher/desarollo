@@ -24,7 +24,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <title>Entre Suenos</title>
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
-        <link href="Styles/css/principal1_2.css" rel="stylesheet" type="text/css"/>
+        <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
