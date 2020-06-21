@@ -4,6 +4,7 @@ import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -35,7 +36,7 @@ public class GestionCliente {
            
                 listas.add(consCli);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null,e);
         }
         return listas;
@@ -61,7 +62,7 @@ public class GestionCliente {
                             rs.getString(10));
                     lista.add(de);
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e + " ConsulUniCliente de la clase GestionCliente");
             }
         return lista;
@@ -87,7 +88,7 @@ public class GestionCliente {
                             rs.getString(10));
                     lista.add(de);
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e + " ConsulUniCliente de la clase GestionCliente");
             }
         return lista;
@@ -113,7 +114,7 @@ public class GestionCliente {
                             rs.getString(10));
                     lista.add(de);
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e + " FiltraCliente de la clase GestionCliente");
             }
         return lista;
@@ -135,7 +136,7 @@ public class GestionCliente {
                             rs.getString(6));
                     liscli.add(de);
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e+" ConsulUniCliente");
             }
         return liscli;
@@ -156,7 +157,7 @@ public class GestionCliente {
                 if(d > 0){
                     dat = true;
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         return dat;
@@ -178,7 +179,7 @@ public class GestionCliente {
                 dat = true;
             }
             //JOptionPane.showMessageDialog(null, "Si hay datos");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e+" actaulizarUsuario");
         }
         return dat;
