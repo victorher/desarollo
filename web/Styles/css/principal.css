@@ -254,6 +254,40 @@ nav {
     background: rgb(153, 48, 180);
     color:  #fff;
 }
+.formularioActualizar form .formularioGrupo1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    position: relative;
+}
+.formularioActualizar form .formularioGrupo1 input{
+    width: 40%;
+    height: 40px;
+    margin: auto;
+    margin-bottom: 16px;
+    padding-left: 10px;
+    display: block;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
+}
+.formularioActualizar form .formularioGrupo1 label {
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 12px;
+    left: 273px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+.formularioActualizar form .formularioGrupo1 input:focus~label,
+.formularioActualizar form .formularioGrupo1 input:valid~label{
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
 footer {
     height: 150px;
     display: flex;
