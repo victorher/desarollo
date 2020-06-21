@@ -420,6 +420,114 @@ footer {
 .consultarEmpleado .tabla table tbody tr:hover {
     background-color: rgb(249, 243, 252);
 }
+.consultarEmpleado .tabla table tbody tr td .proveedorID {
+    width: 60px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .proveedorID:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .nombre, .apellido, .telefono, .categoria {
+    width: 120px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .nombre:focus, .apellido:focus, .telefono:focus, .categoria:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .direccion {
+    width: 160px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .direccion:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .correo {
+    width: 190px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .correo:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .estado {
+    width: 70px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .estado:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td img {
+    width: 60px;
+    height: 60px;
+}
+.consultarEmpleado .tabla table tbody tr td .nudeta {
+    width: 120px;
+    height: 60px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .nudeta:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .tedis {
+    width: 170px;
+    height: 60px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .tedis:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .tadis, .codis {
+    width: 100px;
+    height: 60px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .tedis:focus, .codis:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .predis {
+    width: 60px;
+    height: 60px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .predis:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .obdis {
+    width: 170px;
+    height: 60px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .obdis:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .idcat {
+    width: 100px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .idcat:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .artno {
+    width: 150px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .artno:focus {
+    outline: none;
+}
+.consultarEmpleado .tabla table tbody tr td .descr {
+    width: 600px;
+    height: 30px;
+    border: none;
+}
+.consultarEmpleado .tabla table tbody tr td .descr:focus {
+    outline: none;
+}
 .consultarEmpleado .tabla table tbody tr td .opciones {
     display: flex;
     justify-content: space-around;
@@ -432,6 +540,18 @@ footer {
     background: rgb(222, 193, 230);
 }
 .consultarEmpleado .tabla table tbody tr td .opciones form button:hover {
+    outline: none;
+    background: rgb(153, 48, 180);
+    color:  #fff;
+}
+.consultarEmpleado .tabla table tbody tr td .opciones button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(153, 48, 180);
+    border-radius: 50%;
+    background: rgb(222, 193, 230);
+}
+.consultarEmpleado .tabla table tbody tr td .opciones button:hover {
     outline: none;
     background: rgb(153, 48, 180);
     color:  #fff;
