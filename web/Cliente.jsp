@@ -1,3 +1,4 @@
+<%@page import="Modelo.AddCarrito"%>
 <%@page import="Modelo.GestionDiseno"%>
 <%@page import="Modelo.Disenogetset"%>
 <%@page import="Modelo.Disenogetset"%>
@@ -39,11 +40,17 @@
         <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
         <script src="Styles/js/cliente.js" type="text/javascript"></script>
+        <script src="Vista/js/Carritojs.js" type="text/javascript"></script>
+        <script src="Vista/js/RegistraPedido.js" type="text/javascript"></script>
     </head>
 
     <body>
+       
+        
         <%
             String nom, ape, gen, docu, cont, roll, direcc;
+            
+            
             HttpSession obsjes = request.getSession();
             nom = (String) obsjes.getAttribute("Nombre");
             ape = (String) obsjes.getAttribute("Apellido");
@@ -52,7 +59,16 @@
             cont = (String) obsjes.getAttribute("Contrasena");
             roll = (String) obsjes.getAttribute("Rol");
             direcc = (String) obsjes.getAttribute("Direccion");
-        %>
+           
+       
+            ArrayList<AddCarrito> Articulos = obsjes.getAttribute("carrito") == null ? null : 
+            (ArrayList) obsjes.getAttribute("carrito");
+            
+
+
+            %>
+                
+        
         <header>
             <nav>
                 <section class="nav">
@@ -60,8 +76,10 @@
                         <img src="Vista/img/LOGO-01.png" alt=""/>
                         <a class="quitar"><%=roll%></a>
                         <a class="quitar"><%=nom+" "+ape%></a>
+                        
                         <a class="carrito" id="carrito" href="#">
-                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> (1)
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                            
                         </a>
                     </div>
                     <div class="enlaces_header">
@@ -163,39 +181,7 @@
                 </div>
             </div>
         </div>
-        <!-- En este div va el carrito de compras aqui mostramos la seleccion de los productos que comprara el cliente -->
-        <div class="contenedor">
-            <div class="carritoModal" id="carritoModal">
-                <div class="carritoPopup" id="carritoPopup">
-                    <div class="contenedorBtnCerrarCarrito">
-                        <a href="Cliente.jsp" id="btnCerrarCarrito" class="btnCerrarCarrito">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="bodyCarrito" id="bodyCarrito">
-                        <h2>Carrito de compras</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Nombre</th>
-                                    <th>Direccion</th>
-                                    <th>Articulo</th>
-                                    <th>Descripcion</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <section class="tarjetas">
             <div class="contenedor1">
                 <h2 class="titulo">Nuestros productos</h2>
@@ -212,14 +198,121 @@
                         <h3><%= dis.getNumDetalle()%></h3>
                         <h5>$ <%= dis.getPreDiseno() %>.00</h5>
                         <p class="card-text"><%= dis.getObserDiseno()%></p>
-                        <form action="" method="post">
-                            <button name="enviar" type="submit">Agregar al carrito</button>
+                        <form action="ServletCarrito" method="POST">
+                            <div class="form-row">
+                                <input type="hidden" class="form-control documento" id="documento" name="documento" value="<%=docu%>" readonly>
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control estado" id="estado" name="estado" value="Pedido" readonly>
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control direccion" id="direccion" name="direntrega" value="<%=direcc%>" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control tipo" id="tipo" name="tipo" value="Distibucion">
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control articulo" id="articulo" name="articulo" value="1">
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control diseno" id="diseno" name="diseno" value="<%= dis.getIDDiseno()%>">
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control descripcion" id="descripcion" name="descripcion" value="1">
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control cantidad" id="cantidad" name="cantidad" value="1" required min="1">
+                            </div>
+                            <div class="form-row">
+                                <input type="hidden" class="form-control precio" id="precio" name="precio" value="<%= dis.getPreDiseno() %>" required>
+                            </div>
+                            <button name="" type="submit">Agregar al carrito</button>
+                                
                         </form>
                     </div>
                     <% } %>
                 </div>
             </div>
         </section>
+                                
+                
+                
+        <!-- En este div va el carrito de compras aqui mostramos la seleccion de los productos que comprara el cliente -->
+        <div class="contenedor">
+            <div class="carritoModal" id="carritoModal">
+                <div class="carritoPopup" id="carritoPopup">
+                    <div class="contenedorBtnCerrarCarrito">
+                        <a href="Cliente.jsp" id="btnCerrarCarrito" class="btnCerrarCarrito">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="bodyCarrito" id="bodyCarrito">
+                        <h2>Carrito de compras</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Eliminar</th>
+                                    <th>Confirmar</th>
+                                </tr>
+                            </thead>
+                            <% 
+                            GestionDiseno Gd = new GestionDiseno();
+                            for (AddCarrito a : Articulos) {
+                               Disenogetset Dgs = Gd.GetId(a.getIdDiseno());
+                            
+                               
+                                    
+                            %>   
+                            
+                            <tbody>
+                                <tr class="contenido">
+                                    <th><img src="img/<%=Dgs.getImagen()%>" width="100"/></th>
+                                    <th><%=Dgs.getTexDiseno()%></th>
+                                    <th>1</th>                            
+                                    <th><%=Dgs.getPreDiseno() %></th> 
+                                    <th> 
+                                        <span class="diseno" id="diseno" style="display: none;"><%=Dgs.getIDDiseno()%></span>
+                                            <a class="EliminarPed" id="EliminarPed" name="EliminarPed" href="#">
+                                            <!--<input class="EliminarPed" id="EliminarPed" type="button" value="EliminarPed">-->
+                                            <i class="fa fa-minus" aria-hidden="true"></i>
+                                        </a>   
+                                    </th>
+                                    <th> 
+                                        <form>
+                                            <input type="hidden"  id="documento" name="documento" value="<%=docu%>" readonly>
+                                            <input type="hidden"  id="diseno" name="diseno" value="<%=Dgs.getIDDiseno()%>" readonly>
+                                            <input type="hidden"  id="tipo" name="tipo" value="Distibucion">
+                                            <input type="text"  id="articulo" name="articulo" value="<%=a.getIdArticulo()%>">
+                                            <input type="hidden"  id="descripcion" name="descripcion" value="sddsd">
+                                            <input type="hidden"  id="estado" name="estado" value="Pedido" readonly>
+                                            <input type="text"  id="direccion" name="direccion" value="<%=direcc%>" required readonly> 
+                                            <input type="hidden" class="form-control precio" id="precio" name="precio" value="<%= Dgs.getPreDiseno()%>" required readonly>
+                                            <input type="hidden"  id="cantidad" name="cantidad" value="1" required min="1">
+                                        
+                                            <a class="btnEnviar" id="btnEnviar" name="btnEnviar" href="#">
+                                            <!--<input class="EliminarPed" id="EliminarPed" type="button" value="EliminarPed">-->                                           
+                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                        </a>
+                                        </form> 
+                                    </th>
+                                    
+                                    
+                                    
+                                </tr>
+                            </tbody>
+                            <% } %>
+                           
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <footer>
             <div class="footer_logo">
                 <img src="Vista/img/LOGO-01.png">
