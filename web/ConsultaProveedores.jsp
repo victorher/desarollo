@@ -109,7 +109,7 @@
                         <table id="mytable">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
+                                    <!--<th>Codigo</th>-->
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
                                     <th>Direccion</th>
@@ -135,14 +135,57 @@
                                 %>
 
                                 <tr>
-                                    <td><input class="table proveedorID" value="<%=con.getProveedorID()%>" name="proveedorID"></td>
-                                    <td><input class="nombre" value="<%=con.getNombrePro()%>" name="nombre"></td>
-                                    <td><input class="apellido" value="<%=con.getApellidoPro()%>" name="apellido"></td>
-                                    <td><input class="direccion" value="<%=con.getDireccionPro()%>" name="direccion"></td>
-                                    <td><input class="telefono" value="<%=con.getTelefonoPro()%>" name="telefono"></td>
-                                    <td><input class="correo" value="<%=con.getCorreoPro()%>" name="correo"></td>
-                                    <td><input class="categoria" value="<%=con.getCategoriaPro()%>" name="categoria"></td>
-                                    <td><input class="estado" value="<%=con.getEstadoPro()%>" name="estado"></td>
+                                    <!--<td>-->
+                                        <input class="table proveedorID"
+                                               type="hidden"
+                                            value="<%=con.getProveedorID()%>" 
+                                            name="proveedorID">
+                                        </tActivod>
+                                    <td>
+                                        <input class="nombre" 
+                                            value="<%=con.getNombrePro()%>" 
+                                            name="nombre">
+                                    </td>
+                                    <td>
+                                        <input class="apellido" 
+                                            value="<%=con.getApellidoPro()%>" 
+                                            name="apellido">
+                                    </td>
+                                    <td>
+                                        <input class="direccion" 
+                                            value="<%=con.getDireccionPro()%>" 
+                                            name="direccion">
+                                    </td>
+                                    <td>
+                                        <input class="telefono" 
+                                            value="<%=con.getTelefonoPro()%>" 
+                                            name="telefono">
+                                    </td>
+                                    <td>
+                                        <input class="correo" 
+                                            value="<%=con.getCorreoPro()%>" 
+                                            name="correo">
+                                    </td>
+                                    <td>
+                                        <select id="categoria" name="categoria"  required="" class="categoria" >
+                                            <option value="<%=con.getCategoriaPro()%>"><%=con.getCategoriaPro()%></option>
+                                            <option value="Flores">Flores</option>
+                                            <option value="Cajas">Cajas</option>
+                                            <option value="Posillos">Posillos</option>
+                                            <option value="Porcelas">Porcelas</option>
+                                            <option value="Dulces">Dulces</option>
+                                            <option value="Chocolates">Chocolates</option>
+                                            <option value="Botellones">Botellones</option>
+                                            <option value="Confiteria">Confiteria</option>
+                                            <option value="Bombas">Bombas</option>
+                                    </td>
+                                    <td>
+                                        <select id="estado" name="estado"  required="" class="estado" >
+                                            <option value="<%=con.getEstadoPro()%>"><%=con.getEstadoPro()%></option>
+                                            <option value="Inactivo">Inactivo</option>
+                                            <option value="Activo">Activo</option>
+                                </select>
+                                    </td>
                                     <td>
                                         <div class="opciones">
                                             <input type="hidden" name="" value="">
