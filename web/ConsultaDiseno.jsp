@@ -116,7 +116,7 @@
                                     <th>Precio</th>
                                     <th>Observaciones</th>
                                     <th>Imagen</th>
-                                    <th>Cargar Imagen</th>
+                                    <th>Upload</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -131,20 +131,110 @@
 
                                         con = listas.get(i); %>
                                     <tr>
-                                        <input type="hidden" class="input-group-text table text-center border-0 iddis" value="<%=con.getIDDiseno()%>" name="iddis">
-                                        <td><input type="text" class="table nudeta" value="<%=con.getNumDetalle()%>" name="numdetalle"></td>
-                                        <td><textarea type="text" class="tedis" value="<%=con.getTexDiseno()%>" name="texdiseno"><%=con.getTexDiseno()%></textarea></td>
-                                        <td><input type="text" class="tadis" value="<%=con.getTamDiseno()%>" name="tamdiseno"></td>
-                                        <td><input type="text" class="codis" value="<%=con.getColDiseno()%>" name="coldiseno"></td>
-                                        <td><input type="text" class="table predis" value="<%=con.getPreDiseno()%>" name="prediseno"></td>
-                                        <td><textarea type="text" class="obdis" value="<%=con.getObserDiseno()%>" name="obsdiseno"><%=con.getObserDiseno()%></textarea></td>
+                                        <input 
+                                            type="hidden" 
+                                            class="input-group-text table text-center border-0 iddis" 
+                                            value="<%=con.getIDDiseno()%>" 
+                                            name="iddis">
+                                        <td>
+                                            <input 
+                                                type="text" 
+                                                class="table nudeta" 
+                                                value="<%=con.getNumDetalle()%>" 
+                                                name="numdetalle">
+                                        </td>
+                                        <td>
+                                            <textarea 
+                                                type="text" 
+                                                class="tedis" 
+                                                value="<%=con.getTexDiseno()%>" 
+                                                name="texdiseno">
+                                                <%=con.getTexDiseno()%>
+                                            </textarea>
+                                        </td>
+                                        <td>
+                                            <select id="tamdiseno" name="tamdiseno"  required="" class="tadis" >
+                                                <option value="<%=con.getTamDiseno()%>"><%=con.getTamDiseno()%></option>
+                                                <option value="10 cm X 10 cm">10 cm X 10 cm</option>
+                                                <option value="12 cm X 12 cm">12 cm X 12 cm</option>
+                                                <option value="15 cm X 15 cm">15 cm X 15 cm</option>
+                                                <option value="20 cm X 20 cm">20 cm X 20 cm</option>
+                                                <option value="30 cm X 30 cm">30 cm X 30 cm</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select 
+                                                id="coldiseno" 
+                                                name="coldiseno"  
+                                                required="" 
+                                                class="codis" >
+                                                <option value="<%=con.getColDiseno()%>"><%=con.getColDiseno()%></option>
+                                                <option value="Rojo">Rojo</option>
+                                                <option value="Caoba">Caoba</option>
+                                                <option value="Azul">Azul</option>
+                                                <option value="Azul y Blanco">Azul y Blanco</option>
+                                                <option value="Verde y Amarillo">Verde y Amarillo</option>
+                                                <option value="Negro y Morado">Negro y Morado</option>
+                                                <option value="Morado y Azul">Morado y Azul</option>
+                                                <option value="Frutos rojos">Frutos rojos</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input 
+                                                type="text" 
+                                                class="table predis" 
+                                                value="<%=con.getPreDiseno()%>" 
+                                                name="prediseno">
+                                        </td>
+                                        <td>
+                                            <textarea 
+                                                type="text" 
+                                                class="obdis" 
+                                                value="<%=con.getObserDiseno()%>" 
+                                                name="obsdiseno">
+                                                <%=con.getObserDiseno()%>
+                                            </textarea>
+                                        </td>
                                         <td><img src="img/<%=con.getImagen()%>"></td>
-                                        <td><input type="file"  accept="image/*" title="Ingresa una imagen" value="Guardar" name="imgdiseno" class="imgdis"></td>
+                                        <td>
+                                            <div class="opciones">
+                                                <input type="file" 
+                                                    style="display: none;"
+                                                    id="file"
+                                                    accept="image/*" 
+                                                    title="Ingresa una imagen" 
+                                                    value="Guardar" 
+                                                    name="imgdiseno" 
+                                                    class="imgdis">
+                                                <button type="button"
+                                                    style="cursor: pointer;"
+                                                    name="" 
+                                                    onclick="document.getElementById('file').click()" 
+                                                    title="Cargar Imagen">
+                                                    <i class="fa fa-upload" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="opciones">
                                                 <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
-                                                <button type="button" name="ActualizaDis" class="btnmod" id="btnmod" title="Actualizar"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                                <button type="submit" name="EliminaDiseno" onclick="return Eliminar()" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                <button 
+                                                    type="button" 
+                                                    style="cursor: pointer;"
+                                                    name="ActualizaDis" 
+                                                    class="btnmod" 
+                                                    id="btnmod" 
+                                                    title="Actualizar">
+                                                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                                                </button>
+                                                <button 
+                                                    type="submit" 
+                                                    style="cursor: pointer;"
+                                                    name="EliminaDiseno" 
+                                                    onclick="return Eliminar()" 
+                                                    title="Eliminar">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
