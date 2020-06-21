@@ -26,6 +26,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <link rel="icon" type="image/png" href="img/Suenos.png"> 
@@ -34,6 +35,15 @@
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
         <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js"></script>
+        <!--<script src="Vista/js/consultaClientes.js"></script>-->
+        <script src="Vista/js/filtro.js" type="text/javascript"></script>
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="Styles/js/popper.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+        <script src="Styles/main.js"></script>
+        <script src="Vista/js/TablaScroll.js"></script>
     </head>
     <body>
         <%
@@ -87,18 +97,18 @@
         </nav>
         <section class="page-header section-dark bg-light-grey">
             <div class="container">
-                <h2 class="mb-3 form-inline">Filtrar por documento</h2>
-                <form action="ServletPDF" class="form-inline my-2">
+                <h2 class="mb-3 form-inline">Generar Reporte Empleados</h2>
+                <form action="ServletPDF" class="form-inline">
                     <div class="form-group">
                         <input class="btn btn-success" type="submit" name="btnpdf" value="Cargar en pdf">
                     </div>
                 </form>
-                <form action="" method="POST" class="form-inline my-2 my-lg-0 mb-2">
+<!--                <form action="" method="POST" class="form-inline my-2 my-lg-0 mb-2">
                     <div class="form-group">
                         <input type="search" id="txt" name="bus" placeholder="&#x1F50D; Buscar" class="form-control mr-sm-2 txt pull-right">
-                        <!--<input type="submit" id="btn" name="env" value="&#128204; Mostrar" class="btn btn-default">-->
+                        <input type="submit" id="btn" name="env" value="&#128204; Mostrar" class="btn btn-default">
                     </div>
-                </form>
+                </form>-->
                 
                 
             </div>
@@ -128,23 +138,92 @@
             GestionCliente emp = new GestionCliente();
             listaEmp = emp.ConsulUniCliente(unoemp);
         %>
-        <section id="slider">
-            <div class="container">
+        <section id="slider" class="mt-3">
+            <div class="p-4">
                 <% if(request.getParameter("modifica")!=null){ %>
                     <form action="ServletGestionUsu" method="POST">
-                        <% for(int i = 0; i < listaUsu.size();i++){
-                            emple = listaUsu.get(i);
-                        %>
-                            <div class="form-row">
+                        
+                        <div class="form-row">
+                            
+                            <% for(int i = 0; i < listaUsu.size();i++){
+                                emple = listaUsu.get(i);
+                            %>
+                                <div class="form-group col-md-2">
+                                    <label for="doc">Documento</label>
+                                    <input type="number" 
+                                           class="form-control border-0" 
+                                           id="doc" 
+                                           readonly="readonly" 
+                                           value="<%=emple.getDocumento()%>" 
+                                           name="documento"
+                                           required>
+                                </div> 
+                            <% } %>
+                            
+                            <% for(int a = 0; a < listaEmp.size();a ++){
+                                unoemp = listaEmp.get(a);
+                            %>
+
                                 <div class="form-group col-md-3">
-                                    <label for="exampleFormControlSelect1">Documento <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputAddress" readonly="readonly" value="<%=emple.getDocumento()%>" name="documento" required>
+                                    <label for="nombre"><code>*</code> Nombre</label>
+                                    <input type="text" 
+                                           class="form-control border-0" 
+                                           id="nombre" 
+                                           title="Ingresar solo letras y un espacios entre palabras"
+                                           value="<%=unoemp.getNombre()%>" 
+                                           name="nombre" 
+                                           pattern="[A-Za-z ]{2,254}"
+                                           required>
                                 </div>
-                            </div>
-                            <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label for="formGroupExampleInput">Contraseña <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=emple.getClave()%>" name="contra" required>
+                                    <label for="apellido"><code>*</code> Apellido</label>
+                                    <input type="text" 
+                                           class="form-control border-0" 
+                                           id="apellido" 
+                                           title="Ingresar solo letras y un espacios entre palabras"
+                                           value="<%=unoemp.getApellido()%>" 
+                                           name="apellido" 
+                                           pattern="[A-Za-z ]{2,254}"
+                                           required>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="genero">Genero</label>
+                                    <select name="sexo" id="genero" class="form-control border-0">
+                                        <option value="<%=unoemp.getGenero()%>"><%=unoemp.getGenero() %></option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="cell"><code>*</code> Telefono</label>
+                                    <input type="text" class="form-control border-0" id="cell" value="<%=unoemp.getTelefono()%>" name="telefono" required>
+                                </div>
+                            <% } %>
+                            
+                        </div>
+                            
+                        <div class="form-row">
+
+                            <% for(int a = 0; a < listaEmp.size();a ++){
+                                unoemp = listaEmp.get(a);
+                            %>
+                                <div class="form-group col-md-3">
+                                    <label for="email"><code>*</code> Correo</label>
+                                    <input type="email" class="form-control border-0" id="email" value="<%=unoemp.getCorreo()%>" name="correo" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="direecion"><code>*</code> Direccion</label>
+                                    <input type="text" class="form-control border-0" id="direccion" value="<%=unoemp.getDireecion()%>" name="direccion" required>
+                                </div>
+                                
+                            <% } %>
+                            
+                            <% for(int i = 0; i < listaUsu.size();i++){
+                                emple = listaUsu.get(i);
+                            %>
+                                <div class="form-group col-md-2">
+                                    <!--<label for="contrasena"><code>*</code> Contraseña</label>-->
+                                    <input type="hidden" class="form-control" id="contrasena" value="<%=emple.getClave()%>" name="contra" required readonly="readonly">
                                 </div>
                                 <div class="form-group col-md-1">
                                     <!--<label for="estado">Estado</label>-->
@@ -153,80 +232,43 @@
                                 <div class="form-group col-md-3">
                                     <!--<label for="rol">Roll</label>-->
                                     <input type="hidden" class="form-control" id="rol" name="rol" value="<%=emple.getRoll()%>" readonly="readonly">
-                                </div>  
-                            </div>
-                        <% } %>
-                        <% for(int a = 0; a < listaEmp.size();a ++){
-                            unoemp = listaEmp.get(a);
-                        %>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="email">Correo <code>*</code></label>
-                                    <input type="text" class="form-control" id="email" value="<%=unoemp.getCorreo()%>" name="correo" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <label for="cell">Telefono <code>*</code></label>
-                                    <input type="text" class="form-control" id="cell" value="<%=unoemp.getTelefono()%>" name="telefono" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-5">
-                                    <label for="formGroupExampleInput">Direccion <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=unoemp.getDireecion()%>" name="direccion" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="formGroupExampleInput">Nombre <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputAddress" value="<%=unoemp.getNombre()%>" name="nombre" required>
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label for="formGroupExampleInput">Apellido <code>*</code></label>
-                                    <input type="text" class="form-control" id="inputEmail4" value="<%=unoemp.getApellido()%>" name="apellido" required>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="formGroupExampleInput">Sexo</label>
-                                    <select name="sexo" id="" class="form-control">
-                                        <option value="<%=unoemp.getGenero()%>"><%=unoemp.getGenero() %></option>
-                                        <option value="Masculino">Masculino</option>
-                                        <option value="Femenino">Femenino</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary" name="ActualizaCli">Actualizar</button>
-                        <% } %>
+                                </div> 
+                                
+                            <% } %>
+                            
+                        </div>
+                            <button type="submit" class="btn btn-success" name="ActualizaCli">Actualizar</button>
                     </form>
                 <% } %>
             </div>
         </section>
             
+            
         
                         
         <!--En este mostramos los datos filtrados-->
-        <section id="sniper" class="bg-entre">
+<!--        <section id="sniper" class="bg-entre">
             <div id="res"></div>
-        </section>
+        </section>-->
         
         <!--Metodo para mostrar todos los clientes al momento de ingresar a la pagina-->    
-        <section id="sniper" class="bg-entre">
-            <div class="container">
-                <div class="dataTables_length table-responsive text-nowrap vertical-table">
-                    <table id="tablemode" class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="100%">
+        <section id="slider" class="bg-entre">
+            <div class="p-4">
+                <div class="dataTables_length table-responsive">
+                    <table id="tablemode" class="table table-striped table-bordered table-hover table-sm">
                         <thead>
                             <tr class="btn-info">
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Documento</th>
-                                <th scope="col">Roll</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Genero</th>
-                                <th scope="col">Direccion</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Clave</th>
+                                <th width="5%">Nombre</th>
+                                <th width="10%">Apellido</th>
+                                <th width="8%">Doc</th>
+                                <!--<th scope="col">Roll</th>-->
+                                <th width="10%">Telefono</th>
+                                <th width="7%">Genero</th>
+                                <th width="38%">Direccion</th>
+                                <th width="15%">Correo</th>
+                                <!--<th scope="col">Clave</th>-->
                                 <!--<th scope="col">Estado</th>-->
-                                <th scope="col">Opciones</th>
+                                <th width="2%">--</th>
                                 <!--<th scope="col">Eliminar</th>-->
                             </tr>
                         </thead>
@@ -241,32 +283,32 @@
                             %>
 
                             <tr>
-                                <td scope="row"><%=con.getNombre()%></td>
-                                <td><%=con.getApellido()%></td>
-                                <td><%=con.getDocumento()%></td>
-                                <td><%=con.getRol()%></td>
-                                <td><%=con.getTelefono()%></td>
-                                <td><%=con.getGenero()%></td>
-                                <td><%=con.getDireccion()%></td>
-                                <td><%=con.getCorreo()%></td>
-                                <td><%=con.getClave()%></td>
+                                <td width="5%"><%=con.getNombre()%></td>
+                                <td width="10%"><%=con.getApellido()%></td>
+                                <td width="8%"><%=con.getDocumento()%></td>
+                                <!--<td><></td>-->
+                                <td width="10%"><%=con.getTelefono()%></td>
+                                <td width="7%"><%=con.getGenero()%></td>
+                                <td width="38%"><%=con.getDireccion()%></td>
+                                <td width="15%"><%=con.getCorreo()%></td>
+                                <!--<td><></td>-->
                                 <!--<td></td>-->
-                                <td class="text-center">
+                                <td width="2%" class="text-center">
                                     <div class="text-center">
                                         <form action="" method="POST" class="mx-2">
                                             <input type="hidden" name="cod" value="<%=con.getDocumento()%>">
                                             <div class="text-center">
-                                                <button type="submit" name="modifica" value="ACTUALIZAR" class="btn-success float-right img-fluid"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+                                                <button type="submit" name="modifica" value="ACTUALIZAR" class="btn-success img-thumbnail float-right img-fluid"><i class="fa fa-wrench" aria-hidden="true"></i></button>
                                             </div>
                                         </form>
                                     <!--</td>-->
                                     <!--<td>-->
-                                        <form action="ServletGestionUsu" method="POST" class="mx-2">
+<!--                                        <form action="ServletGestionUsu" method="POST" class="mx-2">
                                             <input type="hidden" name="cod" value="<%=con.getDocumento()%>">
                                             <div class="text-center">
-                                                <button type="submit" name="EliminaUsuario" value="ELIMINAR" class="btn-danger float-right img-fluid" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                                <button type="submit" name="EliminaUsuario" value="ELIMINAR" class="btn-danger img-thumbnail float-right img-fluid" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             </div>
-                                        </form>
+                                        </form>-->
                                     </div>
                                 </td>
                             </td>
@@ -308,14 +350,6 @@
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <!--<script src="Vista/js/consultaClientes.js"></script>-->
-        <script src="Vista/js/filtro.js" type="text/javascript"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-        <script src="Styles/main.js"></script>
-        <script src="Vista/js/TablaScroll.js"></script>
+        
     </body>
 </html>
