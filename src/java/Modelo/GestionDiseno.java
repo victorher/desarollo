@@ -117,4 +117,29 @@ public class GestionDiseno {
         }
         return dat;
     }
+    
+    public Disenogetset GetId(String id){
+        Disenogetset diseno = null;
+        
+            try {
+                ps = cnn.prepareStatement("CALL pa_ConsultaDisenosUni(?)");
+                ps.setString(1, id);
+                rs = ps.executeQuery();
+                while(rs.next()){
+                    diseno  = new Disenogetset(
+                            rs.getString(1), 
+                            rs.getString(2), 
+                            rs.getString(3), 
+                            rs.getString(4), 
+                            rs.getString(5), 
+                            rs.getString(6), 
+                            rs.getString(7), 
+                            rs.getString(8));
+                   
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e+" ConsulUniDiseno Gestion Diseno");
+            }
+        return diseno;
+    }
 }
