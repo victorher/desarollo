@@ -97,25 +97,25 @@
             }
         </script>
         
-        <div class="container container-cards mt-5">
+        <div class="p-4 container-cards mt-5">
             <div class="table">
                 <form action="" enctype="multipart/form-data" id="frm">
-                    <table class="table-responsive table-hover table-borderless table-sm" id="tabla">
+                    <table class="table-responsive table-hover table-borderless table-sm frm" id="tabla">
                         <thead>
                             <tr class="btn-danger">
-                                <th scope="col">Numero</th>
-                                <th scope="col">Texto</th>
-                                <th scope="col">Tamano</th>
-                                <th scope="col">Color</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Observaciones</th>
-                                <th scope="col">Imagen</th>
-                                <th scope="col">ModImagen</th>
-                                <th scope="col">Opcion</th>
+                                <th width="40%">Titulo</th>
+                                <th width="25%">Texto</th>
+                                <th width="2%">Tamano</th>
+                                <th width="2%">Color</th>
+                                <th width="10%">Precio</th>
+                                <th width="40%">Observaciones</th>
+                                <th width="10%">Imagen</th>
+                                <th width="5%">Cargar</th>
+                                <th width="2%">--</th>
                                 <!--<th scope="col">Eliminar</th>-->
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="arl">
                             <%  ArrayList<Disenogetset> listas = new ArrayList();
                                 Disenogetset con = new Disenogetset(); //convas hago referencia al constructor vasio
                                 GestionDiseno Cons = new GestionDiseno();
@@ -126,24 +126,84 @@
 
                                     con = listas.get(i); %>
                                 <tr>
-                                    <input type="hidden" class="input-group-text table text-center border-0 iddis" value="<%=con.getIDDiseno()%>" name="iddis">
-                                    <td><input type="text" class="input-group-text table text-center border-0 nudeta" value="<%=con.getNumDetalle()%>" name="numdetalle"></td>
-                                    <td><input type="text" class="input-group-text border-0 tedis" value="<%=con.getTexDiseno()%>" name="texdiseno"></td>
-                                    <td><input type="text" class="input-group-text border-0 tadis" value="<%=con.getTamDiseno()%>" name="tamdiseno"></td>
-                                    <td><input type="text" class="input-group-text border-0 codis" value="<%=con.getColDiseno()%>" name="coldiseno"></td>
-                                    <td><input type="text" class="input-group-text table text-center border-0 text-warning predis" value="<%=con.getPreDiseno()%>" name="prediseno"></td>
-                                    <td><input type="text" class="input-group-text border-0 obdis" value="<%=con.getObserDiseno()%>" name="obsdiseno"></td>
-                                    <td><img src="img/<%=con.getImagen()%>" class="img-thumbnail img-fluid"></td>
-                                    <td><input type="file"  accept="image/*" title="Ingresa una imagen" value="Guardar" name="imgdiseno" class="img-thumbnail img-fluid border-0 imgdis"></td>
-                                    <td>
+                                    <input type="hidden" 
+                                        class="input-group-text table text-center border-0 iddis" 
+                                        value="<%=con.getIDDiseno()%>" 
+                                        name="iddis">
+                                    <td width="40%">
+                                        <input  
+                                            size="35"
+                                            class="input-group-text table text-center border-0 nudeta" 
+                                            value="<%=con.getNumDetalle()%>" 
+                                            name="numdetalle">
+                                    </td>
+                                    <td width="25%">
+                                        <input 
+                                            size="35"
+                                            class="input-group-text border-0 tedis" 
+                                            value="<%=con.getTexDiseno()%>" 
+                                            name="texdiseno">
+                                    </td>
+                                    <td width="2%">
+                                        <input type="text"
+                                            size="10"
+                                            class="input-group-text border-0 tadis" 
+                                            value="<%=con.getTamDiseno()%>" 
+                                            name="tamdiseno">
+                                    </td>
+                                    <td width="2%">
+                                        <input type="text" 
+                                            size="10"
+                                            class="input-group-text border-0 codis" 
+                                            value="<%=con.getColDiseno()%>" 
+                                            name="coldiseno">
+                                    </td>
+                                    <td width="10%">
+                                        <input type="text" 
+                                            size="8"
+                                            class="input-group-text table text-center border-0 text-warning predis" 
+                                            value="<%=con.getPreDiseno()%>" 
+                                            name="prediseno">
+                                    </td>
+                                    <td width="40%">
+                                        <input 
+                                            size="30"
+                                            class="input-group-text border-0 obdis" 
+                                            value="<%=con.getObserDiseno()%>" 
+                                            name="obsdiseno">
+                                    </td>
+                                    <td width="10%">
+                                        <img src="img/<%=con.getImagen()%>" 
+                                            class="img-thumbnail img-fluid">
+                                    </td>
+                                    <td width="5%">
+                                            <input type="file"  
+                                                id="file"
+                                                accept="image/*" 
+                                                title="Ingresa una imagen" 
+                                                value="Guardar" 
+                                                name="imgdiseno" 
+                                                class="imgdis">
+                                                <!--class="fileinput-new border-0 imgdis">-->
+                                            <button
+                                                type="button"
+                                                value="Cargar"
+                                                class="bta"
+                                                onclick="document.getElementById('file').click()">
+                                                <i class="fa fa-upload" aria-hidden="true"></i>
+                                            </button>
+                                    </td>
+                                    <td width="2">
                                         <div class="text-center">
                                             <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
                                             <div class="text-center">
-                                                <button type="button" name="ActualizaDis" class="img-fluid img-thumbnail btn-success btnmod" id="btnmod"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+                                                <button type="button" name="ActualizaDis" class="img-fluid img-thumbnail btn-success btnmod" id="btnmod">
+                                                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                                                </button>
                                             </div>
-                                            <div class="text-center">
+<!--                                            <div class="text-center">
                                                 <button type="submit" name="EliminaDiseno" class="img-fluid img-thumbnail btn-danger" onclick="return Eliminar()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </td>
                                 </tr>
