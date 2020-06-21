@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+.contenedor1 {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 60px 0;
+}
+header::before {
+    content: "";
+    display: block;
+    margin-bottom: 80Px;
+}
+nav {
+    width: 100%;
+    height: 80px;
+    background: rgba(222, 193, 230, 0.9);
+    border-bottom: 1px solid transparent;
+    box-shadow: 5px 7px 8px 0 rgba(116, 74, 152, .6);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: ease-in-out 0.5s;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    align-items: center;
+    padding: 0 40px;
+}
+.nav .logo {
+    width: 58%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav .logo img {
+    width: 150px;
+    height: 100%;
+    vertical-align: top;
+}
+.nav .logo a {
+    margin-left: 15px;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+    text-decoration: none;
+}
+.nav .logo div {
+    color: red;
+}
+.enlaces_header {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-weight: 300;
+    position: fixed;
+    border: 3px solid rgb(153, 48, 180);
+    background: rgb(222, 193, 230);
+    top: 0px;
+    right: 0px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    clip-path: circle(0.0% at 100% 0);
+    transition: ease-in-out 0.5s;
+}
+.nav .menuDos {
+    -webkit-clip-path: circle(150% at 100% 0);
+    clip-path: circle(150% at 100% 0);
+}
+.enlaces_header .uno, .dos {
+    width: 100%;
+    display: flex;
+}
+.enlaces_header .uno a, .dos a {
+    width: 90%;
+    height: 43px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 2px solid rgb(153, 48, 180);
+    font-size: 25px;
+    color: rgb(153, 48, 180);
+    cursor: pointer;
+}
+.enlaces_header .uno a:focus, .dos a:focus {
+    padding-top: 5px;
+    background: rgb(153, 48, 180);
+    color:  #fff;
+}
+
+.enlaces_header .uno_uno, .dos_uno {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.enlaces_header .uno_uno a, .dos_uno a {
+    width: 90%;
+    height: 30px;
+    margin-left: auto;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 2px solid rgb(153, 48, 180);
+    font-size: 17px;
+    color: rgb(153, 48, 180);
+    cursor: pointer;
+}
+.enlaces_header form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.enlaces_header form button {
+    width: 90%;
+    height: 50px;
+    background: rgb(222, 193, 230);
+    border: none;
+    border-bottom: 2px solid rgb(153, 48, 180);
+    font-size: 25px;
+    color: rgb(153, 48, 180);
+    outline: none;
+    cursor: pointer;
+}
+.hamburguer {
+    display: block;
+    color: rgb(153, 48, 180);
+    text-align: center;
+    z-index: 100;
+    transition: color 0.3s ease-in;
+}
+.hamburguer > i {
+    font-size: 25px;
+    line-height: 80px;
+    cursor: pointer;
+}
+.cuerpo {
+    width: 90%;
+    padding: 30px 0;
+    height: 400px;
+}
+.formularioActualizar form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.formularioActualizar h2 {
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 100;
+    color: rgb(153, 48, 180);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.formularioActualizar form .formularioGrupo {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+    position: relative;
+}
+.formularioActualizar form .formularioGrupo input, select{
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    margin-bottom: 16px;
+    padding-left: 10px;
+    display: block;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(222, 193, 230);
+}
+.formularioActualizar form .formularioGrupo label {
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 12px;
+    left: 70px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+.formularioActualizar form .formularioGrupo .docu {
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.formularioActualizar form .formularioGrupo input:focus~label,
+.formularioActualizar form .formularioGrupo input:valid~label{
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.formularioActualizar form .formularioGrupo select:focus~label,
+.formularioActualizar form .formularioGrupo select:valid~label{
+    top: -6px;
+    font-size: 12px;
+    color: rgb(153, 48, 180);
+}
+.formularioActualizar form .formularioGrupo .barra {
+    position: relative;
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+.formularioActualizar form .formularioGrupo .barra::before {
+    content: "";
+    height: 4px;
+    width: 0%;
+    bottom: 15px;
+    position: absolute;
+    background: rgb(222, 193, 230);
+    transition: 0.3s ease width;
+    left: 0;
+}
+.formularioActualizar form .formularioGrupo input:focus~.barra::before {
+    width: 100%;
+}
+.formularioActualizar form button {
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 30px;
+    background: rgb(222, 193, 230);
+    cursor: pointer;
+    outline: none;
+}
+.formularioActualizar form button:hover {
+    outline: none;
+    background: rgb(153, 48, 180);
+    color:  #fff;
+}
+footer {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(249, 243, 252); 
+}
+.footer_logo img {
+    width: 150px;
+    height: 80px;
+    margin-left: 180px;
+}
+.footer_redes {
+    margin-right: 180px;
+}
+.footer_redes h4 {
+    color: rgb(153, 48, 180);
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+.footer_redes div {
+    display: flex;
+    justify-content: space-between;
+}
+.footer_redes i {
+    font-size: 20px;
+    display: inline-block;
+    color: rgb(222, 193, 230);
+    border: 1px solid rgb(153, 48, 180);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    line-height: 36px;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease-in-out 0.3s;
+}
+.footer_redes i:hover {
+    color: #fff;
+    background: rgb(153, 48, 180);
+}
