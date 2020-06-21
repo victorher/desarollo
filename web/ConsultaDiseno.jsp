@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="Modelo.GestionDiseno"%>
 <%@page import="Modelo.Disenogetset"%>
@@ -119,7 +120,6 @@
                             <%  ArrayList<Disenogetset> listas = new ArrayList();
                                 Disenogetset con = new Disenogetset(); //convas hago referencia al constructor vasio
                                 GestionDiseno Cons = new GestionDiseno();
-
                                 listas = Cons.ConsultarDisenos();
 
                                 for(int i=0; i<listas.size(); i++){
@@ -145,24 +145,33 @@
                                             name="texdiseno">
                                     </td>
                                     <td width="2%">
-                                        <input type="text"
-                                            size="10"
-                                            class="input-group-text border-0 tadis" 
-                                            value="<%=con.getTamDiseno()%>" 
-                                            name="tamdiseno">
+                                        <select name="tamdiseno" id="tamdiseno" class="border-0 input-group-text tadis">
+                                            <option value="<%=con.getTamDiseno()%>"><%=con.getTamDiseno()%></option>
+                                            <option value="10 cm X 10 cm">10 cm X 10 cm</option>
+                                            <option value="12 cm X 12 cm">12 cm X 12 cm</option>
+                                            <option value="15 cm X 15 cm">15 cm X 15 cm</option>
+                                            <option value="20 cm X 20 cm">20 cm X 20 cm</option>
+                                            <option value="30 cm X 30 cm">30 cm X 30 cm</option>
+                                        </select>
                                     </td>
                                     <td width="2%">
-                                        <input type="text" 
-                                            size="10"
-                                            class="input-group-text border-0 codis" 
-                                            value="<%=con.getColDiseno()%>" 
-                                            name="coldiseno">
+                                        <select name="coldiseno" id="coldiseno" class="border-0 input-group-text codis">
+                                            <option value="<%=con.getColDiseno()%>"><%=con.getColDiseno()%></option>
+                                            <option value="Rojo">Rojo</option>
+                                            <option value="Caoba">Caoba</option>
+                                            <option value="Azul">Azul</option>
+                                            <option value="Azul y Blanco">Azul y Blanco</option>
+                                            <option value="Verde y Amarillo">Verde y Amarillo</option>
+                                            <option value="Negro y Morado">Negro y Morado</option>
+                                            <option value="Morado y Azul">Morado y Azul</option>
+                                            <option value="Frutos rojos">Frutos rojos</option>
+                                        </select>
                                     </td>
                                     <td width="10%">
                                         <input type="text" 
                                             size="8"
                                             class="input-group-text table text-center border-0 text-warning predis" 
-                                            value="<%=con.getPreDiseno()%>" 
+                                            value="<%= con.getPreDiseno()%>" 
                                             name="prediseno">
                                     </td>
                                     <td width="40%">
