@@ -110,7 +110,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Codigo</th>
+                                <!--<th>Codigo</th>-->
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Opciones</th>
@@ -130,7 +130,9 @@
                             %>
 
                             <tr>
-                                <td><input type="text" class="idcat" value="<%=con.getID()%>" name="id"></td>
+                                <!--<td>-->
+                                    <input type="hidden" class="idcat" value="<%=con.getID()%>" name="id">
+                                <!--</td>-->
                                 <td><input type="text" class="artno" value="<%=con.getNom()%>" name="nombre"></td>
                                 <td><input type="text" class="descr" value="<%=con.getCat()%>" name="descripcion"></td>
                                 <td>
