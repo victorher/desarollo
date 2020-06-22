@@ -4,6 +4,7 @@ import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -33,7 +34,7 @@ public class GestionPedidos {
            
                 listas.add(consPed);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e + " ConsultaPedidos");
         }
         return listas;
@@ -42,18 +43,18 @@ public class GestionPedidos {
     public boolean IncertarPedido(Pedidosgetset us){
         boolean dat = false;
             try {
-                ps = cnn.prepareStatement("CALL pa_CreaNuevoPedido(?,?,?,?,?,?)");
+                ps = cnn.prepareStatement("CALL pa_CreaNuevoPedido(?,?,?,?)");
                 ps.setString(1, us.getDocumento());
                 ps.setString(2, us.getEstado());
-                ps.setString(3, us.getFecPedido());
-                ps.setString(4, us.getFecEntrega());
-                ps.setString(5, us.getDirEntrega());
-                ps.setString(6, us.getTipo());
+//                ps.setString(3, us.getFecPedido());
+//                ps.setString(4, us.getFecEntrega());
+                ps.setString(3, us.getDirEntrega());
+                ps.setString(4, us.getTipo());
                 int d = ps.executeUpdate();
                 if(d > 0)
                     dat = true;
                 
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e + " IncertarPedido");
             }
         return dat;
@@ -75,7 +76,7 @@ public class GestionPedidos {
                 dat = true;
             }
             //JOptionPane.showMessageDialog(null, "Si hay datos");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e + " ActaulizarPedidos");
         }
         return dat;
@@ -89,7 +90,7 @@ public class GestionPedidos {
             if(d > 0){
                 dat = true;
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e + " EliminarPedidos");
         }
         return dat;
