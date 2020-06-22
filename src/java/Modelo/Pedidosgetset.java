@@ -22,6 +22,13 @@ public class Pedidosgetset {
         this.DirEntrega = DirEntrega;
         this.Tipo = Tipo;
     }
+
+    public Pedidosgetset(String Documento, String Estado, String DirEntrega, String Tipo) {
+        this.Documento = Documento;
+        this.Estado = Estado;
+        this.DirEntrega = DirEntrega;
+        this.Tipo = Tipo;
+    }
     
     public Pedidosgetset(String Documento, String Nombre, String Apellido, String Estado, String FecPedido, String FecEntrega, String DirEntrega, String Tipo) {
         this.Documento = Documento;
