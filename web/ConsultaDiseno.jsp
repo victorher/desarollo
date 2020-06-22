@@ -20,6 +20,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <title>Entre Suenos</title>
@@ -66,7 +67,6 @@
                             <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
                             <a class="dropdown-item" href="#">Pedidos</a>
                             <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
-                            <a class="dropdown-item" href="ConsultaArtProveedor.jsp">Categoria Articulos</a>
                         </div>
                         <div class="dos">
                             <a href="#">
@@ -77,9 +77,7 @@
                             <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
                             <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
                             <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
                             <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
-                            <a class="dropdown-item" href="CreaArtProveedor.jsp">Categoria Articulos</a>
                         </div>
                         <form action="CerrarSesion" method="POST">
                             <button type="submit" name="btn">Cerrar Sesion</button>
