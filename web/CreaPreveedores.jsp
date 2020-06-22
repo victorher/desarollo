@@ -141,5 +141,102 @@
             </div>
         </footer>
         <% } %>
+        <%
+            if (roll.equalsIgnoreCase("Empleado")) {
+        %>
+        <header>
+            <nav>
+                <section class="nav">
+                    <div class="logo" style="width: 45%">
+                        <img src="Vista/img/LOGO-01.png" alt=""/>
+                        <a href="Empleado.jsp"><%=roll%></a>
+                        <a><%=nom+" "+ape%></a>
+                    </div>
+                    <div class="enlaces_header">
+                        <div class="uno">
+                            <a href="#">
+                                Consultar
+                            </a>
+                        </div>
+                        <div class="uno_uno">
+                            <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
+                        </div>
+                        <div class="dos">
+                            <a href="#">
+                                Registrar
+                            </a>
+                        </div>
+                        <div class="dos_uno">
+                            <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
+                        </div>
+                        <form action="CerrarSesion" method="POST">
+                            <button type="submit" name="btn">Cerrar Sesion</button>
+                        </form>
+                    </div>
+                    <div class="hamburguer">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </section>
+            </nav>
+        </header>
+        <section class="contenedor">
+            <div class="cuerpo" style="height: 400px">
+                <div class="formularioActualizar" id="formularioActualizar">
+                    <h2>Registrar un nuevo proveedor</h2>
+                    <form action="" method="POST">
+                        <div class="formularioGrupo">
+                            <input type="text" class="nombre" id="nombre" name="nombre" required="">
+                            <span class="barra"></span>
+                            <label>Nombre</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="text" class="apellido" id="apellido" name="apellido" required="">
+                            <span class="barra"></span>
+                            <label>Apellido</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="text" class="direccion" id="adress" name="direccion" required="">
+                            <span class="barra"></span>
+                            <label>Direccion</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="text" class="telefono" id="cell" name="telefono" required="">
+                            <span class="barra"></span>
+                            <label>Telefono</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="text" class="correo" id="mail" name="correo" required="">
+                            <span class="barra"></span>
+                            <label>Correo</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="text" class="categoria" id="categoria" name="categoria" required="">
+                            <span class="barra"></span>
+                            <label>Categoria</label>
+                        </div>
+                        <input type="hidden" class="estado" id="estado" name="estado" value="Activo">
+                        <button type="submit" class="btncarga" name="CargaPro">Registrar <i class="fa fa-sign-in ml-1"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer_logo">
+                <img src="Vista/img/LOGO-01.png">
+            </div>
+            <div class="footer_redes">
+                <h4>Redes Sociales</h4>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        </footer>
+        <% } %>
     </body>
 </html>
