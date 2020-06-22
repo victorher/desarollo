@@ -283,36 +283,36 @@
                                     <th>1</th>                            
                                     <th><%=Dgs.getPreDiseno() %></th> 
                                     <th> 
-                                        <span class="diseno" id="diseno" style="display: none;"><%=Dgs.getIDDiseno()%></span>
-                                            <a class="EliminarPed" id="EliminarPed" name="EliminarPed" href="#">
+                                        <span class="diseno" id="diseno" style="display: none;"><%=a.getIdDiseno() %></span>
+                                        <a class="EliminarPed" id="EliminarPed" name="EliminarPed" href="#">
                                             <!--<input class="EliminarPed" id="EliminarPed" type="button" value="EliminarPed">-->
                                             <i class="fa fa-minus" aria-hidden="true"></i>
                                         </a>   
                                     </th>
                                     <th> 
                                         <form>
-                                            <input type="hidden"  id="documento" name="documento" value="<%=docu%>" readonly>
-                                            <input type="hidden"  id="diseno" name="diseno" value="<%=Dgs.getIDDiseno()%>" readonly>
-                                            <input type="hidden"  id="tipo" name="tipo" value="Distibucion">
-                                            <input type="hidden"  id="articulo" name="articulo" value="1">
-                                            <input type="hidden"  id="descripcion" name="descripcion" value="<%= Dgs.getObserDiseno()%>">
-                                            <input type="hidden"  id="estado" name="estado" value="Pedido" readonly>
-                                            <input type="hidden"  id="direccion" name="direccion" value="<%=direcc%>" required readonly> 
-                                            <input type="hidden" class="form-control precio" id="precio" name="precio" value="<%= Dgs.getPreDiseno()%>" required readonly>
-                                            <input type="hidden"  id="cantidad" name="cantidad" value="1" required min="1">
+                                            <input type="hidden"  class="tdocumento" id="documento" name="documento" value="<%=docu%>" readonly>
+                                            <input type="hidden"  class="tdiseno" id="diseno" name="diseno" value="<%=a.getIdDiseno() %>" readonly>
+                                            <input type="hidden"  class="ttipo" id="tipo" name="tipo" value="Distibucion">
+                                            <input type="hidden"  class="tarticulo" id="articulo" name="articulo" value="1">
+                                            <input type="hidden"  class="tdescripcion" id="descripcion" name="descripcion" value="<%= Dgs.getObserDiseno()%>">
+                                            <input type="hidden"  class="testado" id="estado" name="estado" value="Pedido" readonly>
+                                            <input type="hidden"  class="tdireccion" id="direccion" name="direccion" value="<%=direcc%>" required readonly> 
+                                            <input type="hidden"  class="tprecio" id="precio" name="precio" value="<%= Dgs.getPreDiseno()%>" required readonly>
+                                            <input type="hidden"  class="tcantidad" id="cantidad" name="cantidad" value="1" required min="1">
                                         
                                             <a class="btnEnviar" id="btnEnviar" name="btnEnviar" href="#">
-                                            <!--<input class="EliminarPed" id="EliminarPed" type="button" value="EliminarPed">-->                                           
-                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                        </a>
+                                                <!--<input class="EliminarPed" id="EliminarPed" type="button" value="EliminarPed">-->                                           
+                                                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                            </a>
                                         </form> 
                                     </th>
                                     
                                     
                                     
                                 </tr>
-                                <% } %>
-                                <% } %>
+                            <% } %>
+                            <% } %>
                                 <tr>
                                     <th></th>
                                     <th><h2>Total</h2></th>
