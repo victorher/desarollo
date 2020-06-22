@@ -22,15 +22,22 @@ $(document).ready(function (){
                 Iddiseno:Iddiseno,
                 
             },
-            success:function(){
+           success: function (result) {
+                console.log(result);
+                $('#total').html(result);
                 elemento.parent().parent().remove();
+            }
+                
                
-            } 
-        });
-        
-        
-        
-        
+                
+                
+                
+               
+                
+                
+               
+           
+        })    
    });
     
 });
