@@ -67,7 +67,7 @@ $(document).ready(function(){
         })
         .then(datos=>datos.json())
         .then(datos=>{
-            console.log(datos);
+//            console.log(datos);
             if(datos){
                 alert('La imagen se cargo correctamente');
             }
