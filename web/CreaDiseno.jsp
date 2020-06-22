@@ -21,12 +21,13 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <title>Entre Sueños</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
-        <link rel="stylesheet" href="Styles/Est.css">
-        <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
+        <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="Styles/js/principal.js" type="text/javascript"></script>
     </head>
     <body>
         <%
@@ -38,212 +39,126 @@
             docu = (String) obsjes.getAttribute("Documento");
             cont = (String) obsjes.getAttribute("Contrasena");
             roll = (String) obsjes.getAttribute("Rol");
+            
+            if (roll.equalsIgnoreCase("Administrador")) {
         %>
-        <nav class="navbar navbar-expand-lg col-gra b-inf">
-            <div class="container">
-                <div class="text-center">
-                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
-                </div>
-                <a class="navbar-brand" href="Principal.jsp">INICIO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Regalos</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <header>
+            <nav>
+                <section class="nav">
+                    <div class="logo">
+                        <img src="Vista/img/LOGO-01.png" alt=""/>
+                        <a href="Principal.jsp"><%=roll%></a>
+                        <a><%=nom+" "+ape%></a>
+                        <a href="PQR.jsp">PQR</a>
+                        <div id="cunta"></div>
+                    </div>
+                    <div class="enlaces_header">
+                        <div class="uno">
+                            <a href="#">
+                                Consultar
+                            </a>
+                        </div>
+                        <div class="uno_uno">
+                            <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
+                        </div>
+                        <div class="dos">
+                            <a href="#">
                                 Registrar
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Empleado</a>
-                                <a class="dropdown-item" href="#">Cliente</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Diseños</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
-                        </li>
-                    </ul>
-                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <input class="btn btn-danger mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
+                        </div>
+                        <div class="dos_uno">
+                            <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
+                        </div>
+                        <form action="CerrarSesion" method="POST">
+                            <button type="submit" name="btn">Cerrar Sesion</button>
+                        </form>
+                    </div>
+                    <div class="hamburguer">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </section>
+            </nav>
+        </header>
+        <section class="contenedor">
+            <div class="cuerpo">
+                <div class="formularioActualizar" id="formularioActualizar">
+                    <h2>Registrar un nuevo diseño</h2>
+                    <form action="ServletDiseno" enctype="multipart/form-data" method="POST">
+                        <div class="formularioGrupo">
+                            <input type="text" id="titulo" name="numdetalle" required="">
+                            <span class="barra"></span>
+                            <label>Titulo Producto</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="text" id="texto" name="texdiseno" required="">
+                            <span class="barra"></span>
+                            <label>Texto del diseño</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <select id="tamdis" name="tamdiseno" required="">
+                                <option value=""></option>
+                                <option value="10 cm X 10 cm">10 cm X 10 cm</option>
+                                <option value="12 cm X 12 cm">12 cm X 12 cm</option>
+                                <option value="15 cm X 15 cm">15 cm X 15 cm</option>
+                                <option value="20 cm X 20 cm">20 cm X 20 cm</option>
+                                <option value="30 cm X 30 cm">30 cm X 30 cm</option>
+                            </select>
+                            <span class="barra"></span>
+                            <label>Tamaño del diseño</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <select id="coldis" name="coldiseno" required="">
+                                <option value=""></option>
+                                <option value="Rojo">Rojo</option>
+                                <option value="Caoba">Caoba</option>
+                                <option value="Azul">Azul</option>
+                                <option value="Azul y Blanco">Azul y Blanco</option>
+                                <option value="Verde y Amarillo">Verde y Amarillo</option>
+                                <option value="Negro y Morado">Negro y Morado</option>
+                                <option value="Morado y Azul">Morado y Azul</option>
+                                <option value="Frutos rojos">Frutos rojos</option>
+                            </select>
+                            <span class="barra"></span>
+                            <label>Color del diseño</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="number" id="predis" name="prediseno" min="0" required="">
+                            <span class="barra"></span>
+                            <label>Precio del diseño</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="file" id="img" name="imgdiseno" accept="image/*">
+                        </div>
+                        <div class="formularioGrupo1">
+                            <input type="text" id="obs" name="obsdiseno" required="">
+                            <span class="barra"></span>
+                            <label>Oservacion del diseño</label>
+                        </div>
+                        <button type="submit" name="CargaDis">Registrar <i class="fa fa-sign-in ml-1"></i></button>
                     </form>
                 </div>
             </div>
-        </nav>
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <form action="ServletDiseno" enctype="multipart/form-data" method="POST">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="titulo"><code>*</code> Titulo Producto</label>
-                                    <input type="text" class="form-control" id="titulo" name="numdetalle" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="texto"><code>*</code> Texto del diseño</label>
-                                    <input type="text" class="form-control" id="texto" name="texdiseno" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="tamdis"><code>*</code> Tamaño del diseño</label>
-                                    <!--<input type="text" class="form-control" id="tamdis" name="tamdiseno" required>-->
-                                    <select class="form-control" id="tamdis" name="tamdiseno">
-                                        <option value="">Seleccionar</option>
-                                        <option value="10 cm X 10 cm">10 cm X 10 cm</option>
-                                        <option value="12 cm X 12 cm">12 cm X 12 cm</option>
-                                        <option value="15 cm X 15 cm">15 cm X 15 cm</option>
-                                        <option value="20 cm X 20 cm">20 cm X 20 cm</option>
-                                        <option value="30 cm X 30 cm">30 cm X 30 cm</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="coldis">Color del diseño <code>*</code></label>
-                                    <!--<input type="text" class="form-control" id="coldis" name="coldiseno" required>-->
-                                    <select class="form-control" id="coldis" name="coldiseno">
-                                        <option value="Rojo">Rojo</option>
-                                        <option value="Caoba">Caoba</option>
-                                        <option value="Azul">Azul</option>
-                                        <option value="Azul y Blanco">Azul y Blanco</option>
-                                        <option value="Verde y Amarillo">Verde y Amarillo</option>
-                                        <option value="Negro y Morado">Negro y Morado</option>
-                                        <option value="Morado y Azul">Morado y Azul</option>
-                                        <option value="Frutos rojos">Frutos rojos</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="predis"><code>*</code> Precio del diseño</label>
-                                    <input type="number" class="form-control" id="predis" name="prediseno" min="0" required>
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label for="img"><code>*</code> Ingresa una imagen</label>
-                                    <input type="file" id="img" name="imgdiseno" accept="image/*" class="btn btn-dark">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="obs"><code>*</code> Oservacion del diseño</label>
-                                    <input type="text" class="form-control" id="obs" name="obsdiseno" required>
-                                </div>
-                            </div>
-                            <input type="submit" class="btn btn-entre" name="CargaDis" value="Registrar">
-                        </form>
-                    </div>
-                    <div class="col-md-5">
-                        <div id="carousel" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel" data-slide-to="1"></li>
-                                <li data-target="#carousel" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="Vista/img/com-1.jpg" alt="First slide" width="250" height="500">
-                                    <div class="carousel-caption">
-                                        <h3 class="d-block">Comida</h3>
-                                        <p class="lead d-none d-sm-block">Puesta</p>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="Vista/img/com-2.jpg" alt="Second slide" width="250" height="500">
-                                    <div class="carousel-caption">
-                                        <h3 class="d-block">Title</h3>
-                                        <p class="lead d-none d-sm-block">lorem</p>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="Vista/img/com-3.jpg" alt="Third slide" width="250" height="500">
-                                    <div class="carousel-caption">
-                                        <h3 class="d-block">Noche</h3>
-                                        <p class="lead d-none d-sm-block">Noche</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        </section>
+        <footer>
+            <div class="footer_logo">
+                <img src="Vista/img/LOGO-01.png">
             </div>
-        </section>
-        <section>
-            <div class="container">
-                <h3>Registrar nuevos diseños</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, dicta, harum porro velit similique cumque a aliquid veniam voluptatem! Veritatis sunt minus sint quidem eligendi itaque vitae earum atque sit?</p>
-                <div class="row">
-                    <%
-                        ArrayList<disenoEtiqueta_gs> lista = new ArrayList<>();
-                        disenoEtiqueta_gs imag = new disenoEtiqueta_gs();
-                        disenoGestiona mues = new disenoGestiona();
-                        lista = mues.MuestraImagen();
-                        for(int i = 0; i < lista.size(); i++){
-                            imag = lista.get(i);
-                    %>
-                    <div class="col-md-3 mb-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2 class="text-center"><%= imag.getImagen()%></h2>
-                            </div>
-                            <div class="card-body text-center">
-                                <img src="img/<%= imag.getImagen() %>" width="200" height="180">
-                            </div>
-                            <div class="card-footer">
-                                <div class="text-center">
-                                    <label for="">$ <%=imag.getPrecio() %>.00</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <% } %>
-                </div>
-            </div>
-        </section>
-        <section class="ff">
-            
-        </section>
-        <footer class="bg-dark text-light py-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-inline">
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 text-sm-right">
-                        <small>Entre sueños</small>
-                    </div>
+            <div class="footer_redes">
+                <h4>Redes Sociales</h4>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script> 
+        <% } %>
     </body>
 </html>
