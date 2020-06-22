@@ -1,8 +1,3 @@
-<%-- 
-    Document   : PQR
-    Created on : 2/06/2020, 07:24:39 PM
-    Author     : VICTORH
---%>
 <%@page import="Modelo.pqrGetSet"%>
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="java.util.ArrayList"%>
@@ -29,17 +24,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
         <title>Entre Sueños</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-        <link rel="stylesheet" href="Styles/Est.css">
-        <link rel="stylesheet" href="Vista/css/StylesU.css">
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
+        <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <script src="Styles/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js"></script>
         <script src="Vista/js/Consulta_JSON_PQR.js" type="text/javascript"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script> 
+        <script src="Styles/js/principal.js" type="text/javascript"></script>
     </head>
     <body>
         <%
@@ -52,31 +44,54 @@
             cont = (String) obsjes.getAttribute("Contrasena");
             roll = (String) obsjes.getAttribute("Rol");
             direcc = (String) obsjes.getAttribute("Direccion");
+            
+            if (roll.equalsIgnoreCase("Administrador")) {
         %>
         <!--<script type="text/javascript">alert('Bienvenido al sistema');</script>-->
-        <nav class="navbar navbar-expand-lg col-gra b-inf">
-            <div class="container">
-                <div class="text-center">
-                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
-                </div>
-                <a class="navbar-brand" href="Principal.jsp">INICIO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto" id="cunta">
-                    </ul>
-                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-entre form-control mr-sm-2" type="submit" name="btn">
-                            <i class="fa fa-power-off" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </body>
-    
+        <header>
+            <nav>
+                <section class="nav">
+                    <div class="logo">
+                        <img src="Vista/img/LOGO-01.png" alt=""/>
+                        <a href="Principal.jsp"><%=roll%></a>
+                        <a><%=nom+" "+ape%></a>
+                        <a href="PQR.jsp">PQR</a>
+                        <div id="cunta"></div>
+                    </div>
+                    <div class="enlaces_header">
+                        <div class="uno">
+                            <a href="#">
+                                Consultar
+                            </a>
+                        </div>
+                        <div class="uno_uno">
+                            <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
+                        </div>
+                        <div class="dos">
+                            <a href="#">
+                                Registrar
+                            </a>
+                        </div>
+                        <div class="dos_uno">
+                            <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
+                        </div>
+                        <form action="CerrarSesion" method="POST">
+                            <button type="submit" name="btn">Cerrar Sesion</button>
+                        </form>
+                    </div>
+                    <div class="hamburguer">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </section>
+            </nav>
+        </header>
     <div class="container mt-4 p-4">
         <div class="row">
             <div class="col-md-5">
@@ -135,4 +150,19 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="footer_logo">
+            <img src="Vista/img/LOGO-01.png">
+        </div>
+        <div class="footer_redes">
+            <h4>Redes Sociales</h4>
+            <div>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-whatsapp"></i>
+            </div>
+        </div>
+    </footer>
+    <% } %>
+ </body>
 </html>
