@@ -26,7 +26,7 @@ public class GestionDiseno {
                             rs.getString(3), 
                             rs.getString(4), 
                             rs.getString(5), 
-                            rs.getString(6), 
+                            rs.getInt(6), 
                             rs.getString(7), 
                             rs.getString(8));
                     lista.add(us);
@@ -49,7 +49,7 @@ public class GestionDiseno {
                             rs.getString(3), 
                             rs.getString(4), 
                             rs.getString(5), 
-                            rs.getString(6), 
+                            rs.getInt(6), 
                             rs.getString(7), 
                             rs.getString(8));
                     lisuni.add(cl);
@@ -68,7 +68,7 @@ public class GestionDiseno {
                 ps.setString(2, us.getTexDiseno());
                 ps.setString(3, us.getTamDiseno());
                 ps.setString(4, us.getColDiseno());
-                ps.setString(5, us.getPreDiseno());
+                ps.setInt(5, us.getPreDiseno());
                 ps.setString(6, us.getObserDiseno());
                 ps.setString(7, us.getImagen());
                 int d = ps.executeUpdate();
@@ -132,7 +132,7 @@ public class GestionDiseno {
                             rs.getString(3), 
                             rs.getString(4), 
                             rs.getString(5), 
-                            rs.getString(6), 
+                            rs.getInt(6), 
                             rs.getString(7), 
                             rs.getString(8));
                    
