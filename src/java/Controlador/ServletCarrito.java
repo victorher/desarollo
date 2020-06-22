@@ -26,8 +26,8 @@ import javax.swing.JOptionPane;
  */
 @WebServlet(name = "ServletCarrito", urlPatterns = {"/ServletCarrito"})
 public class ServletCarrito extends HttpServlet {
-    private String Documento, IdDiseno, IdArticulo, Cantidad, Direccion, Precio, estado;
-    private int item=0;
+    private String Documento, IdDiseno, IdArticulo, Direccion, Precio, estado;
+    private int item=0, Cantidad;
    
 
     /**
@@ -49,7 +49,7 @@ public class ServletCarrito extends HttpServlet {
          Documento=request.getParameter("documento");
          IdDiseno=request.getParameter("diseno");
          IdArticulo=request.getParameter("articulo");
-         Cantidad=request.getParameter("cantidad");
+         Cantidad=Integer.parseInt(request.getParameter("cantidad"));
          Direccion=request.getParameter("direntrega");
          Precio=request.getParameter("precio");
          estado=request.getParameter("estado");
@@ -84,7 +84,7 @@ public class ServletCarrito extends HttpServlet {
       
         
         sesion.setAttribute("carrito", Articulos);
-        
+        sesion.setAttribute("contador", item);
         response.sendRedirect("Cliente.jsp");
        
         
