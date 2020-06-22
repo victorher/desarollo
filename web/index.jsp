@@ -66,7 +66,7 @@
                     En este espacio puedes enviarnos tus peticiones, quejas, reclamos, sugerencias y felicitaciones
                 </h4>
                 <div class="cuerpo_pqr">
-                    <form action="" id="frm" method="POST">
+                    <form action="" id="frm" method="POST" class="fra">
                         <div class="contenedor_input">
                             <div class="grupo">
                                 <input class="nombre_pqr nombre" type="text" name="nombre" required="" id="nombre"><span class="barra"></span>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="formularioRegistar" id="formularioRegistar">
                         <h2>Registrar usuario</h2>
-                        <form action="ServletGestionUsu" method="POST">
+                        <form action="ServletGestionUsu" method="POST" class="">
                             <div class="registrarGrupo">
                                 <input type="text" name="documento" required="">
                                 <span class="barra"></span>
