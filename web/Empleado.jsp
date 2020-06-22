@@ -86,7 +86,7 @@
             <div class="cuerpo">
             <div class="formularioActualizar" id="formularioActualizar">
                 <h2>Mis datos personales</h2>
-                <form action="ActualizarEmpleado" method="POST">
+                <form action="ServletGestionUsu" method="POST">
 
                     <%
                         String co = docu;
@@ -149,7 +149,8 @@
                     <input  id="est" name="estado" value="<%=con.getEstado()%>" type="hidden">
                     <input type="hidden" class="roll" id="roll" name="rol" value="<%=con.getRol()%>">
                     <% } %>
-                    <button type="submit" class="btnmod" name="ActualizaEmp">Actualizar
+                    <button type="submit" class="btnmod" name="ActualizaTra" onclick="return actualizar()">
+                        Actualizar
                         <i class="fa fa-sign-in ml-1"></i>
                     </button>
                 </form>
@@ -169,5 +170,15 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            function actualizar(){
+                var Respuesta = confirm("Desea actualizar sus datos?");
+                if(Respuesta===true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        </script>            
     </body>
 </html>
