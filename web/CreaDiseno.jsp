@@ -136,12 +136,15 @@
                         <div class="formularioGrupo">
                             <input type="file" id="img" name="imgdiseno" accept="image/*">
                         </div>
-                        <div class="formularioGrupo1">
+                        <div class="formularioGrupo">
                             <input type="text" id="obs" name="obsdiseno" required="">
                             <span class="barra"></span>
                             <label>Oservacion del diseño</label>
                         </div>
-                        <button type="submit" name="CargaDis">Registrar <i class="fa fa-sign-in ml-1"></i></button>
+                        <button type="submit" name="CargaDis">
+                            Registrar 
+                            <i class="fa fa-sign-in ml-1"></i>
+                        </button>
                     </form>
                 </div>
             </div>
