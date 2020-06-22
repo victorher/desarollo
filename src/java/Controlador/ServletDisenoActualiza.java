@@ -49,7 +49,7 @@ public class ServletDisenoActualiza extends HttpServlet {
             TexDis = request.getParameter("texdiseno");
             TamDis = request.getParameter("tamdiseno");
             ColDis = request.getParameter("coldiseno");
-            PrecDis = Integer.parseInt(request.getParameter("prediseno")
+            PrecDis = Integer.parseInt(request.getParameter("prediseno"));
             ObsDis = request.getParameter("obsdiseno");
             imagen = request.getParameter("imagen");
             Part foto = request.getPart("imgdiseno");
