@@ -55,13 +55,13 @@ public class ServletDisenoActualiza extends HttpServlet {
             String nombre = IDDiseno + nomfoto;
             String Url2 = nombre;
             
-            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+Url2);
+//            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+Url2);
             String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\desarollo\\web\\img\\" + nombre;
             if (Url2.equals(IDDiseno)) {
                 Url2 = "defecto.jpg";
             }
 //            
-            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+NumDet+"\n"+TexDis+"\n"+TamDis+"\n"+ColDis+"\n"+PrecDis+"\n"+ObsDis+"\n"+Url2);
+//            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+NumDet+"\n"+TexDis+"\n"+TamDis+"\n"+ColDis+"\n"+PrecDis+"\n"+ObsDis+"\n"+Url2);
             
             InputStream file = foto.getInputStream();
             File f = new File(Url);
