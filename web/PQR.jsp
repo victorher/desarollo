@@ -111,7 +111,7 @@
                                     pqr = lista.get(i);
                                 %>
                                 <div class="form-group">
-                                    <input type="text" id="id" placeholder="Id" class="form-control id" name="id" value="<%=pqr.getId() %>">
+                                    <input type="hidden" id="id" placeholder="Id" class="form-control id" name="id" value="<%=pqr.getId() %>">
                                 </div>
                                 <div class="form-group">
                                      <textarea id="queja" cols="20" rows="3" class="form-control" placeholder="<%=pqr.getMensaje() %>"></textarea>
@@ -127,7 +127,7 @@
                         <% }else { %>
                             <form class="task-form">
                                 <div class="form-group">
-                                    <input type="text" id="id" placeholder="Id" class="form-control">
+                                    <input type="hidden" id="id" placeholder="Id" class="form-control">
                                 </div>
                                 <div class="form-group">
                                      <textarea id="queja" cols="20" rows="3" class="form-control" placeholder="Queja"></textarea>
