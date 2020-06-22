@@ -22,12 +22,13 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="img/Suenos.png">
         <title>Entre Sueños</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Styles/css/bootstrap.min.css">
-        <link rel="stylesheet" href="Styles/Est.css">
-        <link rel="stylesheet" href="Vista/css/StylesU.css">
+        <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
+        <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
+        <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="Styles/js/principal.js" type="text/javascript"></script>
     </head>
     <body>
         <%
@@ -39,129 +40,122 @@
             docu = (String) obsjes.getAttribute("Documento");
             cont = (String) obsjes.getAttribute("Contrasena");
             roll = (String) obsjes.getAttribute("Rol");
+            
+            if (roll.equalsIgnoreCase("Administrador")) {
         %>
-        <nav class="navbar navbar-expand-lg col-gra b-inf">
-            <div class="container">
-                <div class="text-center">
-                    <a class="pl-0" href="#"><img id="MDB-logo" src="Vista/img/LOGO-010.png" alt="MDB Logo"></a>
-                </div>
-                <a class="navbar-brand" href="Principal.jsp">INICIO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Nosotros <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Regalos</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <header>
+            <nav>
+                <section class="nav">
+                    <div class="logo">
+                        <img src="Vista/img/LOGO-01.png" alt=""/>
+                        <a href="Principal.jsp"><%=roll%></a>
+                        <a><%=nom+" "+ape%></a>
+                        <a href="PQR.jsp">PQR</a>
+                        <div id="cunta"></div>
+                    </div>
+                    <div class="enlaces_header">
+                        <div class="uno">
+                            <a href="#">
+                                Consultar
+                            </a>
+                        </div>
+                        <div class="uno_uno">
+                            <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
+                        </div>
+                        <div class="dos">
+                            <a href="#">
                                 Registrar
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Empleado</a>
-                                <a class="dropdown-item" href="#">Cliente</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><%=roll%></a>
-                        </li>
-                    </ul>
-                    <form action="CerrarSesion" method="POST" class="form-inline my-2 my-lg-0">
-                        <input class="btn btn-entre mr-sm-2" type="submit" name="btn" value="Cerrar Sesion">
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <section>
-            <div class="container">
-                <form action="ServletGestionUsu" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="documento"><code>*</code> Documento</label>
-                            <input type="text" class="form-control" id="documento" placeholder="Documento" name="documento" required>
                         </div>
-                        <div class="form-group col-md-5">
-                            <label for="nombre"><code>*</code> Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
+                        <div class="dos_uno">
+                            <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
+                            <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
+                            <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
                         </div>
+                        <form action="CerrarSesion" method="POST">
+                            <button type="submit" name="btn">Cerrar Sesion</button>
+                        </form>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-5">
-                            <label for="apellido"><code>*</code> Apellido</label>
-                            <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" required>
+                    <div class="hamburguer">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </section>
+            </nav>
+        </header>
+        <section class="contenedor">
+            <div class="cuerpo">
+                <div class="formularioActualizar" id="formularioActualizar">
+                    <h2>Registrar un nuevo empleado</h2>
+                    <form action="ServletGestionUsu" method="POST">
+                        <div class="formularioGrupo">
+                            <input type="text" id="documento" name="documento" required="">
+                            <span class="barra"></span>
+                            <label>Documento</label>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="genero">Sexo</label>
-                            <select name="sexo" id="genero" class="form-control">
-                                <option value="0">Seleccion</option>
+                        <div class="formularioGrupo">
+                            <input type="text" id="nombre" name="nombre" required="">
+                            <span class="barra"></span>
+                            <label>Nombre</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <input type="text" id="apellido" name="apellido" required="">
+                            <span class="barra"></span>
+                            <label>Apellido</label>
+                        </div>
+                        <div class="formularioGrupo">
+                            <select name="sexo" id="genero" required="">
+                                <option value=""></option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
                             </select>
+                            <span class="barra"></span>
+                            <label>Genero</label>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="correo"><code>*</code> Correo</label>
-                            <input type="email" class="form-control" id="correo" placeholder="Correo" name="correo" required>
+                        <div class="formularioGrupo">
+                            <input type="email" id="correo" name="correo" required="">
+                            <span class="barra"></span>
+                            <label>Correo</label>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="telefono"><code>*</code> Telefono</label>
-                            <input type="text" class="form-control" id="telefono" placeholder="Telefono" name="telefono" required>
+                        <div class="formularioGrupo">
+                            <input type="text" id="telefono" name="telefono" required="">
+                            <span class="barra"></span>
+                            <label>Telefono</label>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="direccion"><code>*</code> Direccion</label>
-                            <input type="text" class="form-control" id="direccion" placeholder="Direccion" name="direccion" required>
+                        <div class="formularioGrupo">
+                            <input type="text" id="direccion" name="direccion" required="">
+                            <span class="barra"></span>
+                            <label>Direccion</label>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="pass"><code>*</code> Contraseña</label>
-                            <input type="text" class="form-control" id="pass" placeholder="Contraseña" name="contra" required>
+                        <div class="formularioGrupo">
+                            <input type="password" class="form-control" id="pass" name="contra" required>
+                            <span class="barra"></span>
+                            <label>Contraseña</label>
                         </div>
-                        <div class="form-group col-md-1">
-                            <!--<label for="estado">Estado</label>-->
-                            <input type="hidden" class="form-control" id="estado" name="estado" value="1" readonly="readonly">
-                        </div>
-                        <div class="form-group col-md-3">
-                           <!--<label for="roll">Roll</label>-->
-                            <input type="hidden" class="form-control" id="roll" name="rol" value="Empleado" readonly="readonly">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-entre" name="CargaEmp">Registrar</button>
-                </form>
+                        <input type="hidden" id="estado" name="estado" value="1">
+                        <input type="hidden" id="roll" name="rol" value="Empleado">
+                        <button type="submit" name="CargaEmp">Registrar <i class="fa fa-sign-in ml-1"></i></button>
+                    </form>
+                </div>
             </div>
         </section>
-        <section class="ff">
-            
-        </section>
-        <footer class="bg-dark text-light py-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-inline">
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></li>
-                            <li class="list-inline-item lead mx-2"><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 text-sm-right">
-                        <small>Entre sueños</small>
-                    </div>
+        <footer>
+            <div class="footer_logo">
+                <img src="Vista/img/LOGO-01.png">
+            </div>
+            <div class="footer_redes">
+                <h4>Redes Sociales</h4>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-whatsapp"></i>
                 </div>
             </div>
         </footer>
-        <script src="Styles/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="Styles/js/jquery-3.4.1.min.js"></script>
-        <script src="Styles/js/bootstrap.min.js"></script>
-        <script src="Styles/js/popper.min.js"></script>
-        <script src="Styles/main.js"></script> 
+        <% } %>
     </body>
 </html>
