@@ -42,7 +42,7 @@ public class ServletDisenoActualiza extends HttpServlet {
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String IDDiseno, NumDet, TexDis, TamDis, ColDis, PrecDis, ObsDis;
+            String IDDiseno, NumDet, TexDis, TamDis, ColDis, PrecDis, ObsDis, imagen;
             IDDiseno = request.getParameter("iddiseno");
             NumDet = request.getParameter("numdetalle");
             TexDis = request.getParameter("texdiseno");
@@ -50,15 +50,16 @@ public class ServletDisenoActualiza extends HttpServlet {
             ColDis = request.getParameter("coldiseno");
             PrecDis = request.getParameter("prediseno");
             ObsDis = request.getParameter("obsdiseno");
+            imagen = request.getParameter("imagen");
             Part foto = request.getPart("imgdiseno");
             String nomfoto = foto.getSubmittedFileName();
             String nombre = IDDiseno + nomfoto;
             String Url2 = nombre;
             
-//            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+Url2);
+            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+Url2+"\n"+imagen);
             String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\desarollo\\web\\img\\" + nombre;
             if (Url2.equals(IDDiseno)) {
-                Url2 = "defecto.jpg";
+                Url2 = imagen;
             }
 //            
 //            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+NumDet+"\n"+TexDis+"\n"+TamDis+"\n"+ColDis+"\n"+PrecDis+"\n"+ObsDis+"\n"+Url2);
