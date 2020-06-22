@@ -95,7 +95,7 @@
             <div class="cuerpo">
             <div class="formularioActualizar" id="formularioActualizar">
                 <h2>Mis datos personales</h2>
-                <form action="ActualizarCliente" method="POST">
+                <form action="ActualizarCliente" method="POST" class="frm">
 
                     <%
                         String co = docu;
