@@ -50,6 +50,11 @@ public class GestionPedidos {
 //                ps.setString(4, us.getFecEntrega());
                 ps.setString(3, us.getDirEntrega());
                 ps.setString(4, us.getTipo());
+//                JOptionPane.showMessageDialog(null, 
+//                    us.getDocumento()+" - "+
+//                    us.getEstado()+" - "+
+//                    us.getDirEntrega()+" - "+
+//                    us.getTipo());
                 int d = ps.executeUpdate();
                 if(d > 0)
                     dat = true;
