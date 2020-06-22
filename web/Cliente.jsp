@@ -49,6 +49,7 @@
         
         <%
             String nom, ape, gen, docu, cont, roll, direcc;
+            int item=0;
             
             
             HttpSession obsjes = request.getSession();
@@ -64,8 +65,13 @@
             ArrayList<AddCarrito> Articulos = obsjes.getAttribute("carrito") == null ? null : 
             (ArrayList) obsjes.getAttribute("carrito");
             
-
-
+            if(Articulos != null){
+                for(AddCarrito a: Articulos){
+                    item=item+1;
+                }
+               
+            }
+                   
             %>
                 
         
@@ -78,7 +84,7 @@
                         <a class="quitar"><%=nom+" "+ape%></a>
                         
                         <a class="carrito" id="carrito" href="#">
-                            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                            <i class="fa fa-cart-arrow-down" aria-hidden="true">(<%=item %>)</i>
                             
                         </a>
                     </div>
@@ -248,7 +254,7 @@
                     </div>
                     <div class="bodyCarrito" id="bodyCarrito">
                         <h2>Carrito de compras</h2>
-                        <table>
+                        <table id="table">
                             <thead>
                                 <tr>
                                     <th>Imagen</th>
@@ -261,10 +267,12 @@
                             </thead>
                             <% 
                             GestionDiseno Gd = new GestionDiseno();
+                            int total=0;
+                            if(Articulos != null){
                             for (AddCarrito a : Articulos) {
                                Disenogetset Dgs = Gd.GetId(a.getIdDiseno());
                             
-                               
+                               total += a.getCantidad() * Dgs.getPreDiseno();
                                     
                             %>   
                             
@@ -286,10 +294,10 @@
                                             <input type="hidden"  id="documento" name="documento" value="<%=docu%>" readonly>
                                             <input type="hidden"  id="diseno" name="diseno" value="<%=Dgs.getIDDiseno()%>" readonly>
                                             <input type="hidden"  id="tipo" name="tipo" value="Distibucion">
-                                            <input type="text"  id="articulo" name="articulo" value="<%=a.getIdArticulo()%>">
+                                            <input type="hidden"  id="articulo" name="articulo" value="<%=a.getIdArticulo()%>">
                                             <input type="hidden"  id="descripcion" name="descripcion" value="sddsd">
                                             <input type="hidden"  id="estado" name="estado" value="Pedido" readonly>
-                                            <input type="text"  id="direccion" name="direccion" value="<%=direcc%>" required readonly> 
+                                            <input type="hidden"  id="direccion" name="direccion" value="<%=direcc%>" required readonly> 
                                             <input type="hidden" class="form-control precio" id="precio" name="precio" value="<%= Dgs.getPreDiseno()%>" required readonly>
                                             <input type="hidden"  id="cantidad" name="cantidad" value="1" required min="1">
                                         
@@ -303,8 +311,20 @@
                                     
                                     
                                 </tr>
+                                <% } %>
+                                <% } %>
+                                <tr>
+                                    <th></th>
+                                    <th><h2>Total</h2></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>                                   
+                                    <th class="total" id="total"><%=total%></th>
+                                </tr>
+                                    
+                                 
                             </tbody>
-                            <% } %>
+                           
                            
                         </table>
 
