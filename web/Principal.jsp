@@ -95,7 +95,7 @@
             <div class="cuerpo">
             <div class="formularioActualizar" id="formularioActualizar">
                 <h2>Mis datos personales</h2>
-                <form action="ActualizarCliente" method="POST" class="frm">
+                <form action="ServletGestionUsu" method="POST" class="frm">
 
                     <%
                         String co = docu;
@@ -157,10 +157,11 @@
                         <span class="barra"></span>
                         <label>Contraseña</label>
                     </div>
-                    <input  id="est" name="estado" value="<%=con.getEstado()%>" type="hidden">
+                    <input type="hidden" id="est" name="estado" value="<%=con.getEstado()%>">
                     <input type="hidden" class="roll" id="roll" name="rol" value="<%=con.getRol()%>">
                     <% } %>
-                    <button type="submit" class="btnmod" name="">Actualizar
+                    <button type="submit" class="btnmod" name="ActualizaADM" onclick="return actualizar()">
+                        Actualizar
                         <i class="fa fa-sign-in ml-1"></i>
                     </button>
                 </form>
@@ -180,5 +181,15 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            function actualizar(){
+                var Respuesta = confirm("Desea actualizar sus datos?");
+                if(Respuesta===true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
