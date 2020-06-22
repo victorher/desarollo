@@ -52,14 +52,14 @@ public class ServletDisenoActualiza extends HttpServlet {
             ObsDis = request.getParameter("obsdiseno");
             Part foto = request.getPart("imgdiseno");
             String nomfoto = foto.getSubmittedFileName();
-//            JOptionPane.showMessageDialog(null, IDDiseno+" "+NumDet+" "+TexDis+" "+TamDis+" "+ColDis+" "+PrecDis+" "+ObsDis+" "+foto);
             String nombre = IDDiseno + "_" + nomfoto;
-            String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\desarollo\\web\\img\\" + nombre;
             String Url2 = nombre;
+            String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\desarollo\\web\\img\\" + nombre;
             if (Url2.equals(IDDiseno+"_")) {
                 Url2 = "defecto.jpg";
             }
 //            
+            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+NumDet+"\n"+TexDis+"\n"+TamDis+"\n"+ColDis+"\n"+PrecDis+"\n"+ObsDis+"\n"+Url2);
             
             InputStream file = foto.getInputStream();
             File f = new File(Url);
@@ -74,14 +74,16 @@ public class ServletDisenoActualiza extends HttpServlet {
             Disenogetset usu = new Disenogetset(IDDiseno, NumDet, TexDis, TamDis, ColDis, PrecDis, ObsDis, Url2);
             GestionDiseno us = new GestionDiseno();
             boolean dat = us.ActaulizarDiseno(usu);
+//            JOptionPane.showMessageDialog(null, dat);
             out.print(dat);
-            if(dat){
-//                JOptionPane.showMessageDialog(null, "Datos actualizados");
-                response.sendRedirect("ConsultaDiseno.jsp");
-            }else{
-                JOptionPane.showMessageDialog(null, "Error al actualizar diseno");
-                response.sendRedirect("ConsultaDiseno.jsp");
-            }
+            
+//            if(dat){
+////                JOptionPane.showMessageDialog(null, "Datos actualizados");
+//                response.sendRedirect("ConsultaDiseno.jsp");
+//            }else{
+//                JOptionPane.showMessageDialog(null, "Error al actualizar diseno");
+//                response.sendRedirect("ConsultaDiseno.jsp");
+//            }
         }
     }
 
