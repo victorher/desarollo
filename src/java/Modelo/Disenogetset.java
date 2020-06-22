@@ -6,11 +6,11 @@ public class Disenogetset {
     private String TexDiseno;
     private String TamDiseno;
     private String ColDiseno;
-    private String PreDiseno;
+    private int PreDiseno;
     private String ObserDiseno;
     private String Imagen;
 
-    public Disenogetset(String NumDetalle, String TexDiseno, String TamDiseno, String ColDiseno, String PreDiseno, String ObserDiseno, String Imagen) {
+    public Disenogetset(String NumDetalle, String TexDiseno, String TamDiseno, String ColDiseno, int PreDiseno, String ObserDiseno, String Imagen) {
         this.NumDetalle = NumDetalle;
         this.TexDiseno = TexDiseno;
         this.TamDiseno = TamDiseno;
@@ -27,7 +27,7 @@ public class Disenogetset {
     public Disenogetset() {
     }
 
-    public Disenogetset(String IDDiseno, String NumDetalle, String TexDiseno, String TamDiseno, String ColDiseno, String PreDiseno, String ObserDiseno, String Imagen) {
+    public Disenogetset(String IDDiseno, String NumDetalle, String TexDiseno, String TamDiseno, String ColDiseno, int PreDiseno, String ObserDiseno, String Imagen) {
         this.IDDiseno = IDDiseno;
         this.NumDetalle = NumDetalle;
         this.TexDiseno = TexDiseno;
@@ -78,11 +78,11 @@ public class Disenogetset {
         this.ColDiseno = ColDiseno;
     }
 
-    public String getPreDiseno() {
+    public int getPreDiseno() {
         return PreDiseno;
     }
 
-    public void setPreDiseno(String PreDiseno) {
+    public void setPreDiseno(int PreDiseno) {
         this.PreDiseno = PreDiseno;
     }
 
