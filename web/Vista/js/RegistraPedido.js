@@ -4,8 +4,8 @@ $(document).ready(function (){
     $('.btnEnviar').on('click', function (){
         var doc = $('.documento').val();
         var est = $('.estado').val();
-        var fIni = $('.dateini').val();
-        var fFin = $('.datefin').val();
+//        var fIni = $('.dateini').val();
+//        var fFin = $('.datefin').val();
         var dir = $('.direccion').val();
         var tip = $('.tipo').val();
         var art = $('.articulo').val();
@@ -14,7 +14,7 @@ $(document).ready(function (){
         var can = $('.cantidad').val();
         var pre = $('.precio').val();
         
-//        alert(doc+"\n"+est+"\n"+fIni+"\n"+fFin+"\n"+dir+"\n"+tip+"\n"+art+"\n"+dis+"\n"+des+"\n"+can+"\n"+pre);
+//        alert("Documento: "+doc+"\n Estado: "+est+"\n Direccion: "+dir+"\n Tipo: "+tip+"\n IDArticulo: "+art+"\n IDDiseno: "+dis+"\n Descripcion: "+des+"\n Cantidad: "+can+"\n Precio: "+pre);
         
         $.ajax({
             type: 'POST',
@@ -22,8 +22,8 @@ $(document).ready(function (){
             data: {
                 documento: doc,
                 estado: est,
-                fepedido: fIni,
-                feentrega: fFin,
+//                fepedido: fIni,
+//                feentrega: fFin,
                 direntrega: dir,
                 tipo: tip,
                 articulo: art,
@@ -38,5 +38,3 @@ $(document).ready(function (){
         });
     });
 });
-
-
