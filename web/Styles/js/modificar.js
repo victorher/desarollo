@@ -1,3 +1,5 @@
+/* global fetch */
+
 $(document).ready(function(){
     //alert("hola");
     
@@ -45,14 +47,19 @@ $(document).ready(function(){
 //    });
 
    $('.btnmod').on('click',function(e){
-        e.preventDefault();
-        var a = $('.btnmod').index(this);
-        console.log(a);
+//        e.preventDefault();
+//        var a = $('.btnmod').index(this);
+//        console.log(a);
         var data = new FormData(document.getElementById('frm'));
         data.append('op', 'envia');
-//        console.log(data.get('iddis'));
-//        console.log(data.get('numdetalle'));
-//        console.log(data.get('imgdiseno'));
+        console.log(data.get('iddis'));
+        console.log(data.get('numdetalle'));
+        console.log(data.get('texdiseno'));
+        console.log(data.get('tamdiseno'));
+        console.log(data.get('coldiseno'));
+        console.log(data.get('prediseno'));
+        console.log(data.get('obsdiseno'));
+        console.log(data.get('imgdiseno'));
         fetch('ServletDisenoActualiza',
         {
             method: "POST",
@@ -68,10 +75,8 @@ $(document).ready(function(){
                 alert('Los datos no se cargaron');
             }
         })
-        .catch (function() {
-            alert('No hay datos');
+        .catch (function(err) {
+            console.log(err+" "+'No hay datos');
         });
     });
 });
-
-
