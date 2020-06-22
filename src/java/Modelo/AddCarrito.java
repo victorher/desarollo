@@ -14,7 +14,7 @@ public class AddCarrito {
     private String Documento;
     private String IdDiseno;
     private String IdArticulo;
-    private String Cantidad;
+    private int Cantidad;
     private String Direccion;
     private String Precio;
     private String estado;
@@ -28,7 +28,7 @@ public class AddCarrito {
     }
     
 
-    public AddCarrito(String Documento, String IdDiseno, String IdArticulo, String Cantidad, String Direccion, String Precio, String estado) {
+    public AddCarrito(String Documento, String IdDiseno, String IdArticulo, int Cantidad, String Direccion, String Precio, String estado) {
         this.Documento = Documento;
         this.IdDiseno = IdDiseno;
         this.IdArticulo = IdArticulo;
@@ -39,7 +39,7 @@ public class AddCarrito {
     }
     
 
-    public AddCarrito(String Documento, String IdDiseno, String IdArticulo, String Cantidad, String Direccion, String Precio, String estado, int item) {
+    public AddCarrito(String Documento, String IdDiseno, String IdArticulo, int Cantidad, String Direccion, String Precio, String estado, int item) {
         this.Documento = Documento;
         this.IdDiseno = IdDiseno;
         this.IdArticulo = IdArticulo;
@@ -74,11 +74,11 @@ public class AddCarrito {
         this.IdArticulo = IdArticulo;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return Cantidad;
     }
 
-    public void setCantidad(String Cantidad) {
+    public void setCantidad(int Cantidad) {
         this.Cantidad = Cantidad;
     }
 
