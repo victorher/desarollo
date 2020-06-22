@@ -100,4 +100,29 @@ public class GestionPedidos {
         }
         return dat;
     }
+    public ArrayList<PedidoUnogetset> ConsultaPedidoUni(PedidoUnogetset Pe){
+        ArrayList<PedidoUnogetset> lista = new ArrayList<>();
+        try {
+            ps=cnn.prepareStatement("CALL pa_ConsultaUniPedidos('"+Pe.getDocumento()+"')");
+            rs=ps.executeQuery();
+            //JOptionPane.showMessageDialog(null, "Datos Consultados");
+           
+            while(rs.next()){
+                PedidoUnogetset consemp = new PedidoUnogetset(
+                        rs.getString(1), 
+                        rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5), 
+                        rs.getString(6), 
+                        rs.getString(7), 
+                        rs.getInt(8), 
+                        rs.getString(9));
+                lista.add(consemp);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e + " GestionPedido - ConsultaPedidoUni");
+        }
+        return lista;
+    }
 }
