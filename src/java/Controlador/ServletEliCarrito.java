@@ -6,6 +6,8 @@
 package Controlador;
 
 import Modelo.AddCarrito;
+import Modelo.Disenogetset;
+import Modelo.GestionDiseno;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -51,19 +53,30 @@ public class ServletEliCarrito extends HttpServlet {
         
             
             if(Articulos != null){
-            for(AddCarrito a: Articulos){
-                if(IdDiseno == IdDiseno){
-                    JOptionPane.showMessageDialog(null, "Eliminado");
-                    Articulos.remove(a);
-                    break;
-                 
+                for(AddCarrito a: Articulos){
+                    if(IdDiseno == IdDiseno){
+                        Articulos.remove(a);
+                        JOptionPane.showMessageDialog(null, "Eliminado");
+                        break;
+                    }
                 }
+            }    
+            
+            int total = 0;
+            GestionDiseno Gd = new GestionDiseno();
+            for(AddCarrito a: Articulos){                                 
+                Disenogetset Dgs = Gd.GetId(a.getIdDiseno());
+                total += a.getCantidad() * Dgs.getPreDiseno();
                 
                 
+                               
             }
-            }
+            JOptionPane.showMessageDialog(null, total);
+    }
+
     
-        }
+    
+    
     
     
 
