@@ -17,7 +17,7 @@ public class PedidoUnogetset {
     private String Direccion;
     private String Descripcion;
     private String Titulo;
-    private int Precio;
+    private String Precio;
     private String Imagen;
 
     public PedidoUnogetset() {
@@ -27,18 +27,30 @@ public class PedidoUnogetset {
         this.Documento = Documento;
     }
 
-    public PedidoUnogetset(String Documento, String Fechaped, String FechaEnt, String Estado, String Direccion, String Titulo, int Precio, String Imagen) {
+    public PedidoUnogetset(String Documento, String Fechaped, String FechaEnt, String Estado, String Direccion, String Descripcion, String Precio, String Imagen) {
         this.Documento = Documento;
         this.Fechaped = Fechaped;
         this.FechaEnt = FechaEnt;
         this.Estado = Estado;
         this.Direccion = Direccion;
-        this.Titulo = Titulo;
+        this.Descripcion = Descripcion;
         this.Precio = Precio;
         this.Imagen = Imagen;
     }
 
-    public PedidoUnogetset(String Documento, String Fechaped, String FechaEnt, String Estado, String Direccion, String Descripcion, String Titulo, int Precio, String Imagen) {
+    public PedidoUnogetset(String Fechaped, String FechaEnt, String Estado, String Direccion, String Descripcion, String Precio, String Imagen) {
+        this.Fechaped = Fechaped;
+        this.FechaEnt = FechaEnt;
+        this.Estado = Estado;
+        this.Direccion = Direccion;
+        this.Descripcion = Descripcion;
+        this.Precio = Precio;
+        this.Imagen = Imagen;
+    }
+    
+    
+
+    public PedidoUnogetset(String Documento, String Fechaped, String FechaEnt, String Estado, String Direccion, String Descripcion, String Titulo, String Precio, String Imagen) {
         this.Documento = Documento;
         this.Fechaped = Fechaped;
         this.FechaEnt = FechaEnt;
@@ -106,11 +118,11 @@ public class PedidoUnogetset {
         this.Titulo = Titulo;
     }
 
-    public int getPrecio() {
+    public String getPrecio() {
         return Precio;
     }
 
-    public void setPrecio(int Precio) {
+    public void setPrecio(String Precio) {
         this.Precio = Precio;
     }
 
@@ -123,5 +135,4 @@ public class PedidoUnogetset {
     }
     
     
-            
 }
