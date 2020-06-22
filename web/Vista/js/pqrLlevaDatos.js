@@ -18,6 +18,11 @@ $(document).ready(function (){
                 nombre: nom,
                 email: ema,
                 mensaje: mens
+            },
+            success: function(response) {
+                $('.fra').trigger('reset');
+                $(".Cantidadordenes").html(response);
+                console.log(response);
             }
         });
     });
