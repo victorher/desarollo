@@ -151,6 +151,11 @@
                                                 class="table nudeta" 
                                                 value="<%=dis.getNumDetalle()%>" 
                                                 name="numdetalle">
+                                            <input 
+                                                type="hidden" 
+                                                class="table imagen" 
+                                                value="<%=dis.getImagen()%>" 
+                                                name="imagen">
                                         </td>
                                         <td>
                                             <textarea 
