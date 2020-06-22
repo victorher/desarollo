@@ -5,6 +5,7 @@ import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -33,7 +34,7 @@ public class GestionDestalles {
                         rs.getString(6));
                 lista.add(conta);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
         return lista;
     }
@@ -53,7 +54,8 @@ public class GestionDestalles {
                         rs.getString(6));
                 lista.add(unic);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " ConDetalleUni");
         }
         return lista;
     }
@@ -74,11 +76,11 @@ public class GestionDestalles {
 //                    de.getCantidad()+" - "+
 //                    de.getPrecio());
             int d = ps.executeUpdate();
-            while(d > 0){
+            if(d > 0){
                 dat = true;
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e + " IncertarPedido");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " IncertarDetalles");
         }
         return dat;
     }
@@ -94,10 +96,11 @@ public class GestionDestalles {
                     + "'"+de.getCantidad()+"',"
                     + "'"+de.getPrecio()+"')");
             int d = ps.executeUpdate();
-            while(d>0){
+            if(d > 0){
                 dat = true;
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " ActualizarDetalle");
         }
         return dat;
     }
@@ -107,10 +110,11 @@ public class GestionDestalles {
         try {
             ps = cnn.prepareCall("CALL pa_EliminaDetalle('"+em.getIdDIseno()+"')");
             int d = ps.executeUpdate();
-            while(d>0){
+            if(d > 0){
                 dat = true;
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " EliminarDetalle");
         }
         return dat;
     }
