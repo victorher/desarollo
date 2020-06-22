@@ -62,7 +62,7 @@
                 <section class="nav">
                     <div class="logo">
                         <img src="Vista/img/LOGO-01.png" alt=""/>
-                        <a class="quitar"><%=roll%></a>
+                        <a href="Cliente.jsp"><%=roll%></a>
                         <a class="quitar"><%=nom+" "+ape%></a>
                     </div>
                     <div class="enlaces_header">
@@ -94,7 +94,7 @@
                                 <th>Direccion</th>
                                 <th>Estado</th>
                                 <th>Precio</th>
-                                <th>Opciones</th>
+                                <!--<th>Opciones</th>-->
                             </tr>
                         </thead>
                         <tbody>
@@ -114,29 +114,47 @@
 
                             <tr>
                                 <td><img src="img/<%=Pgs.getImagen()%>"></td>
-                                <td><%=Pgs.getDescripcion()%></td>
+                                <td><%=Pgs.getTitulo() %></td>
                                 <td><%=Pgs.getFechaped()%> </td>
                                 <td><%=Pgs.getFechaEnt()%></td>
                                 <td><%=Pgs.getDireccion()%></td>
                                 <td><%=Pgs.getEstado()%></td>
                                 <td><%=Pgs.getPrecio()%></td>
-                                <td>
+<!--                                <td>
                                     <div class="opciones">
                                         <form action="" method="POST">
-                                            <input type="hidden" name="cod" value="<%=Pgs.getDocumento()%>">
+                                            <input type="hidden" name="cod" value="">
                                             <button type="submit" name="" value="ACTUALIZAR" title="Actualizar"><i class="fa fa-wrench" aria-hidden="true"></i></button>
                                         </form>
                                         <form action="ServletGestionUsu" method="POST">
-                                            <input type="hidden" name="cod" value="<%=Pgs.getDocumento()%>">
+                                            <input type="hidden" name="cod" value="">
                                             <button type="submit" name="" value="ELIMINAR" onclick="return Eliminar()" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                         </form>
                                     </div>
-                                </td>
+                                </td>-->
                             </tr>
-
                             <%
                                }
                             %>
+                            <tr>
+                                <td colspan="6">Total a Pagar</td> 
+                                <td>
+                                <%
+                                ArrayList<PedidoUnogetset> con = new ArrayList();
+                                PedidoUnogetset pre = new PedidoUnogetset(docu); //convas hago referencia al constructor vasio
+                                GestionPedidos a = new GestionPedidos();
+
+                                con = a.ConsultaPrecio(pre);
+
+                                for(int i=0; i<con.size(); i++){
+
+                                    pre = con.get(i);
+                                %>
+                                <%=pre.getDocumento() %>
+                                <% } %>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
