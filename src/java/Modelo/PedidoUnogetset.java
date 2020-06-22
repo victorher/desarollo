@@ -11,55 +11,30 @@ package Modelo;
  */
 public class PedidoUnogetset {
     private String Documento;
+    private String Imagen;
+    private String Titulo;
     private String Fechaped;
     private String FechaEnt;
-    private String Estado;
     private String Direccion;
-    private String Descripcion;
-    private String Titulo;
+    private String Estado;
     private String Precio;
-    private String Imagen;
-
-    public PedidoUnogetset() {
-    }
+//    private String PedidoID;
+//    private String DetalleID;
+//    private String Descripcion;
+//    private String DisenoID;
 
     public PedidoUnogetset(String Documento) {
         this.Documento = Documento;
     }
 
-    public PedidoUnogetset(String Documento, String Fechaped, String FechaEnt, String Estado, String Direccion, String Descripcion, String Precio, String Imagen) {
-        this.Documento = Documento;
-        this.Fechaped = Fechaped;
-        this.FechaEnt = FechaEnt;
-        this.Estado = Estado;
-        this.Direccion = Direccion;
-        this.Descripcion = Descripcion;
-        this.Precio = Precio;
+    public PedidoUnogetset(String Imagen, String Titulo, String Fechaped, String FechaEnt, String Direccion, String Estado, String Precio) {
         this.Imagen = Imagen;
-    }
-
-    public PedidoUnogetset(String Fechaped, String FechaEnt, String Estado, String Direccion, String Descripcion, String Precio, String Imagen) {
-        this.Fechaped = Fechaped;
-        this.FechaEnt = FechaEnt;
-        this.Estado = Estado;
-        this.Direccion = Direccion;
-        this.Descripcion = Descripcion;
-        this.Precio = Precio;
-        this.Imagen = Imagen;
-    }
-    
-    
-
-    public PedidoUnogetset(String Documento, String Fechaped, String FechaEnt, String Estado, String Direccion, String Descripcion, String Titulo, String Precio, String Imagen) {
-        this.Documento = Documento;
-        this.Fechaped = Fechaped;
-        this.FechaEnt = FechaEnt;
-        this.Estado = Estado;
-        this.Direccion = Direccion;
-        this.Descripcion = Descripcion;
         this.Titulo = Titulo;
+        this.Fechaped = Fechaped;
+        this.FechaEnt = FechaEnt;
+        this.Direccion = Direccion;
+        this.Estado = Estado;
         this.Precio = Precio;
-        this.Imagen = Imagen;
     }
 
     public String getDocumento() {
@@ -68,6 +43,22 @@ public class PedidoUnogetset {
 
     public void setDocumento(String Documento) {
         this.Documento = Documento;
+    }
+
+    public String getImagen() {
+        return Imagen;
+    }
+
+    public void setImagen(String Imagen) {
+        this.Imagen = Imagen;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String Titulo) {
+        this.Titulo = Titulo;
     }
 
     public String getFechaped() {
@@ -86,14 +77,6 @@ public class PedidoUnogetset {
         this.FechaEnt = FechaEnt;
     }
 
-    public String getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
-    }
-
     public String getDireccion() {
         return Direccion;
     }
@@ -102,20 +85,12 @@ public class PedidoUnogetset {
         this.Direccion = Direccion;
     }
 
-    public String getDescripcion() {
-        return Descripcion;
+    public String getEstado() {
+        return Estado;
     }
 
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
-    }
-
-    public String getTitulo() {
-        return Titulo;
-    }
-
-    public void setTitulo(String Titulo) {
-        this.Titulo = Titulo;
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
     }
 
     public String getPrecio() {
@@ -125,14 +100,5 @@ public class PedidoUnogetset {
     public void setPrecio(String Precio) {
         this.Precio = Precio;
     }
-
-    public String getImagen() {
-        return Imagen;
-    }
-
-    public void setImagen(String Imagen) {
-        this.Imagen = Imagen;
-    }
-    
     
 }
