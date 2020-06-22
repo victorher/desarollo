@@ -51,15 +51,15 @@ $(document).ready(function(){
 //        var a = $('.btnmod').index(this);
 //        console.log(a);
         var data = new FormData(document.getElementById('frm'));
-        data.append('op', 'envia');
-        console.log(data.get('iddis'));
-        console.log(data.get('numdetalle'));
-        console.log(data.get('texdiseno'));
-        console.log(data.get('tamdiseno'));
-        console.log(data.get('coldiseno'));
-        console.log(data.get('prediseno'));
-        console.log(data.get('obsdiseno'));
-        console.log(data.get('imgdiseno'));
+//        data.append('op', 'envia');
+//        console.log(data.get('iddis'));
+//        console.log(data.get('numdetalle'));
+//        console.log(data.get('texdiseno'));
+//        console.log(data.get('tamdiseno'));
+//        console.log(data.get('coldiseno'));
+//        console.log(data.get('prediseno'));
+//        console.log(data.get('obsdiseno'));
+//        console.log(data.get('imgdiseno'));
         fetch('ServletDisenoActualiza',
         {
             method: "POST",
