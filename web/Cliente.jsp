@@ -224,7 +224,7 @@
                                 <input type="hidden" class="form-control diseno" id="diseno" name="diseno" value="<%= dis.getIDDiseno()%>">
                             </div>
                             <div class="form-row">
-                                <input type="hidden" class="form-control descripcion" id="descripcion" name="descripcion" value="1">
+                                <input type="hidden" class="form-control descripcion" id="descripcion" name="descripcion" value="<%= dis.getObserDiseno()%>">
                             </div>
                             <div class="form-row">
                                 <input type="hidden" class="form-control cantidad" id="cantidad" name="cantidad" value="1" required min="1">
@@ -294,8 +294,8 @@
                                             <input type="hidden"  id="documento" name="documento" value="<%=docu%>" readonly>
                                             <input type="hidden"  id="diseno" name="diseno" value="<%=Dgs.getIDDiseno()%>" readonly>
                                             <input type="hidden"  id="tipo" name="tipo" value="Distibucion">
-                                            <input type="hidden"  id="articulo" name="articulo" value="<%=a.getIdArticulo()%>">
-                                            <input type="hidden"  id="descripcion" name="descripcion" value="sddsd">
+                                            <input type="hidden"  id="articulo" name="articulo" value="1">
+                                            <input type="hidden"  id="descripcion" name="descripcion" value="<%= Dgs.getObserDiseno()%>">
                                             <input type="hidden"  id="estado" name="estado" value="Pedido" readonly>
                                             <input type="hidden"  id="direccion" name="direccion" value="<%=direcc%>" required readonly> 
                                             <input type="hidden" class="form-control precio" id="precio" name="precio" value="<%= Dgs.getPreDiseno()%>" required readonly>
