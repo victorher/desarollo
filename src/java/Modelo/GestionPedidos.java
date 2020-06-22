@@ -100,6 +100,8 @@ public class GestionPedidos {
         }
         return dat;
     }
+    
+//    Mostrar los detalles que tiene un cliente y no estan confirmados por parte de la empresa
     public ArrayList<PedidoUnogetset> ConsultaPedidoUni(PedidoUnogetset Pe){
         ArrayList<PedidoUnogetset> lista = new ArrayList<>();
         try {
@@ -109,18 +111,35 @@ public class GestionPedidos {
            
             while(rs.next()){
                 PedidoUnogetset consemp = new PedidoUnogetset(
-                        rs.getString(3), 
-                        rs.getString(4), 
+                        rs.getString(1), 
                         rs.getString(2), 
-                        rs.getString(5),  
-                        rs.getString(9), 
-                        rs.getString(10),
-                        rs.getString(11));
+                        rs.getString(3), 
+                        rs.getString(4),  
+                        rs.getString(5), 
+                        rs.getString(6),
+                        rs.getString(7));
                 
                 lista.add(consemp);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e + " GestionPedido - ConsultaPedidoUni");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " GestionPedido - ConsultaPedidoUni");
+        }
+        return lista;
+    }
+    
+    public ArrayList<PedidoUnogetset> ConsultaPrecio(PedidoUnogetset Pe){
+        ArrayList<PedidoUnogetset> lista = new ArrayList<>();
+        try {
+            ps=cnn.prepareStatement("CALL pa_ConsultaPrecioPedidosPorCliente('"+Pe.getDocumento()+"')");
+            rs=ps.executeQuery();
+            //JOptionPane.showMessageDialog(null, "Datos Consultados");
+           
+            while(rs.next()){
+                PedidoUnogetset precio = new PedidoUnogetset(rs.getString(1));
+                lista.add(precio);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " GestionPedido - ConsultaPrecio");
         }
         return lista;
     }
