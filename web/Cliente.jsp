@@ -92,6 +92,9 @@
                         <div class="uno">
                             <a id="btnAbrirPopup">Datos personales</a>
                         </div>
+                        <div class="uno">
+                            <a id="btnAbrirPopup" href="ConsultaPedido.jsp">Mis Pedidos</a>
+                        </div>
                         <form action="CerrarSesion" method="POST">
                             <button name="btn" type="submit">Cerrar sesion</button>
                         </form>
