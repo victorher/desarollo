@@ -39,6 +39,12 @@ public class ServletGestionUsu extends HttpServlet {
             if(request.getParameter("ActualizaEmp")!=null){
                 ActualizaEmpleado(request,response);
             }
+            if(request.getParameter("ActualizaTra")!=null){
+                ActualizaTrabaja(request,response);
+            }
+            if(request.getParameter("ActualizaADM")!=null){
+                ActualizaAdmin(request,response);
+            }
             if(request.getParameter("ActualizaCli")!=null){
                 ActualizaCliente(request,response);
             }
@@ -157,6 +163,80 @@ public class ServletGestionUsu extends HttpServlet {
             }else{
                 JOptionPane.showMessageDialog(null, "Error al actualizar Usuario");
                 response.sendRedirect("ConsultaEmpleado.jsp");
+            }
+        }
+    }
+    /*ACTUALIZA UN EMPLEADO GUARDANDO LOS DATOS EN USUARIO Y LUEGO EN EMPLEADO*/
+    protected void ActualizaTrabaja(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        try (PrintWriter out = response.getWriter()) {
+            String doc, cla, roll, est, nom, ape, tel, gen, dir, corr;
+            doc=request.getParameter("documento");
+            cla=request.getParameter("contra");
+            roll=request.getParameter("rol");
+            est=request.getParameter("estado");
+            nom=request.getParameter("nombre");
+            ape=request.getParameter("apellido");
+            tel=request.getParameter("telefono");
+            gen=request.getParameter("sexo");
+            dir=request.getParameter("direccion");
+            corr=request.getParameter("correo");
+//            JOptionPane.showMessageDialog(null, doc+"\n "+cla+"\n "+roll+"\n "+
+//                    est+"\n "+nom+"\n "+ape+"\n "+tel+"\n "+gen+"\n "+dir+"\n "+corr);
+            Usuariogetset usu = new Usuariogetset(doc, cla, roll, est);
+            Usuario us = new Usuario();
+            boolean dat = us.actaulizarUsuario(usu);
+            if(dat){
+                Empleadogetset emp = new Empleadogetset(doc, nom, ape, tel, gen, dir, corr);
+                GestionEmpleados gem = new GestionEmpleados();
+                boolean datem = gem.actaulizarEmpleado(emp);
+                if(datem){
+//                    JOptionPane.showMessageDialog(null, "Datos actualizados");
+                    response.sendRedirect("Empleado.jsp");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al actualizar Empleado");
+                    response.sendRedirect("Empleado.jsp");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al actualizar Usuario");
+                response.sendRedirect("Empleado.jsp");
+            }
+        }
+    }
+    /*ACTUALIZA UN EMPLEADO GUARDANDO LOS DATOS EN USUARIO Y LUEGO EN EMPLEADO*/
+    protected void ActualizaAdmin(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        try (PrintWriter out = response.getWriter()) {
+            String doc, cla, roll, est, nom, ape, tel, gen, dir, corr;
+            doc=request.getParameter("documento");
+            cla=request.getParameter("contra");
+            roll=request.getParameter("rol");
+            est=request.getParameter("estado");
+            nom=request.getParameter("nombre");
+            ape=request.getParameter("apellido");
+            tel=request.getParameter("telefono");
+            gen=request.getParameter("sexo");
+            dir=request.getParameter("direccion");
+            corr=request.getParameter("correo");
+//            JOptionPane.showMessageDialog(null, doc+"\n "+cla+"\n "+roll+"\n "+
+//                    est+"\n "+nom+"\n "+ape+"\n "+tel+"\n "+gen+"\n "+dir+"\n "+corr);
+            Usuariogetset usu = new Usuariogetset(doc, cla, roll, est);
+            Usuario us = new Usuario();
+            boolean dat = us.actaulizarUsuario(usu);
+            if(dat){
+                Empleadogetset emp = new Empleadogetset(doc, nom, ape, tel, gen, dir, corr);
+                GestionEmpleados gem = new GestionEmpleados();
+                boolean datem = gem.actaulizarEmpleado(emp);
+                if(datem){
+//                    JOptionPane.showMessageDialog(null, "Datos actualizados");
+                    response.sendRedirect("Principal.jsp");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al actualizar Empleado");
+                    response.sendRedirect("Principal.jsp");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al actualizar Usuario");
+                response.sendRedirect("Principal.jsp");
             }
         }
     }
