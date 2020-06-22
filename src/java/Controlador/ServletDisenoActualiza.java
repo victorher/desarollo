@@ -42,13 +42,14 @@ public class ServletDisenoActualiza extends HttpServlet {
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String IDDiseno, NumDet, TexDis, TamDis, ColDis, PrecDis, ObsDis, imagen;
+            String IDDiseno, NumDet, TexDis, TamDis, ColDis, ObsDis, imagen;
+            int PrecDis;
             IDDiseno = request.getParameter("iddiseno");
             NumDet = request.getParameter("numdetalle");
             TexDis = request.getParameter("texdiseno");
             TamDis = request.getParameter("tamdiseno");
             ColDis = request.getParameter("coldiseno");
-            PrecDis = request.getParameter("prediseno");
+            PrecDis = Integer.parseInt(request.getParameter("prediseno")
             ObsDis = request.getParameter("obsdiseno");
             imagen = request.getParameter("imagen");
             Part foto = request.getPart("imgdiseno");
