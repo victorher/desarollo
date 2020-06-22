@@ -65,7 +65,7 @@
                             <a class="dropdown-item" href="ConsultaEmpleado.jsp">Empleado</a>
                             <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
                             <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaPedidoEmpleado.jsp">Pedidos</a>
                             <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
                         </div>
                         <div class="dos">
@@ -235,7 +235,7 @@
                         <div class="uno_uno">
                             <a class="dropdown-item" href="ConsultaCliente.jsp">Cliente</a>
                             <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
-                            <a class="dropdown-item" href="#">Pedidos</a>
+                            <a class="dropdown-item" href="ConsultaPedidoEmpleado.jsp">Pedidos</a>
                             <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
                         </div>
                         <div class="dos">
