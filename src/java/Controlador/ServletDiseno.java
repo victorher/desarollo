@@ -49,12 +49,13 @@ public class ServletDiseno extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             //JOptionPane.showMessageDialog(null, "servelt");
-            String NumDet, TexDis, TamDis, ColDis, PrecDis, ObsDis;
+            String NumDet, TexDis, TamDis, ColDis, ObsDis;
+            int PrecDis;
             NumDet = request.getParameter("numdetalle");
             TexDis = request.getParameter("texdiseno");
             TamDis = request.getParameter("tamdiseno");
             ColDis = request.getParameter("coldiseno");
-            PrecDis = request.getParameter("prediseno");
+            PrecDis = Integer.parseInt(request.getParameter("prediseno"));
             ObsDis = request.getParameter("obsdiseno");
             Part foto = request.getPart("imgdiseno");
             String nomfoto = foto.getSubmittedFileName();
