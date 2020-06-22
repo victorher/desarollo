@@ -38,27 +38,26 @@ public class ServletPedidoRegistra extends HttpServlet {
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String doc, est, fecped, fecentr, direcc, tipo, idA, idD, desc, canti, prec;
-            idA = request.getParameter("articulo");
+            String doc, est, direcc, tipo, idA, idD, desc, canti, prec;
+            idA = "1";
             idD = request.getParameter("diseno");
             desc = request.getParameter("descripcion");
             canti = request.getParameter("cantidad");
             prec = request.getParameter("precio");
             doc = request.getParameter("documento");
             est = request.getParameter("estado");
-            fecped = request.getParameter("fepedido");
-            fecentr = request.getParameter("feentrega");
             direcc = request.getParameter("direntrega");
             tipo = request.getParameter("tipo");
-//            JOptionPane.showMessageDialog(null, idA+"\n"+idD+"\n"+desc+"\n"+canti+"\n"+prec);
+//            JOptionPane.showMessageDialog(null, "IDArticulo: "+idA+"\n IDDiseno: "+idD+"\n Descripcion: "+desc+"\n Cantidad: "+canti+"\n Precio: "+prec);
+//            JOptionPane.showMessageDialog(null, "Documento: "+doc+"\n Estado: "+est+"\n Direccion: "+direcc+"\n Tipo: "+tipo);
             detallesGetSet dise = new detallesGetSet(idA, idD, desc, canti, prec);
             GestionDestalles gdet = new GestionDestalles();
             boolean desen = gdet.IncertarDetalles(dise);
 //            gdet.IncertarDetalles(dise);
 //            JOptionPane.showMessageDialog(null, desen);
             if(desen){
-//                JOptionPane.showMessageDialog(null, doc+"\n"+est+"\n"+fecped+"\n"+fecentr+"\n"+direcc+"\n"+tipo);
-                Pedidosgetset usu = new Pedidosgetset(doc, est, fecped, fecentr, direcc, tipo);
+//                JOptionPane.showMessageDialog(null, "Documento: "+doc+"\n Estado: "+est+"\n Direccion: "+direcc+"\n Tipo: "+tipo);
+                Pedidosgetset usu = new Pedidosgetset(doc, est, direcc, tipo);
                 GestionPedidos us = new GestionPedidos();
                 boolean dat = us.IncertarPedido(usu);
                 if(dat){
