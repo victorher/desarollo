@@ -2,6 +2,7 @@
 <%@page import="Modelo.GestionDiseno"%>
 <%@page import="Modelo.Disenogetset"%>
 <%@page import="java.util.ArrayList"%>
+<%--<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>--%>
 <%@page session="true"%>
 <%
     try {
@@ -18,7 +19,7 @@
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -67,6 +68,7 @@
                             <a class="dropdown-item" href="ConsultaProveedores.jsp">Proveedores</a>
                             <a class="dropdown-item" href="#">Pedidos</a>
                             <a class="dropdown-item" href="ConsultaDiseno.jsp">Diseños</a>
+                            <a class="dropdown-item" href="ConsultaArtProveedor.jsp">Categoria Articulos</a>
                         </div>
                         <div class="dos">
                             <a href="#">
@@ -77,7 +79,9 @@
                             <a class="dropdown-item" href="CreaEmpleado.jsp">Empleado</a>
                             <a class="dropdown-item" href="CreaCliente.jsp">Cliente</a>
                             <a class="dropdown-item" href="CreaPreveedores.jsp">Proveedores</a>
+                            <a class="dropdown-item" href="CreaPedidos.jsp">Pedidos</a>
                             <a class="dropdown-item" href="CreaDiseno.jsp">Diseños</a>
+                            <a class="dropdown-item" href="CreaArtProveedor.jsp">Categoria Articulos</a>
                         </div>
                         <form action="CerrarSesion" method="POST">
                             <button type="submit" name="btn">Cerrar Sesion</button>
@@ -99,10 +103,23 @@
                 }
             }
         </script>
-        <section class="contenedorTabla">
+        
+        <% if(request.getParameter("ActualizaDis")!=null){ %>
+        <%  
+            String co;
+            co = request.getParameter("iddiseno");
+//            JOptionPane.showMessageDialog(null, co);
+            ArrayList<Disenogetset> lista = new ArrayList<>();
+            Disenogetset dis = new Disenogetset(co);
+            GestionDiseno ges = new GestionDiseno();
+            lista = ges.ConsulUniDiseno(dis);
+        %>
+        
+        <!--Mostrar todos para modificar un solo dieño-->
+        <section class="contenedorTabla" style="height: 250px;">
             <div class="consultarEmpleado">
-                <h2>Registro diseños</h2>
-                <div class="tabla" style="height: 400px">
+                <h2>Actualizar Diseño</h2>
+                <div class="sin-scroll" style="height: 400px">
                     <form action="" enctype="multipart/form-data" id="frm">
                         <table id="tabla">
                             <thead>
@@ -119,40 +136,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <%  ArrayList<Disenogetset> listas = new ArrayList();
-                                    Disenogetset con = new Disenogetset(); //convas hago referencia al constructor vasio
-                                    GestionDiseno Cons = new GestionDiseno();
-
-                                    listas = Cons.ConsultarDisenos();
-
-                                    for(int i=0; i<listas.size(); i++){
-
-                                        con = listas.get(i); %>
+                                <% for(int a = 0; a < lista.size();a ++){
+                                    dis = lista.get(a);
+                                %>
                                     <tr>
                                         <input 
                                             type="hidden" 
                                             class="input-group-text table text-center border-0 iddis" 
-                                            value="<%=con.getIDDiseno()%>" 
+                                            value="<%=dis.getIDDiseno()%>" 
                                             name="iddis">
                                         <td>
                                             <input 
                                                 type="text" 
                                                 class="table nudeta" 
-                                                value="<%=con.getNumDetalle()%>" 
+                                                value="<%=dis.getNumDetalle()%>" 
                                                 name="numdetalle">
                                         </td>
                                         <td>
                                             <textarea 
                                                 type="text" 
                                                 class="tedis" 
-                                                value="<%=con.getTexDiseno()%>" 
-                                                name="texdiseno">
-                                                <%=con.getTexDiseno()%>
-                                            </textarea>
+                                                value="<%=dis.getTexDiseno()%>" 
+                                                name="texdiseno"><%=dis.getTexDiseno()%></textarea>
                                         </td>
                                         <td>
                                             <select id="tamdiseno" name="tamdiseno"  required="" class="tadis" >
-                                                <option value="<%=con.getTamDiseno()%>"><%=con.getTamDiseno()%></option>
+                                                <option value="<%=dis.getTamDiseno()%>"><%=dis.getTamDiseno()%></option>
                                                 <option value="10 cm X 10 cm">10 cm X 10 cm</option>
                                                 <option value="12 cm X 12 cm">12 cm X 12 cm</option>
                                                 <option value="15 cm X 15 cm">15 cm X 15 cm</option>
@@ -166,7 +175,7 @@
                                                 name="coldiseno"  
                                                 required="" 
                                                 class="codis" >
-                                                <option value="<%=con.getColDiseno()%>"><%=con.getColDiseno()%></option>
+                                                <option value="<%=dis.getColDiseno()%>"><%=dis.getColDiseno()%></option>
                                                 <option value="Rojo">Rojo</option>
                                                 <option value="Caoba">Caoba</option>
                                                 <option value="Azul">Azul</option>
@@ -181,19 +190,17 @@
                                             <input 
                                                 type="text" 
                                                 class="table predis" 
-                                                value="<%=con.getPreDiseno()%>" 
+                                                value="<%=dis.getPreDiseno()%>" 
                                                 name="prediseno">
                                         </td>
                                         <td>
                                             <textarea 
                                                 type="text" 
                                                 class="obdis" 
-                                                value="<%=con.getObserDiseno()%>" 
-                                                name="obsdiseno">
-                                                <%=con.getObserDiseno()%>
-                                            </textarea>
+                                                value="<%=dis.getObserDiseno()%>" 
+                                                name="obsdiseno"><%=dis.getObserDiseno()%></textarea>
                                         </td>
-                                        <td><img src="img/<%=con.getImagen()%>"></td>
+                                        <td><img src="img/<%=dis.getImagen()%>"></td>
                                         <td>
                                             <div class="opciones">
                                                 <input type="file" 
@@ -215,7 +222,7 @@
                                         </td>
                                         <td>
                                             <div class="opciones">
-                                                <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
+                                                <input type="hidden" name="iddiseno" value="<%=dis.getIDDiseno()%>">
                                                 <button 
                                                     type="button" 
                                                     style="cursor: pointer;"
@@ -225,14 +232,14 @@
                                                     title="Actualizar">
                                                     <i class="fa fa-wrench" aria-hidden="true"></i>
                                                 </button>
-                                                <button 
+<!--                                                <button 
                                                     type="submit" 
                                                     style="cursor: pointer;"
                                                     name="EliminaDiseno" 
                                                     onclick="return Eliminar()" 
                                                     title="Eliminar">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </button>
+                                                </button>-->
                                             </div>
                                         </td>
                                     </tr>
@@ -243,6 +250,82 @@
                 </div>
             </div>
         </section>
+        <% } %>  
+        
+        <!--Mostrar todos los diseños de las tablas-->
+        <section class="contenedorTabla">
+            <div class="consultarEmpleado">
+                <h2>Registro diseños</h2>
+                <div class="tabla" style="height: 400px">
+                        <table id="tabla">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Texto</th>
+                                    <th>Tamano</th>
+                                    <th>Color</th>
+                                    <th>Precio</th>
+                                    <th>Observaciones</th>
+                                    <th>Imagen</th>
+                                    <!--<th>Upload</th>-->
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%  ArrayList<Disenogetset> listas = new ArrayList();
+                                    Disenogetset con = new Disenogetset(); //convas hago referencia al constructor vasio
+                                    GestionDiseno Cons = new GestionDiseno();
+
+                                    listas = Cons.ConsultarDisenos();
+
+                                    for(int i=0; i<listas.size(); i++){
+
+                                        con = listas.get(i); %>
+                                    <tr>
+                                        <%=con.getIDDiseno()%>
+                                        <td><%=con.getNumDetalle()%></td>
+                                        <td><%=con.getTexDiseno()%></td>
+                                        <td><%=con.getTamDiseno()%></td>
+                                        <td><%=con.getColDiseno()%></td>
+                                        <td><%=con.getPreDiseno()%></td>
+                                        <td><%=con.getObserDiseno()%></td>
+                                        <td><img src="img/<%=con.getImagen()%>"></td>
+                                        <td>
+                                            <div class="opciones">
+                                                <form action="" method="post">
+                                                    <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
+                                                    <button 
+                                                        type="submit" 
+                                                        style="cursor: pointer;"
+                                                        name="ActualizaDis" 
+                                                        class="btnmoda p-1" 
+                                                        id="btnmod" 
+                                                        title="Actualizar">
+                                                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                                        
+                                                <form action="">
+                                                    <input type="hidden" name="iddiseno" value="<%=con.getIDDiseno()%>">
+                                                    <button 
+                                                        type="submit" 
+                                                        style="cursor: pointer;"
+                                                        name="EliminaDiseno" 
+                                                        onclick="return Eliminar()" 
+                                                        title="Eliminar">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </section
+        
         <footer>
             <div class="footer_logo">
                 <img src="Vista/img/LOGO-01.png">
