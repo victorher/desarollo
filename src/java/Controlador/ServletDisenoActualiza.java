@@ -52,10 +52,12 @@ public class ServletDisenoActualiza extends HttpServlet {
             ObsDis = request.getParameter("obsdiseno");
             Part foto = request.getPart("imgdiseno");
             String nomfoto = foto.getSubmittedFileName();
-            String nombre = IDDiseno + "_" + nomfoto;
+            String nombre = IDDiseno + nomfoto;
             String Url2 = nombre;
+            
+            JOptionPane.showMessageDialog(null, IDDiseno+"\n"+Url2);
             String Url = "C:\\Users\\VICTORH\\Documents\\NetBeansProjects\\desarollo\\web\\img\\" + nombre;
-            if (Url2.equals(IDDiseno+"_")) {
+            if (Url2.equals(IDDiseno)) {
                 Url2 = "defecto.jpg";
             }
 //            
