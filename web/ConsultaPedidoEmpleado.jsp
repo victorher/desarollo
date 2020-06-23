@@ -105,7 +105,7 @@
                         <thead>
                             <tr>
                                 <th>Imagen</th>
-                                <th>Documento</th>
+                                <th>Celular</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Direccion</th>
