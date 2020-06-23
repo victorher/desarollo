@@ -261,8 +261,8 @@
                             <thead>
                                 <tr>
                                     <th>Imagen</th>
-                                    <th>Nombre</th>
-                                    <th>Cantidad</th>
+                                    <th class="quitar">Nombre</th>
+                                    <th class="quitar">Cantidad</th>
                                     <th>Precio</th>
                                     <th>Eliminar</th>
                                     <th>Confirmar</th>
@@ -282,8 +282,8 @@
                             <tbody>
                                 <tr class="contenido">
                                     <th><img src="img/<%=Dgs.getImagen()%>" width="100"/></th>
-                                    <th><%=Dgs.getTexDiseno()%></th>
-                                    <th>1</th>                            
+                                    <th class="quitar"><%=Dgs.getTexDiseno()%></th>
+                                    <th class="quitar">1</th>                            
                                     <th><%=Dgs.getPreDiseno() %></th> 
                                     <th> 
                                         <span class="diseno" id="diseno" style="display: none;"><%=a.getIdDiseno() %></span>
@@ -319,8 +319,8 @@
                                 <tr>
                                     <th></th>
                                     <th><h2>Total</h2></th>
-                                    <th></th>
-                                    <th></th>
+                                    <th class="quitar"></th>
+                                    <th class="quitar"></th>
                                     <th></th>                                   
                                     <th class="total" id="total"><%=total%></th>
                                 </tr>
