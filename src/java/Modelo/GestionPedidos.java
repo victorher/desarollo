@@ -127,6 +127,35 @@ public class GestionPedidos {
         return lista;
     }
     
+    //    Mostrar los detalles que estan pendietes por confirmar
+    public ArrayList<PedidoUnogetset> ConsultaPedidoPendietes(){
+        ArrayList<PedidoUnogetset> lista = new ArrayList<>();
+        try {
+            ps=cnn.prepareStatement("CALL pa_ConsultaUniPedidosSinEntrega()");
+            rs=ps.executeQuery();
+            //JOptionPane.showMessageDialog(null, "Datos Consultados");
+           
+            while(rs.next()){
+                PedidoUnogetset consemp = new PedidoUnogetset(
+                        rs.getString(1), 
+                        rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4),  
+                        rs.getString(5), 
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10));
+                
+                lista.add(consemp);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " GestionPedido - ConsultaPedidoPendietes");
+        }
+        return lista;
+    }
+    
     public ArrayList<PedidoUnogetset> ConsultaPrecio(PedidoUnogetset Pe){
         ArrayList<PedidoUnogetset> lista = new ArrayList<>();
         try {
@@ -142,5 +171,23 @@ public class GestionPedidos {
             JOptionPane.showMessageDialog(null, e + " GestionPedido - ConsultaPrecio");
         }
         return lista;
+    }
+    
+    public boolean ActaulizarPedidosNuevos(PedidoUnogetset geus){
+        boolean dat = false;
+        try {
+            ps = cnn.prepareStatement("CALL pa_ActualizaEstadoPedido("
+                    + "'"+geus.getEstado()+"', "
+                    + "'"+geus.getPedidoID()+"')");
+//            JOptionPane.showMessageDialog(null, geus.getEstado()+" "+geus.getPedidoID());
+            int d = ps.executeUpdate();
+            if(d > 0){
+                dat = true;
+            }
+            //JOptionPane.showMessageDialog(null, "Si hay datos");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e + " ActaulizarPedidos");
+        }
+        return dat;
     }
 }
