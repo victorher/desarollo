@@ -10,17 +10,17 @@ package Modelo;
  * @author amico
  */
 public class PedidoUnogetset {
-    private String Documento;
+    private String PedidoID;
     private String Imagen;
     private String Titulo;
     private String Fechaped;
     private String FechaEnt;
     private String Direccion;
+    private String Nombre;
+    private String Apellido;
     private String Estado;
+    private String Documento;
     private String Precio;
-//    private String PedidoID;
-//    private String DetalleID;
-//    private String Descripcion;
 //    private String DisenoID;
 
     public PedidoUnogetset(String Documento) {
@@ -35,6 +35,52 @@ public class PedidoUnogetset {
         this.Direccion = Direccion;
         this.Estado = Estado;
         this.Precio = Precio;
+    }
+
+    public PedidoUnogetset(String PedidoID, String Imagen, String Titulo, String Fechaped, String FechaEnt, String Direccion, String Nombre, String Apellido, String Documento, String Precio) {
+        this.PedidoID = PedidoID;
+        this.Imagen = Imagen;
+        this.Titulo = Titulo;
+        this.Fechaped = Fechaped;
+        this.FechaEnt = FechaEnt;
+        this.Direccion = Direccion;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.Documento = Documento;
+        this.Precio = Precio;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
+    }
+
+    public PedidoUnogetset() {
+    }
+
+    
+    public PedidoUnogetset(String Estado, String PedidoID) {
+        this.Estado = Estado;
+        this.PedidoID = PedidoID;
+    }
+
+    public String getPedidoID() {
+        return PedidoID;
+    }
+
+    public void setPedidoID(String PedidoID) {
+        this.PedidoID = PedidoID;
     }
 
     public String getDocumento() {
