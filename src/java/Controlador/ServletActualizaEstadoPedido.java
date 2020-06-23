@@ -40,7 +40,6 @@ public class ServletActualizaEstadoPedido extends HttpServlet {
             String Cod, Estado;
             Cod = request.getParameter("cod");
             Estado = request.getParameter("estado");
-//            Estado = "Entregado";
             
 //            JOptionPane.showMessageDialog(null, Cod+" "+Estado);
             
