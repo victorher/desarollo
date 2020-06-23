@@ -60,7 +60,7 @@
                         <div class="uno_uno">
                             <a href="ConsultaCliente.jsp">Cliente</a>
                             <a href="ConsultaProveedores.jsp">Proveedores</a>
-                            <a href="#">Pedidos</a>
+                            <a href="ConsultaPedidoEmpleado.jsp">Pedidos</a>
                             <a href="ConsultaDiseno.jsp">Diseños</a>
                         </div>
                         <div class="dos">
