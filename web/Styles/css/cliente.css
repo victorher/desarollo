@@ -102,6 +102,25 @@ nav {
 .enlaces_header .uno a:focus {
     border-right: 15px solid #fff;
 }
+.enlaces_header .dos {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+}
+.enlaces_header .dos a {
+    width: 90%;
+    height: 43px;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 2px solid rgb(153, 48, 180);
+    font-size: 25px;
+    color: rgb(153, 48, 180);
+    cursor: pointer;
+}
+.enlaces_header .dos a:focus {
+    border-right: 15px solid #fff;
+}
 .enlaces_header form {
     width: 100%;
     display: flex;
@@ -471,6 +490,9 @@ footer {
         width: 45%;
         margin-left: 20px;
     }
+    .carritoPopup {
+        width: 100%;
+    }
 }
 @media screen and (max-width:690px) {
     .nav {
@@ -514,6 +536,16 @@ footer {
     .titulo {
         font-size: 30px;
         margin: 0;
+    }
+    .carritoPopup .bodyCarrito table thead {
+        font-size: 13px;
+        font-weight: 100px;
+    }
+    .carritoPopup .bodyCarrito table thead tr .quitar {
+        display: none;
+    }
+    .carritoPopup .bodyCarrito table tbody tr .quitar {
+        display: none;
     }
 }
 @media screen and (max-width:430px) {
@@ -573,5 +605,18 @@ footer {
     footer {
         height: 200px;
         flex-direction: column-reverse;
+    }
+    .carritoPopup {
+        width: 100%;
+    }
+    .carritoPopup .bodyCarrito table thead {
+        font-size: 13px;
+        font-weight: 100px;
+    }
+    .carritoPopup .bodyCarrito table thead tr .quitar {
+        display: none;
+    }
+    .carritoPopup .bodyCarrito table tbody tr .quitar {
+        display: none;
     }
 }
