@@ -62,7 +62,7 @@
                 <section class="nav">
                     <div class="logo" style="width: 45%">
                         <img src="Vista/img/LOGO-01.png" alt=""/>
-                        <a><%=roll%></a>
+                        <a href="Principal.jsp"><%=roll%></a>
                         <a><%=nom+" "+ape%></a>
                     </div>
                     <div class="enlaces_header">
