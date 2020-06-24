@@ -31,18 +31,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Entre Sueños</title>
         <link rel="icon" type="image/png" href="Vista/img/Suenos.png">
-        <link href="Styles/css/principal.css" rel="stylesheet" type="text/css"/>
+        <link href="Styles/css/cliente.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/60cc7e3bb5.js"></script>
         <script src="Styles/js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="Styles/js/principal.js" type="text/javascript"></script>
-        <script src="Vista/js/filtro.js"></script>
-        <script src="Vista/js/Eliminar.js"></script>
+        <script src="Styles/js/cliente.js" type="text/javascript"></script>
+        <script src="Vista/js/Carritojs.js" type="text/javascript"></script>
+        <script src="Vista/js/RegistraPedido.js" type="text/javascript"></script>
     </head>
     <body>
         <%
@@ -80,24 +80,22 @@
             </nav>
         </header>
         
-        <section class="contenedorTabla">
-            <div class="consultarEmpleado">
-                <h2>Tus Pedidos</h2>
-                <div class="tabla">
-                    <table id="mytable">
-                        <thead>
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Titulo</th>
-                                <th>Fecha Pedido</th>
-                                <th>Fecha Entrga</th>
-                                <th>Direccion</th>
-                                <th>Estado</th>
-                                <th>Precio</th>
-                                <!--<th>Opciones</th>-->
-                            </tr>
-                        </thead>
-                        <tbody>
+        <section class="tarjetas">
+            <div class="contenedor1">
+                <h2 class="titulo">Pendientes por entrega</h2>
+                <%
+                                ArrayList<PedidoUnogetset> con = new ArrayList();
+                                PedidoUnogetset pre = new PedidoUnogetset(docu); //convas hago referencia al constructor vasio
+                                GestionPedidos a = new GestionPedidos();
+                                con = a.ConsultaPrecio(pre);
+                                for(int i=0; i<con.size(); i++){
+                                    pre = con.get(i);
+                                %>
+                                <h2 class="titulo"><%=pre.getDocumento() %></h2>
+                                <% } %>
+                <br>
+                <br>
+                <div class="contenedor_articulo">
                             <%
                                 
                                 ArrayList<PedidoUnogetset> listas = new ArrayList();
@@ -112,53 +110,15 @@
 
                             %>
 
-                            <tr>
-                                <td><img src="img/<%=Pgs.getImagen()%>"></td>
-                                <td><%=Pgs.getTitulo() %></td>
-                                <td><%=Pgs.getFechaped()%> </td>
-                                <td><%=Pgs.getFechaEnt()%></td>
-                                <td><%=Pgs.getDireccion()%></td>
-                                <td><%=Pgs.getEstado()%></td>
-                                <td><%=Pgs.getPrecio()%></td>
-<!--                                <td>
-                                    <div class="opciones">
-                                        <form action="" method="POST">
-                                            <input type="hidden" name="cod" value="">
-                                            <button type="submit" name="" value="ACTUALIZAR" title="Actualizar"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                        </form>
-                                        <form action="ServletGestionUsu" method="POST">
-                                            <input type="hidden" name="cod" value="">
-                                            <button type="submit" name="" value="ELIMINAR" onclick="return Eliminar()" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </form>
-                                    </div>
-                                </td>-->
-                            </tr>
-                            <%
-                               }
-                            %>
-                            <tr>
-                                <td colspan="6">Total a Pagar</td> 
-                                <td>
-                                <%
-                                ArrayList<PedidoUnogetset> con = new ArrayList();
-                                PedidoUnogetset pre = new PedidoUnogetset(docu); //convas hago referencia al constructor vasio
-                                GestionPedidos a = new GestionPedidos();
-
-                                con = a.ConsultaPrecio(pre);
-
-                                for(int i=0; i<con.size(); i++){
-
-                                    pre = con.get(i);
-                                %>
-                                <%=pre.getDocumento() %>
-                                <% } %>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+                            <div class="articulo">
+                        <img src="img/<%= Pgs.getImagen() %>"/>
+                        <h3><%= Pgs.getTitulo()%></h3>
+                        <h5>$ <%= Pgs.getPrecio()%>.00</h5>
+                        <p class="card-text"><%= Pgs.getEstado()%> pendiente entrega</p>
+                    </div>
+                    <% } %>
                 </div>
-            </div>        
+            </div>
         </section>
         
         <footer>
